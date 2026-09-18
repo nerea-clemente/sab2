@@ -54,7 +54,17 @@ const guias = (await getCollection('guias', ({ data }) => !data.borrador))
     <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {guias.map((g, i) => (
         <li class="reveal">
-          <a href={ruta(`/estudiar-en-dinamarca/${g.id}/`)} class:list={['tarjeta-color group', tono(i)]}>
+          <a href={ruta(`/estudiar-en-dinamarca/${g.id}/`)} class:list={['tarjeta-color group overflow-hidden !p-0', tono(i)]}>
+            {g.data.imagen && (
+              <img
+                src={ruta(`/img/${g.data.imagen}-640.webp`)}
+                alt=""
+                loading="lazy"
+                decoding="async"
+                class="aspect-[3/2] w-full object-cover"
+              />
+            )}
+            <div class="flex flex-1 flex-col p-6 sm:p-7">
             <span class="fecha-mono text-sm font-medium text-navy/70">{String(i + 1).padStart(2, '0')}</span>
             <h3 class="mt-3 text-h3 text-navy">{g.data.titulo}</h3>
             <p class="mt-2.5 text-sm text-navy/75">{g.data.descripcion}</p>
@@ -62,6 +72,7 @@ const guias = (await getCollection('guias', ({ data }) => !data.borrador))
               Leer la guía
               <span class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
             </span>
+            </div>
           </a>
         </li>
       ))}

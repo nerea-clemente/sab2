@@ -113,8 +113,8 @@ const fechas = [
     slot="head"
     rel="preload"
     as="image"
-    href={ruta('/img/estudiantes-campus-900.webp')}
-    imagesrcset={`${ruta('/img/estudiantes-campus-560.webp')} 560w, ${ruta('/img/estudiantes-campus-900.webp')} 900w`}
+    href={ruta('/img/estudiantes-campus-880.webp')}
+    imagesrcset={`${ruta('/img/estudiantes-campus-560.webp')} 560w, ${ruta('/img/estudiantes-campus-880.webp')} 880w`}
     imagesizes="(min-width: 1024px) 34vw, 86vw"
     fetchpriority="high"
   />
@@ -159,12 +159,12 @@ const fechas = [
           ></span>
           <div class="relative overflow-hidden rounded-imagen">
             <img
-              src={ruta('/img/estudiantes-campus-900.webp')}
-              srcset={`${ruta('/img/estudiantes-campus-560.webp')} 560w, ${ruta('/img/estudiantes-campus-900.webp')} 900w`}
+              src={ruta('/img/estudiantes-campus-880.webp')}
+              srcset={`${ruta('/img/estudiantes-campus-560.webp')} 560w, ${ruta('/img/estudiantes-campus-880.webp')} 880w`}
               sizes="(min-width: 1024px) 34vw, 86vw"
-              width="900"
-              height="1125"
-              alt="Estudiantes charlando sentados en el césped de un campus danés"
+              width="880"
+              height="1100"
+              alt="Estudiantes trabajando con portátiles en el césped de un campus danés"
               fetchpriority="high"
               decoding="async"
               class="aspect-[4/5] w-full object-cover"
@@ -174,19 +174,19 @@ const fechas = [
           <!-- Cartela de ubicación, sobre la esquina de la foto -->
           <div class="absolute bottom-4 right-4 rounded-2xl bg-navy px-4 py-2.5 text-white shadow-flotante sm:bottom-5 sm:right-5 sm:px-5 sm:py-3">
             <p class="text-[13px] font-extrabold leading-tight sm:text-sm">Dinamarca</p>
-            <p class="text-[11px] text-white/70 sm:text-xs">base de Study &amp; Beyond</p>
+            <p class="text-[11px] text-white/70 sm:text-xs">grados en inglés</p>
           </div>
         </div>
 
         <!-- Foto pequeña solapada abajo a la izquierda -->
         <div class="absolute bottom-3 left-0 w-[40%] overflow-hidden rounded-2xl ring-[6px] ring-crema sm:bottom-8 sm:w-[46%] sm:ring-8">
           <img
-            src={ruta('/img/nyhavn-barcos-760.webp')}
-            srcset={`${ruta('/img/nyhavn-barcos-420.webp')} 420w, ${ruta('/img/nyhavn-barcos-760.webp')} 760w`}
+            src={ruta('/img/bandera-danesa-760.webp')}
+            srcset={`${ruta('/img/bandera-danesa-420.webp')} 420w, ${ruta('/img/bandera-danesa-760.webp')} 760w`}
             sizes="(min-width: 1024px) 16vw, 40vw"
             width="760"
             height="570"
-            alt="Nyhavn, el puerto de casas de colores de Copenhague"
+            alt="La bandera de Dinamarca ondeando contra un cielo azul"
             loading="lazy"
             decoding="async"
             class="aspect-[4/3] w-full object-cover"
@@ -242,10 +242,10 @@ const fechas = [
       </div>
       <figure class="reveal relative">
         <Imagen
-          src={ruta('/img/ciudad-torre-760.webp')}
-          srcset={`${ruta('/img/ciudad-torre-440.webp')} 440w, ${ruta('/img/ciudad-torre-760.webp')} 760w`}
+          src={ruta('/img/ciudad-sonrisa-760.webp')}
+          srcset={`${ruta('/img/ciudad-sonrisa-440.webp')} 440w, ${ruta('/img/ciudad-sonrisa-760.webp')} 760w`}
           sizes="(min-width: 1024px) 34vw, 100vw"
-          alt="Vista de una ciudad danesa al atardecer, con la torre de su catedral"
+          alt="Una estudiante sonríe en una calle danesa, con la torre de una iglesia al fondo"
           ratio="1/1"
         />
       </figure>
@@ -333,7 +333,7 @@ const fechas = [
 
       <!-- Sello con el catálogo -->
       <div class="flex shrink-0 items-center gap-5">
-        <span class="flex h-28 w-28 flex-col items-center justify-center rounded-full bg-coral text-white sm:h-32 sm:w-32">
+        <span class="flex h-28 w-28 flex-col items-center justify-center rounded-full bg-coral text-navy sm:h-32 sm:w-32">
           <Icono nombre="birrete" class="h-5 w-5" />
           <span class="dato mt-1 font-display text-3xl font-extrabold leading-none">{total}</span>
           <span class="mt-1 text-[11px] font-bold leading-tight">grados en inglés</span>
@@ -429,15 +429,12 @@ const fechas = [
     <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
       <figure class="reveal relative order-last lg:order-first">
         <Imagen
-          src={ruta('/img/puerto-dinamarca-835.webp')}
-          srcset={`${ruta('/img/puerto-dinamarca-480.webp')} 480w, ${ruta('/img/puerto-dinamarca-835.webp')} 835w`}
+          src={ruta('/img/nyhavn-canal-674.webp')}
+          srcset={`${ruta('/img/nyhavn-canal-480.webp')} 480w, ${ruta('/img/nyhavn-canal-674.webp')} 674w`}
           sizes="(min-width: 1024px) 34vw, 100vw"
-          alt="Edificios junto al agua en una ciudad danesa"
+          alt="El canal de Nyhavn, en Copenhague, con sus casas de colores"
           ratio="4/5"
         />
-        <Sello tono="amarillo" tamano="sm" class="absolute -right-3 top-6 sm:right-6">
-          base de<br />Study &amp;<br />Beyond
-        </Sello>
       </figure>
       <div>
         <h2 id="sb" class="reveal text-seccion text-navy">Por qué Study &amp; Beyond</h2>

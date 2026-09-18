@@ -55,6 +55,18 @@ const breadcrumbLd = {
       <p class="mt-5 max-w-prosa text-lg text-slate">{d.descripcion}</p>
     </header>
 
+    {d.imagen && (
+      <img
+        src={ruta(`/img/${d.imagen}-${d.imagenAnchos[d.imagenAnchos.length - 1]}.webp`)}
+        srcset={d.imagenAnchos.map((a) => `${ruta(`/img/${d.imagen}-${a}.webp`)} ${a}w`).join(', ')}
+        sizes="(min-width: 1024px) 62vw, 100vw"
+        alt={d.imagenAlt}
+        loading="lazy"
+        decoding="async"
+        class="mt-9 aspect-[2/1] max-h-[380px] w-full rounded-imagen object-cover"
+      />
+    )}
+
     <div class="mt-10 lg:grid lg:grid-cols-[1fr_17rem] lg:gap-14">
       <div class="contenido-mdx">
         <Content />

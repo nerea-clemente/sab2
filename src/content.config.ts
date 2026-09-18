@@ -95,6 +95,10 @@ const guias = defineCollection({
   schema: z.object({
     titulo: z.string(),
     descripcion: z.string(),
+    // Imagen de cabecera: nombre base en public/img, sin ancho ni extensión.
+    imagen: z.string().nullable().default(null),
+    imagenAlt: z.string().default(''),
+    imagenAnchos: z.array(z.number()).default([640, 1100]),
     // Orden dentro del hub.
     orden: z.number().default(99),
     // Opcional: ya no se muestra fecha de verificación en el sitio.
