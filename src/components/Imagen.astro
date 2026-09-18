@@ -7,6 +7,8 @@
 //   en WebP/AVIF con srcset 640/1280/1920.
 interface Props {
   src?: string;
+  srcset?: string;
+  sizes?: string;
   alt: string;
   ratio?: '4/5' | '1/1' | '3/2' | '21/9';
   prioridad?: boolean;
@@ -16,6 +18,8 @@ interface Props {
 }
 const {
   src,
+  srcset,
+  sizes,
   alt,
   ratio = '3/2',
   prioridad = false,
@@ -45,6 +49,8 @@ const luz = 'radial-gradient(circle at 76% 22%, rgba(255,255,255,0.65) 0, transp
 {src ? (
   <img
     src={src}
+    srcset={srcset}
+    sizes={sizes}
     alt={alt}
     class:list={['h-full w-full rounded-imagen object-cover', aspecto[ratio], clase]}
     loading={prioridad ? 'eager' : 'lazy'}

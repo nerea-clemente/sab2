@@ -61,8 +61,18 @@ Desactivada. Mientras `SITIO.analitica.habilitada` sea `false` el sitio no
 carga scripts de terceros ni muestra banner de consentimiento: no hay nada que
 consentir. Al configurar un proveedor sin cookies, poner `habilitada: true`.
 
-## Imágenes pendientes
+## Imágenes
 
-Las fotos de personas (fundadora, estudiantes) todavía no existen: en su lugar
-se renderiza una superficie pastel de marca con el rótulo, nunca un hueco gris.
-Se sustituyen pasando `src` al componente `Imagen.astro`.
+Las fotos viven en `public/img/` en WebP, con dos anchos por pieza y el ancho
+en el nombre (`aula-proyectos-660.webp`). Se sirven con `srcset` + `sizes`.
+
+Dos cosas pendientes:
+
+- **Resolución.** Las fotos actuales se recortaron de hojas de contactos de
+  unos 300 px por viñeta y están reescaladas entre 2x y 3x. Se ven bien a 1x,
+  pero quedan blandas en pantallas de alta densidad. Sustituir por los
+  originales a tamaño completo manteniendo los nombres de archivo.
+- **Retratos.** Las tarjetas de `/historias/` y la de la fundadora en
+  `/sobre-mi/` llevan una escena danesa, no un retrato: no se pone una cara
+  que no es la de la persona a la que se atribuye la cita. Al tener las fotos
+  reales, se cambian ahí.

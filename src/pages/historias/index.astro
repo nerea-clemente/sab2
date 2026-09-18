@@ -1,6 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Imagen from '@/components/Imagen.astro';
+import { ruta } from '@/lib/ruta';
 import CtaFinal from '@/components/CtaFinal.astro';
 import { HISTORIAS } from '@/config/historias';
 ---
@@ -26,12 +27,14 @@ import { HISTORIAS } from '@/config/historias';
     <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {HISTORIAS.map((h, i) => (
         <li class="reveal flex h-full flex-col overflow-hidden rounded-tarjeta border border-hairline bg-papel">
-          <!-- Foto real pendiente (nada de banco de imágenes). Ver PENDIENTE.md. -->
+          <!-- Escena de Dinamarca: el retrato real del estudiante sigue
+               pendiente y no se sustituye por una cara que no es la suya. -->
           <Imagen
-            alt={`Foto de ${h.nombre}, estudiante en Dinamarca`}
+            src={ruta(`/img/historia-${(i % 3) + 1}-620.webp`)}
+            srcset={`${ruta(`/img/historia-${(i % 3) + 1}-440.webp`)} 440w, ${ruta(`/img/historia-${(i % 3) + 1}-620.webp`)} 620w`}
+            sizes="(min-width: 640px) 32vw, 100vw"
+            alt="Una ciudad danesa"
             ratio="1/1"
-            rotulo={h.nombre}
-            tono={(['cielo', 'mantequilla', 'menta'] as const)[i % 3]}
             class="!rounded-none"
           />
           <div class="flex flex-1 flex-col p-6 sm:p-7">

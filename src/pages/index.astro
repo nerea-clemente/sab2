@@ -96,9 +96,9 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
     slot="head"
     rel="preload"
     as="image"
-    href={ruta('/img/dk-vertical-1000.webp')}
-    imagesrcset={`${ruta('/img/dk-vertical-800.webp')} 800w, ${ruta('/img/dk-vertical-1000.webp')} 1000w`}
-    imagesizes="(min-width: 1024px) 34vw, 100vw"
+    href={ruta('/img/estudiantes-escaleras-760.webp')}
+    imagesrcset={`${ruta('/img/estudiantes-escaleras-560.webp')} 560w, ${ruta('/img/estudiantes-escaleras-760.webp')} 760w`}
+    imagesizes="(min-width: 1024px) 34vw, 86vw"
     fetchpriority="high"
   />
 
@@ -142,12 +142,12 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
           ></span>
           <div class="relative overflow-hidden rounded-imagen">
             <img
-              src={ruta('/img/dk-vertical-1000.webp')}
-              srcset={`${ruta('/img/dk-vertical-800.webp')} 800w, ${ruta('/img/dk-vertical-1000.webp')} 1000w`}
+              src={ruta('/img/estudiantes-escaleras-760.webp')}
+              srcset={`${ruta('/img/estudiantes-escaleras-560.webp')} 560w, ${ruta('/img/estudiantes-escaleras-760.webp')} 760w`}
               sizes="(min-width: 1024px) 34vw, 86vw"
-              width="1000"
-              height="1250"
-              alt="Nyhavn, el puerto de casas de colores de Copenhague"
+              width="760"
+              height="950"
+              alt="Estudiantes conversando en las escaleras de un campus danés"
               fetchpriority="high"
               decoding="async"
               class="aspect-[4/5] w-full object-cover"
@@ -164,10 +164,12 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
         <!-- Foto pequeña solapada abajo a la izquierda -->
         <div class="absolute bottom-3 left-0 w-[40%] overflow-hidden rounded-2xl ring-[6px] ring-crema sm:bottom-8 sm:w-[46%] sm:ring-8">
           <img
-            src={ruta('/img/dk-cuadrada-720.webp')}
-            width="720"
-            height="720"
-            alt="Un canal de Copenhague al atardecer"
+            src={ruta('/img/nyhavn-barcos-620.webp')}
+            srcset={`${ruta('/img/nyhavn-barcos-420.webp')} 420w, ${ruta('/img/nyhavn-barcos-620.webp')} 620w`}
+            sizes="(min-width: 1024px) 16vw, 40vw"
+            width="620"
+            height="465"
+            alt="Nyhavn, el puerto de casas de colores de Copenhague"
             loading="lazy"
             decoding="async"
             class="aspect-[4/3] w-full object-cover"
@@ -222,7 +224,13 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
         </p>
       </div>
       <figure class="reveal relative">
-        <Imagen src={ruta('/img/dk-cuadrada-1000.webp')} alt="Un canal de Copenhague, Dinamarca" ratio="1/1" />
+        <Imagen
+          src={ruta('/img/ciudad-torre-660.webp')}
+          srcset={`${ruta('/img/ciudad-torre-440.webp')} 440w, ${ruta('/img/ciudad-torre-660.webp')} 660w`}
+          sizes="(min-width: 1024px) 34vw, 100vw"
+          alt="Vista de una ciudad danesa al atardecer, con la torre de su catedral"
+          ratio="1/1"
+        />
       </figure>
     </div>
 
@@ -259,12 +267,12 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
       <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
         <figure class="relative order-last lg:order-first">
           <img
-            src={ruta('/img/banner-nyhavn-1200.webp')}
-            srcset={`${ruta('/img/banner-nyhavn-1200.webp')} 1200w, ${ruta('/img/banner-nyhavn-1920.webp')} 1920w`}
+            src={ruta('/img/aula-proyectos-980.webp')}
+            srcset={`${ruta('/img/aula-proyectos-660.webp')} 660w, ${ruta('/img/aula-proyectos-980.webp')} 980w`}
             sizes="(min-width: 1024px) 44vw, 100vw"
-            width="1200"
-            height="800"
-            alt="El puerto de Copenhague, Dinamarca"
+            width="980"
+            height="735"
+            alt="Estudiantes trabajando juntos con portátiles en un aula luminosa"
             loading="lazy"
             decoding="async"
             class="aspect-[4/3] w-full rounded-imagen object-cover"
@@ -364,12 +372,12 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
 
         <figure class="lg:sticky lg:top-28">
           <img
-            src={ruta('/img/hero-nyhavn-1200.webp')}
-            srcset={`${ruta('/img/hero-nyhavn-1200.webp')} 1200w, ${ruta('/img/hero-nyhavn-1920.webp')} 1920w`}
+            src={ruta('/img/llegada-avion-660.webp')}
+            srcset={`${ruta('/img/llegada-avion-480.webp')} 480w, ${ruta('/img/llegada-avion-660.webp')} 660w`}
             sizes="(min-width: 1024px) 38vw, 100vw"
-            width="1200"
-            height="900"
-            alt="Nyhavn, Copenhague"
+            width="660"
+            height="825"
+            alt="Vista desde la ventanilla de un avión al atardecer"
             loading="lazy"
             decoding="async"
             class="aspect-[4/5] w-full rounded-imagen object-cover"
@@ -413,8 +421,13 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
   <section aria-labelledby="sb" class="contenedor ritmo">
     <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
       <figure class="reveal relative order-last lg:order-first">
-        <!-- Foto real de la fundadora pendiente. Ver README. -->
-        <Imagen alt="Dinamarca, donde tiene su base Study and Beyond" ratio="4/5" tono="menta" rotulo="Dinamarca" />
+        <Imagen
+          src={ruta('/img/puerto-dinamarca-700.webp')}
+          srcset={`${ruta('/img/puerto-dinamarca-480.webp')} 480w, ${ruta('/img/puerto-dinamarca-700.webp')} 700w`}
+          sizes="(min-width: 1024px) 34vw, 100vw"
+          alt="Edificios junto al agua en una ciudad danesa"
+          ratio="4/5"
+        />
         <Sello tono="amarillo" tamano="sm" class="absolute -right-3 top-6 sm:right-6">
           base de<br />Study &amp;<br />Beyond
         </Sello>
@@ -474,12 +487,14 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
       {HISTORIAS.map((h, i) => (
         <li class="reveal">
           <a href={ruta('/historias/')} class="group block">
-            <!-- Retrato real del estudiante pendiente. Ver PENDIENTE.md. -->
+            <!-- Escena de Dinamarca: el retrato real del estudiante sigue
+                 pendiente y no se sustituye por una cara que no es la suya. -->
             <Imagen
-              alt={`${h.nombre}, estudiante en Dinamarca`}
+              src={ruta(`/img/historia-${(i % 3) + 1}-620.webp`)}
+              srcset={`${ruta(`/img/historia-${(i % 3) + 1}-440.webp`)} 440w, ${ruta(`/img/historia-${(i % 3) + 1}-620.webp`)} 620w`}
+              sizes="(min-width: 640px) 30vw, 100vw"
+              alt="Una ciudad danesa"
               ratio="4/5"
-              tono={(['cielo', 'mantequilla', 'menta'] as const)[i % 3]}
-              rotulo={h.nombre}
             />
             <p class="mt-5 text-h3 text-navy transition-colors group-hover:text-azul">{h.nombre}</p>
             <p class="dato text-sm text-slate">{h.carrera}{h.ciudad ? ` · ${h.ciudad}` : ''}</p>

@@ -56,13 +56,15 @@ const bloques = [
   <!-- Quiénes somos -->
   <section class="contenedor ritmo">
     <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
-      <!-- Retrato pendiente (foto real, nada de banco de imágenes). Ver PENDIENTE.md. -->
+      <!-- Escena danesa. El retrato de la fundadora sigue pendiente: aquí no
+           se pone una cara que no es la suya. -->
       <div class="lg:sticky lg:top-28">
         <Imagen
-          alt="Nerea Clemente, fundadora de Study and Beyond, en Dinamarca"
+          src={ruta('/img/bano-puerto-700.webp')}
+          srcset={`${ruta('/img/bano-puerto-480.webp')} 480w, ${ruta('/img/bano-puerto-700.webp')} 700w`}
+          sizes="(min-width: 1024px) 32vw, 100vw"
+          alt="Baño en el puerto de una ciudad danesa"
           ratio="4/5"
-          tono="mantequilla"
-          rotulo="Dinamarca"
         />
       </div>
 
