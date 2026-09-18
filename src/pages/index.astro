@@ -65,6 +65,27 @@ const aprendizaje = [
   { t: 'Prácticas dentro del plan de estudios', d: 'Muchos grados acercan el estudio a una experiencia laboral.' },
 ];
 
+// Las dos cifras de la portada. Van juntas para que compartan escala y no se
+// desalineen al editar una sin tocar la otra.
+const cifras = [
+  {
+    cifra: '0&nbsp;€',
+    etiqueta: 'Matrícula · estudiantes de la UE',
+    texto:
+      'Si eres estudiante de la Unión Europea, la matrícula de los grados públicos ' +
+      'tiene coste 0. Puede haber gastos asociados a libros o materiales, pero no ' +
+      'una cuota anual de matrícula.',
+  },
+  {
+    cifra: `${SITIO.suImporteMensualEUR}&nbsp;€`,
+    etiqueta: 'Ayuda mensual del Estado danés',
+    texto:
+      'Los estudiantes europeos que cumplen los requisitos de trabajo pueden ' +
+      `solicitar la SU, una ayuda de ${SITIO.suImporteMensualEUR} € al mes que da ` +
+      'el Estado danés.',
+  },
+];
+
 // Recorrido del proceso (numerales grandes, no cinco columnas iguales).
 const pasos = [
   { t: 'Orientación académica', d: 'Revisamos tu perfil y las opciones que encajan contigo.' },
@@ -230,32 +251,21 @@ const fechas = [
       </figure>
     </div>
 
-    <!-- 0 € y SU: composición tipográfica -->
-    <div class="mt-16 grid items-end gap-6 border-t border-hairline pt-10 lg:grid-cols-[auto_1fr] lg:gap-16">
-      <p class="numeral leading-none text-coral">0&nbsp;€</p>
-      <div class="max-w-prosa lg:pb-3">
-        <p class="etiqueta text-navy">Matrícula · estudiantes de la UE</p>
-        <p class="mt-5 text-lg text-slate">
-          Si eres estudiante de la Unión Europea, la matrícula de los grados públicos
-          tiene coste 0. Puede haber gastos asociados a libros o materiales, pero no
-          una cuota anual de matrícula.
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-14 grid items-start gap-6 border-t border-hairline pt-10 lg:grid-cols-[auto_1fr] lg:gap-16">
-      <p class="font-display text-cifra font-extrabold leading-none text-coral">
-        {SITIO.suImporteMensualEUR}&nbsp;€
-      </p>
-      <div class="max-w-prosa">
-        <p class="etiqueta text-navy">Ayuda mensual del Estado danés</p>
-        <p class="mt-5 text-lg text-slate">
-          Los estudiantes europeos que cumplen los requisitos de trabajo pueden
-          solicitar la SU, una ayuda de {SITIO.suImporteMensualEUR} € al mes que da
-          el Estado danés.
-        </p>
-      </div>
-    </div>
+    <!-- 0 € y SU: las dos cifras como un par. Misma escala, misma columna y
+         misma alineación, para que los rótulos arranquen en la misma vertical. -->
+    <dl class="mt-16 divide-y divide-hairline border-t border-hairline">
+      {cifras.map((c) => (
+        <div class="grid gap-5 py-10 lg:grid-cols-[13rem_1fr] lg:items-start lg:gap-16">
+          <dt class="font-display text-cifra font-extrabold leading-none text-coral">
+            <Fragment set:html={c.cifra} />
+          </dt>
+          <dd class="max-w-prosa">
+            <p class="etiqueta text-navy">{c.etiqueta}</p>
+            <p class="mt-5 text-lg text-slate">{c.texto}</p>
+          </dd>
+        </div>
+      ))}
+    </dl>
   </section>
 
   <!-- ╌╌ 02 · CÓMO SE ESTUDIA · banda navy ╌╌ -->
