@@ -82,6 +82,9 @@ Plus Jakarta Sans en dos líneas.
   describiendo el edificio de la foto como nuestra sede.
 - **Círculo de cifra**: coral, sin icono, con el número grande y el rótulo
   debajo, los dos centrados y en blanco.
+- **Círculo de marca** (el DK de Sobre nosotros): amarillo macizo con el
+  monograma en navy. Sobre una banda navy, un aro de línea fina se queda
+  flojo; el círculo lleno es el que sostiene la composición.
 - **Marco amarillo desplazado**: bloque amarillo detrás de la foto principal,
   movido 12px en diagonal. Solo en el héroe de portada.
 - **Franja amarilla**: los datos de un vistazo bajo el héroe.
