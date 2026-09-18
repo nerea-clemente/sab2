@@ -10,7 +10,6 @@ import Itinerario from '@/components/Itinerario.astro';
 import CtaFinal from '@/components/CtaFinal.astro';
 import { bgArea } from '@/lib/areas';
 import { SITIO } from '@/config/sitio';
-import { HISTORIAS } from '@/config/historias';
 import { ETIQUETA_AREA, ETIQUETA_NIVEL, formatoDuracion } from '@/lib/grados';
 
 const grados = await getCollection('grados');
@@ -82,9 +81,6 @@ const fechas = [
   { d: 'Fin de julio', l: 'Admisión' },
   { d: 'Agosto', l: 'Empieza el curso' },
 ];
-
-// Cita corta para la portada (la historia completa vive en /historias/).
-const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 150)) + '…' : s);
 ---
 
 <Base
@@ -248,14 +244,15 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
     </div>
 
     <div class="mt-14 grid items-start gap-6 border-t border-hairline pt-10 lg:grid-cols-[auto_1fr] lg:gap-16">
-      <p class="font-display text-cifra font-extrabold leading-none text-navy">
-        {SITIO.suImporteMensualEUR}&nbsp;€ <span class="text-coral">al mes</span>
+      <p class="font-display text-cifra font-extrabold leading-none text-coral">
+        {SITIO.suImporteMensualEUR}&nbsp;€
       </p>
       <div class="max-w-prosa">
         <p class="etiqueta text-navy">Ayuda mensual del Estado danés</p>
         <p class="mt-5 text-lg text-slate">
           Los estudiantes europeos que cumplen los requisitos de trabajo pueden
-          solicitar la SU, una ayuda mensual del Estado danés.
+          solicitar la SU, una ayuda de {SITIO.suImporteMensualEUR} € al mes que da
+          el Estado danés.
         </p>
       </div>
     </div>
@@ -470,40 +467,6 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
         </ul>
       </div>
     </div>
-  </section>
-
-  <!-- ╌╌ HISTORIAS ╌╌ -->
-  <section aria-labelledby="historias" class="contenedor ritmo">
-    <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
-      <div class="max-w-2xl">
-        <p class="etiqueta text-azul">Estudiantes</p>
-        <h2 id="historias" class="mt-5 text-seccion text-navy">Historias de estudiantes</h2>
-        <p class="mt-6 text-lg text-slate">Conoce la experiencia de estudiantes que ya han elegido Dinamarca para estudiar.</p>
-      </div>
-      <a href={ruta('/historias/')} class="enlace">Ver historias <span aria-hidden="true">→</span></a>
-    </div>
-
-    <ul class="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-3">
-      {HISTORIAS.map((h, i) => (
-        <li class="reveal">
-          <a href={ruta('/historias/')} class="group block">
-            <!-- Escena de Dinamarca: el retrato real del estudiante sigue
-                 pendiente y no se sustituye por una cara que no es la suya. -->
-            <Imagen
-              src={ruta(`/img/historia-${(i % 3) + 1}-620.webp`)}
-              srcset={`${ruta(`/img/historia-${(i % 3) + 1}-440.webp`)} 440w, ${ruta(`/img/historia-${(i % 3) + 1}-620.webp`)} 620w`}
-              sizes="(min-width: 640px) 30vw, 100vw"
-              alt="Una ciudad danesa"
-              ratio="4/5"
-            />
-            <p class="mt-5 text-h3 text-navy transition-colors group-hover:text-azul">{h.nombre}</p>
-            <p class="dato text-sm text-slate">{h.carrera}{h.ciudad ? ` · ${h.ciudad}` : ''}</p>
-            <p class="mt-3 text-[17px] leading-snug text-navy">«{acorta(h.cita)}»</p>
-            <span class="enlace mt-4 text-sm">Su historia <span aria-hidden="true">→</span></span>
-          </a>
-        </li>
-      ))}
-    </ul>
   </section>
 
   <!-- ╌╌ CTA FINAL ╌╌ -->

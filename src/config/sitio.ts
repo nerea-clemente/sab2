@@ -46,7 +46,9 @@ export const NAV = [
     ],
   },
   { texto: 'Servicios', href: '/servicios/' },
-  { texto: 'Historias', href: '/historias/' },
+  // Historias: oculta por ahora. Para volver a publicarla, descomentar esta
+  // línea, la sección de la portada y quitar el noindex de la página.
+  // { texto: 'Historias', href: '/historias/' },
   { texto: 'Sobre nosotros', href: '/sobre-mi/' },
 ] as const;
 

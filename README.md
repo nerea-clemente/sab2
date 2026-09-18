@@ -66,7 +66,7 @@ consentir. Al configurar un proveedor sin cookies, poner `habilitada: true`.
 Las fotos viven en `public/img/` en WebP, con dos anchos por pieza y el ancho
 en el nombre (`aula-proyectos-660.webp`). Se sirven con `srcset` + `sizes`.
 
-Dos cosas pendientes:
+Tres cosas pendientes:
 
 - **Resolución.** Las fotos actuales se recortaron de hojas de contactos de
   unos 300 px por viñeta y están reescaladas entre 2x y 3x. Se ven bien a 1x,
@@ -76,3 +76,11 @@ Dos cosas pendientes:
   `/sobre-mi/` llevan una escena danesa, no un retrato: no se pone una cara
   que no es la de la persona a la que se atribuye la cita. Al tener las fotos
   reales, se cambian ahí.
+
+## Historias, oculta por ahora
+
+`/historias/` sigue construyéndose pero está fuera del menú, fuera de la
+portada, fuera del sitemap y en `noindex`. Para volver a publicarla:
+descomentar su línea en `NAV` (`src/config/sitio.ts`), quitar `historias` del
+filtro del sitemap en `astro.config.mjs`, quitar el `noindex` de la página y
+recuperar la sección de portada del historial de git.
