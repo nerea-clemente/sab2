@@ -15,7 +15,7 @@ const fechaLarga = (iso: string) =>
   descripcion="Cómo se estudia, cuánto cuesta, qué es la SU, cómo funciona la admisión y cómo es la vida universitaria en Dinamarca. Información sin convertir cada artículo en un folleto."
 >
   <section class="contenedor py-12 lg:py-16">
-    <p class="etiqueta text-azul">Guías y artículos</p>
+    <p class="etiqueta text-azul">Blog</p>
     <h1 class="mt-5 max-w-[16ch] text-titulo text-navy">Todo sobre estudiar en <span class="text-coral">Dinamarca</span></h1>
     <p class="mt-6 max-w-prosa text-lg text-slate">
       Cómo se estudia, cuánto cuesta, qué es la SU, cómo funciona la admisión y cómo
@@ -23,20 +23,43 @@ const fechaLarga = (iso: string) =>
       cada artículo en un folleto.
     </p>
 
+    <img
+      src={ruta('/img/blog-portada-1200.webp')}
+      srcset={`${ruta('/img/blog-portada-900.webp')} 900w, ${ruta('/img/blog-portada-1200.webp')} 1200w`}
+      sizes="100vw"
+      width="1200"
+      height="480"
+      alt="Un muro con el lema de Study & Beyond: different questions, a brighter future"
+      loading="lazy"
+      decoding="async"
+      class="mt-10 aspect-[5/2] w-full rounded-imagen object-cover"
+    />
+
     {posts.length === 0 ? (
       <p class="mt-10 text-slate">Pronto, los primeros artículos.</p>
     ) : (
-      <ul class="mt-12 grid gap-4 sm:grid-cols-2">
+      <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((p) => (
           <li>
-            <a href={ruta(`/blog/${p.id}/`)} class="tarjeta-color group border border-hairline bg-papel">
-              <time datetime={p.data.fecha} class="fecha-mono text-xs text-slate">{fechaLarga(p.data.fecha)}</time>
-              <h2 class="mt-3 text-h3 text-navy">{p.data.titulo}</h2>
-              <p class="mt-2.5 text-sm text-slate">{p.data.descripcion}</p>
-              <span class="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-extrabold text-azul">
-                Leer
-                <span class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
-              </span>
+            <a href={ruta(`/blog/${p.id}/`)} class="tarjeta-color group overflow-hidden border border-hairline bg-papel !p-0">
+              {p.data.imagen && (
+                <img
+                  src={ruta(`/img/${p.data.imagen}-640.webp`)}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-[3/2] w-full object-cover"
+                />
+              )}
+              <div class="flex flex-1 flex-col p-6 sm:p-7">
+                <time datetime={p.data.fecha} class="fecha-mono text-xs text-slate">{fechaLarga(p.data.fecha)}</time>
+                <h2 class="mt-3 text-h3 text-navy">{p.data.titulo}</h2>
+                <p class="mt-2.5 text-sm text-slate">{p.data.descripcion}</p>
+                <span class="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-extrabold text-azul">
+                  Leer
+                  <span class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+                </span>
+              </div>
             </a>
           </li>
         ))}

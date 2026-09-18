@@ -72,9 +72,10 @@ pieza y el ancho en el nombre (`aula-proyectos-1150.webp`), servidas con
 La carpeta de originales no se publica: el sitio solo despliega `dist/`.
 Se conserva para poder reencuadrar sin volver a pedir los archivos.
 
-Cada guía lleva su imagen de cabecera: se declara en el frontmatter del MDX
-(`imagen`, `imagenAlt`, `imagenAnchos`) con el nombre base del archivo, sin
-ancho ni extensión.
+Cada guía y cada artículo del blog llevan su imagen de cabecera: se declara en
+el frontmatter del MDX (`imagen`, `imagenAlt`, `imagenAnchos`) con el nombre
+base del archivo, sin ancho ni extensión. La misma imagen hace de miniatura en
+el listado.
 
 Pendiente:
 

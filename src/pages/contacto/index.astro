@@ -85,7 +85,17 @@ import { SITIO } from '@/config/sitio';
 
       <!-- Datos de contacto -->
       <aside class="mt-14 lg:mt-0">
-        <div class="rounded-tarjeta border border-hairline bg-papel p-6 lg:sticky lg:top-28">
+        <div class="lg:sticky lg:top-28">
+          <img
+            src={ruta('/img/estudiantes-bolsa-440.webp')}
+            alt="Una bolsa de tela con el lema de Study &amp; Beyond"
+            width="440"
+            height="440"
+            loading="lazy"
+            decoding="async"
+            class="mb-4 aspect-square w-full rounded-imagen object-cover"
+          />
+        <div class="rounded-tarjeta border border-hairline bg-papel p-6">
           <h2 class="etiqueta text-azul">Contacto directo</h2>
           <ul class="mt-5 space-y-3 text-sm font-bold">
             <li><a class="text-navy hover:text-azul" href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
@@ -99,6 +109,7 @@ import { SITIO } from '@/config/sitio';
             <Icono nombre="pin" class="mt-px h-4 w-4 shrink-0 text-coral" />
             <span>{SITIO.entidadLegal} · CVR {SITIO.cvr}</span>
           </p>
+        </div>
         </div>
       </aside>
     </div>

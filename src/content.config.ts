@@ -121,6 +121,10 @@ const blog = defineCollection({
     descripcion: z.string(),
     fecha: z.string(),
     autor: z.string().default('Study and Beyond'),
+    // Imagen de cabecera: nombre base en public/img, sin ancho ni extensión.
+    imagen: z.string().nullable().default(null),
+    imagenAlt: z.string().default(''),
+    imagenAnchos: z.array(z.number()).default([640, 1100]),
     etiquetas: z.array(z.string()).default([]),
     // Preguntas frecuentes del post -> JSON-LD FAQPage (SEO/GEO).
     faq: z

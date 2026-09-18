@@ -46,7 +46,20 @@ const bloques = [
   <!-- Después: cómo se estudia -->
   <section class="bg-hueso">
     <div class="contenedor ritmo">
-      <h2 class="max-w-[18ch] text-seccion text-navy">Después: cómo se estudia</h2>
+      <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center lg:gap-16">
+        <h2 class="max-w-[18ch] text-seccion text-navy">Después: cómo se estudia</h2>
+        <img
+          src={ruta('/img/estudiantes-sudadera-1100.webp')}
+          srcset={`${ruta('/img/estudiantes-sudadera-640.webp')} 640w, ${ruta('/img/estudiantes-sudadera-1100.webp')} 1100w`}
+          sizes="(min-width: 1024px) 34vw, 100vw"
+          width="1100"
+          height="733"
+          alt="Una sudadera con el logotipo de Study &amp; Beyond"
+          loading="lazy"
+          decoding="async"
+          class="aspect-[3/2] w-full rounded-imagen object-cover"
+        />
+      </div>
       <div class="mt-10 grid gap-4 sm:grid-cols-2">
         {bloques.map((b, i) => (
           <div class:list={['reveal rounded-tarjeta p-6 sm:p-7', tono(i)]}>
