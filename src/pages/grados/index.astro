@@ -3,7 +3,6 @@ import { getCollection } from 'astro:content';
 import Base from '@/layouts/Base.astro';
 import BuscadorGrados from '@/components/BuscadorGrados.tsx';
 import JsonLd from '@/components/JsonLd.astro';
-import Icono from '@/components/Icono.astro';
 import { aIndice } from '@/lib/grados';
 import { SITIO } from '@/config/sitio';
 
@@ -49,10 +48,9 @@ const itemList = {
           </p>
         </div>
 
-        <span class="flex h-36 w-36 shrink-0 flex-col items-center justify-center rounded-full bg-coral text-navy sm:h-44 sm:w-44">
-          <Icono nombre="birrete" class="h-6 w-6" />
-          <span class="dato mt-1.5 font-display text-4xl font-extrabold leading-none sm:text-5xl">{indice.length}</span>
-          <span class="mt-1.5 text-xs font-bold leading-tight">grados en inglés</span>
+        <span class="flex h-36 w-36 shrink-0 flex-col items-center justify-center rounded-full bg-coral text-white sm:h-44 sm:w-44">
+          <span class="dato font-display text-5xl font-extrabold leading-none sm:text-6xl">{indice.length}</span>
+          <span class="mt-2 text-xs font-bold leading-tight">grados en inglés</span>
         </span>
       </div>
     </div>

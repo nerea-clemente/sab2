@@ -34,8 +34,10 @@ Reglas:
 
 - El **azul es solo acción**. Si algo es azul, se pulsa (o es un enlace).
 - El **coral es acento**, nunca fondo de un bloque de texto largo.
-- El **amarillo y el coral llevan siempre texto navy**, nunca blanco. Sobre
-  coral, el blanco se queda en 3,45:1 y no pasa AA; el navy da 4,6:1.
+- El **amarillo lleva siempre texto navy**, nunca blanco.
+- El **coral lleva texto blanco**. Aguanta bien en el numeral grande del
+  círculo y en el sello; el rótulo pequeño que lo acompaña se queda en 3,45:1,
+  por debajo de AA, así que no se usa coral para bloques de texto.
 - Una familia académica = un color, en todo el sitio (`src/lib/areas.ts`).
 - Sobre pastel, el texto secundario baja como mucho a `navy/70`; por debajo
   deja de pasar AA.
@@ -75,9 +77,11 @@ Plus Jakarta Sans en dos líneas.
 
 ## Elementos firma
 
-- **Sello** (`Sello.astro`): círculo coral o amarillo girado −8°, con texto
-  navy, solapando siempre una foto o una composición. Nunca suelto en medio
-  del texto, y nunca describiendo el edificio de la foto como nuestra sede.
+- **Sello** (`Sello.astro`): círculo coral o amarillo girado −8° solapando
+  siempre una foto o una composición. Nunca suelto en medio del texto, y nunca
+  describiendo el edificio de la foto como nuestra sede.
+- **Círculo de cifra**: coral, sin icono, con el número grande y el rótulo
+  debajo, los dos centrados y en blanco.
 - **Marco amarillo desplazado**: bloque amarillo detrás de la foto principal,
   movido 12px en diagonal. Solo en el héroe de portada.
 - **Franja amarilla**: los datos de un vistazo bajo el héroe.
