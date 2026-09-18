@@ -28,7 +28,7 @@ const organizationLd = {
   telephone: SITIO.telefono,
   description: SITIO.descripcion,
   areaServed: { '@type': 'Country', name: 'España' },
-  address: { '@type': 'PostalAddress', addressLocality: SITIO.ciudadOrigen, addressCountry: 'DK' },
+  address: { '@type': 'PostalAddress', addressCountry: 'DK' },
   knowsAbout: [
     'Estudiar en Dinamarca',
     'Universidades danesas',
@@ -55,7 +55,7 @@ const franja = [
   { icono: 'birrete', t: '0 € matrícula', d: 'Estudiantes de la UE' },
   { icono: 'capas', t: `${total} grados en inglés`, d: 'Opciones para descubrir' },
   { icono: 'chispa', t: 'Learning by doing', d: 'Proyectos y casos reales' },
-  { icono: 'maletin', t: 'SU ↗', d: 'Ayuda mensual del Estado' },
+  { icono: 'maletin', t: `Ayuda de ${SITIO.suImporteMensualEUR} € al mes`, d: 'Del Estado danés (SU)' },
 ] as const;
 
 // Cómo se estudia: los tres rasgos que ya describía el texto de "aprendes
@@ -156,7 +156,7 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
 
           <!-- Cartela de ubicación, sobre la esquina de la foto -->
           <div class="absolute bottom-4 right-4 rounded-2xl bg-navy px-4 py-2.5 text-white shadow-flotante sm:bottom-5 sm:right-5 sm:px-5 sm:py-3">
-            <p class="text-[13px] font-extrabold leading-tight sm:text-sm">Aarhus, DK</p>
+            <p class="text-[13px] font-extrabold leading-tight sm:text-sm">Dinamarca</p>
             <p class="text-[11px] text-white/70 sm:text-xs">base de Study &amp; Beyond</p>
           </div>
         </div>
@@ -209,8 +209,7 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
 
   <!-- ╌╌ 01 · POR QUÉ DINAMARCA ╌╌ -->
   <section aria-labelledby="porque" class="contenedor ritmo">
-    <p class="etiqueta-suelta text-coral-700">01 / Por qué Dinamarca</p>
-    <div class="mt-6 grid gap-10 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-16">
+    <div class="grid gap-10 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-16">
       <div>
         <h2 id="porque" class="reveal max-w-[15ch] text-seccion text-navy">
           ¿Por qué estudiar en <span class="text-azul">Dinamarca?</span>
@@ -241,7 +240,9 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
     </div>
 
     <div class="mt-14 grid items-start gap-6 border-t border-hairline pt-10 lg:grid-cols-[auto_1fr] lg:gap-16">
-      <p class="font-display text-cifra font-extrabold leading-none text-navy">SU <span class="text-coral">↗</span></p>
+      <p class="font-display text-cifra font-extrabold leading-none text-navy">
+        {SITIO.suImporteMensualEUR}&nbsp;€ <span class="text-coral">al mes</span>
+      </p>
       <div class="max-w-prosa">
         <p class="etiqueta text-navy">Ayuda mensual del Estado danés</p>
         <p class="mt-5 text-lg text-slate">
@@ -274,8 +275,7 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
         </figure>
 
         <div>
-          <p class="etiqueta-suelta text-amarillo">02 / Cómo se estudia</p>
-          <h2 id="aprender" class="reveal mt-6 max-w-[16ch] text-seccion text-white">
+          <h2 id="aprender" class="reveal max-w-[16ch] text-seccion text-white">
             Aprendes <span class="text-coral">haciendo.</span>
           </h2>
           <p class="reveal mt-7 max-w-prosa text-lg text-white/80">
@@ -304,9 +304,7 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
 
   <!-- ╌╌ 03 · GRADOS EN INGLÉS ╌╌ -->
   <section aria-labelledby="grados" class="contenedor ritmo">
-    <p class="etiqueta-suelta text-coral-700">03 / Grados en inglés</p>
-
-    <div class="mt-6 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
       <div class="max-w-2xl">
         <h2 id="grados" class="reveal text-seccion text-navy">
           Encuentra el grado <span class="text-azul">adecuado para ti.</span>
@@ -351,8 +349,7 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
   <!-- ╌╌ 04 · EL PROCESO ╌╌ -->
   <section aria-labelledby="proceso" class="bg-hueso">
     <div class="contenedor ritmo">
-      <p class="etiqueta-suelta text-coral-700">04 / El proceso</p>
-      <div class="mt-6 max-w-2xl">
+      <div class="max-w-2xl">
         <h2 id="proceso" class="reveal text-seccion text-navy">Cómo funciona el proceso</h2>
         <p class="reveal mt-7 text-lg text-slate">
           Study and Beyond se ocupa del proceso para que tú puedas centrarte en tomar
@@ -414,11 +411,10 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
 
   <!-- ╌╌ 05 · POR QUÉ STUDY & BEYOND ╌╌ -->
   <section aria-labelledby="sb" class="contenedor ritmo">
-    <p class="etiqueta-suelta text-coral-700">05 / Especialistas en Dinamarca</p>
-    <div class="mt-6 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
       <figure class="reveal relative order-last lg:order-first">
-        <!-- Foto real de Aarhus / la fundadora pendiente. Ver PENDIENTE.md. -->
-        <Imagen alt="Aarhus, donde tiene su base Study and Beyond" ratio="4/5" tono="menta" rotulo="Aarhus · Dinamarca" />
+        <!-- Foto real de la fundadora pendiente. Ver README. -->
+        <Imagen alt="Dinamarca, donde tiene su base Study and Beyond" ratio="4/5" tono="menta" rotulo="Dinamarca" />
         <Sello tono="amarillo" tamano="sm" class="absolute -right-3 top-6 sm:right-6">
           base de<br />Study &amp;<br />Beyond
         </Sello>
@@ -429,7 +425,7 @@ const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 15
           No trabajamos con diez destinos. Trabajamos con <span class="text-coral">uno</span>.
         </p>
         <p class="mt-6 max-w-prosa text-lg text-slate">
-          Study and Beyond es una empresa danesa con base en Aarhus y especializada
+          Study and Beyond es una empresa danesa especializada
           exclusivamente en estudiar en Dinamarca. Conocemos el sistema educativo, el
           proceso de admisión y los trámites que vienen después porque trabajamos con
           ellos cada año.

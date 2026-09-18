@@ -176,15 +176,17 @@
   /* -------------------------------------------------------------------------
      Bloques informativos.
      ------------------------------------------------------------------------- */
+  /* Bloque de condición: tarjeta pastel plana, sin filete lateral, con el
+     rótulo arriba. Misma forma que el resto de superficies del sitio. */
   .bloque-condicion, .aviso-condicion {
-    @apply my-6 rounded-tarjeta border-l-4 border-azul bg-azul-100 px-5 py-4 text-navy;
+    @apply my-6 rounded-tarjeta bg-papel px-6 py-5 text-navy;
   }
   .bloque-condicion::before, .aviso-condicion::before {
     content: 'Condición';
-    @apply mb-1 block text-[11px] font-extrabold uppercase text-azul-700;
+    @apply mb-2 block text-[11px] font-extrabold uppercase text-azul-700;
     letter-spacing: 0.14em;
   }
-  .nota { @apply my-6 rounded-tarjeta border-l-[3px] border-hairline bg-hueso px-5 py-4 text-slate; }
+  .nota { @apply my-6 rounded-tarjeta bg-papel px-6 py-5 text-slate; }
 
   /* Ficha de datos: filas etiqueta/valor. */
   .ficha-datos { @apply divide-y divide-hairline border-y border-hairline; }
@@ -210,7 +212,7 @@
   .contenido-mdx ul { @apply list-disc space-y-1 pl-5 marker:text-coral; }
   .contenido-mdx ol { @apply list-decimal space-y-1 pl-5 marker:font-bold marker:text-coral; }
   .contenido-mdx strong { @apply font-bold text-navy; }
-  .contenido-mdx blockquote { @apply rounded-tarjeta border-l-[3px] border-coral bg-papel px-5 py-3 text-navy; }
+  .contenido-mdx blockquote { @apply rounded-tarjeta bg-melocoton px-6 py-4 text-navy; }
   .contenido-mdx table { @apply my-6 w-full border-collapse overflow-hidden rounded-tarjeta text-left text-sm; }
   .contenido-mdx th { @apply border-b border-hairline bg-azul-100 p-3 font-extrabold text-navy; }
   .contenido-mdx td { @apply border-b border-hairline p-3 align-top; font-variant-numeric: tabular-nums; }

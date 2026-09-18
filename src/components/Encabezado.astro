@@ -6,6 +6,9 @@ import Marca from '@/components/Marca.astro';
 const rutaActual = Astro.url.pathname;
 const activo = (href: string) =>
   href === '/' ? rutaActual === ruta('/') : rutaActual.startsWith(ruta(href));
+// Un apartado con submenú se marca activo si lo está cualquiera de sus hijos.
+const activoGrupo = (item: (typeof NAV)[number]) =>
+  'hijos' in item ? item.hijos.some((h) => activo(h.href)) : activo(item.href);
 ---
 
 <header class="sticky top-0 z-40 border-b border-hairline bg-crema/95 backdrop-blur supports-[backdrop-filter]:bg-crema/85">
@@ -14,17 +17,43 @@ const activo = (href: string) =>
       <Marca />
     </a>
 
-    <nav aria-label="Principal" class="hidden items-center gap-1 lg:flex">
-      {NAV.map((item) => (
-        <a
-          href={ruta(item.href)}
-          aria-current={activo(item.href) ? 'page' : undefined}
-          class:list={[
-            'rounded-full px-3.5 py-2 text-[15px] font-bold transition-colors',
-            activo(item.href) ? 'text-azul' : 'text-navy/70 hover:text-navy',
-          ]}
-        >{item.texto}</a>
-      ))}
+    <nav aria-label="Principal" class="hidden items-center gap-1 lg:flex" data-menu>
+      {NAV.map((item) =>
+        'hijos' in item ? (
+          <details class="group relative" data-desplegable>
+            <summary
+              class:list={[
+                'flex cursor-pointer list-none items-center gap-1.5 rounded-full px-3.5 py-2 text-[15px] font-bold transition-colors [&::-webkit-details-marker]:hidden',
+                activoGrupo(item) ? 'text-azul' : 'text-navy/70 hover:text-navy',
+              ]}
+            >
+              {item.texto}
+              <svg width="11" height="11" viewBox="0 0 12 12" class="transition-transform group-open:rotate-180" aria-hidden="true"><path d="M2 4.5l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="absolute left-0 top-full z-50 mt-2 min-w-[15rem] rounded-tarjeta border border-hairline bg-papel p-2 shadow-flotante">
+              {item.hijos.map((h) => (
+                <a
+                  href={ruta(h.href)}
+                  aria-current={activo(h.href) ? 'page' : undefined}
+                  class:list={[
+                    'block rounded-xl px-4 py-2.5 text-[15px] font-bold transition-colors',
+                    activo(h.href) ? 'bg-azul-100 text-azul' : 'text-navy hover:bg-crema',
+                  ]}
+                >{h.texto}</a>
+              ))}
+            </div>
+          </details>
+        ) : (
+          <a
+            href={ruta(item.href)}
+            aria-current={activo(item.href) ? 'page' : undefined}
+            class:list={[
+              'rounded-full px-3.5 py-2 text-[15px] font-bold transition-colors',
+              activo(item.href) ? 'text-azul' : 'text-navy/70 hover:text-navy',
+            ]}
+          >{item.texto}</a>
+        ),
+      )}
     </nav>
 
     <a href={ruta('/contacto/')} class="hidden cta px-6 py-3 text-[15px] lg:inline-flex">
@@ -41,21 +70,60 @@ const activo = (href: string) =>
         <svg class="abrir h-5 w-5" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
         <svg class="cerrar hidden h-5 w-5" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
       </summary>
-      <div class="absolute inset-x-0 top-[72px] border-b border-hairline bg-crema px-5 pb-6 pt-2 sm:px-7">
+      <div class="absolute inset-x-0 top-[72px] max-h-[calc(100vh-72px)] overflow-y-auto border-b border-hairline bg-crema px-5 pb-6 pt-2 sm:px-7">
         <nav aria-label="Móvil" class="flex flex-col">
-          {NAV.map((item) => (
-            <a
-              href={ruta(item.href)}
-              aria-current={activo(item.href) ? 'page' : undefined}
-              class:list={[
-                'border-b border-hairline py-3.5 text-lg font-bold',
-                activo(item.href) ? 'text-azul' : 'text-navy',
-              ]}
-            >{item.texto}</a>
-          ))}
+          {NAV.map((item) =>
+            'hijos' in item ? (
+              <div class="border-b border-hairline py-3.5">
+                <p class="text-lg font-extrabold text-navy">{item.texto}</p>
+                {item.hijos.map((h) => (
+                  <a
+                    href={ruta(h.href)}
+                    aria-current={activo(h.href) ? 'page' : undefined}
+                    class:list={[
+                      'block py-2 pl-4 text-[17px] font-bold',
+                      activo(h.href) ? 'text-azul' : 'text-slate',
+                    ]}
+                  >{h.texto}</a>
+                ))}
+              </div>
+            ) : (
+              <a
+                href={ruta(item.href)}
+                aria-current={activo(item.href) ? 'page' : undefined}
+                class:list={[
+                  'border-b border-hairline py-3.5 text-lg font-bold',
+                  activo(item.href) ? 'text-azul' : 'text-navy',
+                ]}
+              >{item.texto}</a>
+            ),
+          )}
           <a href={ruta('/contacto/')} class="cta mt-5">Primera sesión <span aria-hidden="true">→</span></a>
         </nav>
       </div>
     </details>
   </div>
 </header>
+
+<script is:inline>
+  // Cierra el submenú abierto al pulsar fuera o con Escape. Sin esto, un
+  // <details> se queda abierto hasta que se vuelve a pulsar su propio título.
+  (function () {
+    var abiertos = function () {
+      return document.querySelectorAll('[data-desplegable][open]');
+    };
+    document.addEventListener('click', function (e) {
+      abiertos().forEach(function (d) {
+        if (!d.contains(e.target)) d.removeAttribute('open');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      abiertos().forEach(function (d) {
+        d.removeAttribute('open');
+        var s = d.querySelector('summary');
+        if (s) s.focus();
+      });
+    });
+  })();
+</script>

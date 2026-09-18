@@ -8,7 +8,7 @@ export const SITIO = {
   cvr: '43172794',
   // No se publica la dirección postal (decisión del cliente). Solo ciudad/país;
   // la dirección completa se define en la revisión legal. Ver PENDIENTE.md.
-  domicilio: 'Aarhus (Dinamarca), dirección postal por confirmar',
+  domicilio: 'Dinamarca, dirección postal por confirmar',
   dominio: 'https://studyandbeyond.es',
   descripcion:
     'Orientación y gestión completa para estudiar un grado en Dinamarca: admisión, alojamiento y acompañamiento en el país.',
@@ -19,7 +19,9 @@ export const SITIO = {
   precioServicio: 1900,
   // Beca SU: cifra vigente. Presentar SIEMPRE con su condición.
   suImporteMensualDKK: 7426,
-  ciudadOrigen: 'Aarhus',
+  // Equivalente aproximado en euros, la cifra que se muestra en portada.
+  suImporteMensualEUR: 990,
+  pais: 'Dinamarca',
   anioFundacion: 2020,
   // Analítica respetuosa (sin cookies). Mientras esté deshabilitada, el sitio
   // no carga scripts de terceros ni muestra banner (no hay nada que consentir).
@@ -34,16 +36,27 @@ export const SITIO = {
 // Navegación principal.
 export const NAV = [
   { texto: 'Grados', href: '/grados/' },
-  { texto: 'Estudiar en Dinamarca', href: '/estudiar-en-dinamarca/' },
+  {
+    texto: 'Estudiar en Dinamarca',
+    href: '/estudiar-en-dinamarca/',
+    hijos: [
+      { texto: 'Guías', href: '/estudiar-en-dinamarca/' },
+      { texto: 'Para estudiantes', href: '/para-estudiantes/' },
+      { texto: 'Para familias', href: '/para-familias/' },
+    ],
+  },
   { texto: 'Servicios', href: '/servicios/' },
-  { texto: 'Familias', href: '/para-familias/' },
   { texto: 'Historias', href: '/historias/' },
   { texto: 'Sobre nosotros', href: '/sobre-mi/' },
 ] as const;
 
 // Enlaces solo en el pie (hasta que el blog tenga más contenido).
 export const NAV_PIE = [
-  { texto: 'Para estudiantes', href: '/para-estudiantes/' },
   { texto: 'Blog', href: '/blog/' },
   { texto: 'Contacto', href: '/contacto/' },
 ] as const;
+
+// Lista plana de la navegación, para el pie.
+export const NAV_PLANA = NAV.flatMap((i) =>
+  'hijos' in i ? [...i.hijos] : [{ texto: i.texto, href: i.href }],
+);

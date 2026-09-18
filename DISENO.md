@@ -38,6 +38,8 @@ Reglas:
 - Una familia académica = un color, en todo el sitio (`src/lib/areas.ts`).
 - Sobre pastel, el texto secundario baja como mucho a `navy/70`; por debajo
   deja de pasar AA.
+- Un bloque nunca lleva el mismo color que la banda que lo contiene: sobre
+  `cielo` una tarjeta destacada va en blanco, no en `azul-100`.
 
 ## Tipografía
 
@@ -62,6 +64,14 @@ firma tipográfica de la marca.
 - Tarjetas e imágenes: `rounded-tarjeta` (20px) y `rounded-imagen` (24px).
 - Sin sombra en reposo; `shadow-flotante` solo al pasar por encima.
 
+## Logotipo
+
+El isotipo son dos eslabones entrelazados que forman una S, en blanco sobre
+cuadrado azul redondeado (radio 22 % del lado). Sobre fondo navy se invierte:
+cuadrado blanco, eslabones azules. El trazado vive en `src/lib/marca.ts` como
+fuente única y lo usan `Marca.astro` y el favicon; el nombre se compone en
+Plus Jakarta Sans en dos líneas.
+
 ## Elementos firma
 
 - **Sello** (`Sello.astro`): círculo coral o amarillo girado −8°, solapando
@@ -69,10 +79,17 @@ firma tipográfica de la marca.
 - **Marco amarillo desplazado**: bloque amarillo detrás de la foto principal,
   movido 12px en diagonal. Solo en el héroe de portada.
 - **Franja amarilla**: los datos de un vistazo bajo el héroe.
-- **Rótulo numerado**: `01 / POR QUÉ DINAMARCA` en `coral-700`, mayúsculas
-  espaciadas. Los rótulos sin número llevan filete corto delante (`.etiqueta`).
+- **Rótulo de sección** (`.etiqueta`): mayúsculas espaciadas con filete corto
+  delante. Sin numerar: las secciones no llevan `01 /`, `02 /`…
 - **Itinerario**: números en píldora azul unidos por línea fina; el último paso
   va en coral.
+
+## Bloques informativos
+
+Ni filetes laterales ni cajas con borde de color: un bloque destacado es una
+tarjeta blanca con las mismas esquinas que el resto (`rounded-tarjeta`) y el
+rótulo arriba en mayúsculas espaciadas. Vale para `.bloque-condicion`,
+`.nota` y las citas del contenido MDX.
 
 ## Accesibilidad
 

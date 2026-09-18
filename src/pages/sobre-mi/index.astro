@@ -16,14 +16,14 @@ const bloques = [
   },
   {
     t: 'Quién está detrás',
-    d: `Nerea Clemente llegó a ${SITIO.ciudadOrigen} en 2020 para estudiar en Dinamarca. Desde entonces ha estudiado y trabajado en el país y ha desarrollado ${SITIO.nombre} desde ${SITIO.ciudadOrigen}. Su experiencia personal es el origen del proyecto, pero el servicio se basa en algo más importante: especialización, procesos y conocimiento actualizado del sistema danés.`,
+    d: `Nerea Clemente llegó a Dinamarca en 2020 para estudiar aquí. Desde entonces ha estudiado y trabajado en el país y ha desarrollado ${SITIO.nombre} desde Dinamarca. Su experiencia personal es el origen del proyecto, pero el servicio se basa en algo más importante: especialización, procesos y conocimiento actualizado del sistema danés.`,
   },
 ];
 ---
 
 <Base
   titulo="Sobre Study and Beyond"
-  descripcion="Study and Beyond es una empresa danesa con base en Aarhus dedicada exclusivamente a asesorar a estudiantes que quieren estudiar en Dinamarca."
+  descripcion="Study and Beyond es una empresa danesa dedicada exclusivamente a asesorar a estudiantes que quieren estudiar en Dinamarca."
 >
   <!-- Cabecera · banda navy con el sello DK -->
   <section class="bg-navy text-white">
@@ -35,8 +35,8 @@ const bloques = [
             Especialistas en estudiar en <span class="text-coral">Dinamarca.</span>
           </h1>
           <p class="mt-7 max-w-prosa text-lg text-white/80">
-            {SITIO.nombre} es una empresa danesa con base en {SITIO.ciudadOrigen}
-            dedicada exclusivamente a asesorar a estudiantes que quieren estudiar aquí.
+            {SITIO.nombre} es una empresa danesa dedicada exclusivamente a asesorar a
+            estudiantes que quieren estudiar aquí.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ const bloques = [
             aria-hidden="true"
           >
             <span class="font-display text-6xl font-extrabold tracking-[-0.04em] text-amarillo sm:text-7xl">DK</span>
-            <span class="mt-1 text-sm text-white/70">aarhus</span>
+            <span class="mt-1 text-sm text-white/70">dinamarca</span>
           </span>
         </div>
       </div>
@@ -59,10 +59,10 @@ const bloques = [
       <!-- Retrato pendiente (foto real, nada de banco de imágenes). Ver PENDIENTE.md. -->
       <div class="lg:sticky lg:top-28">
         <Imagen
-          alt="Nerea Clemente, fundadora de Study and Beyond, en Aarhus"
+          alt="Nerea Clemente, fundadora de Study and Beyond, en Dinamarca"
           ratio="4/5"
           tono="mantequilla"
-          rotulo="Aarhus, Dinamarca"
+          rotulo="Dinamarca"
         />
       </div>
 
@@ -90,7 +90,7 @@ const bloques = [
           <h2 id="empresa" class="text-h3 text-navy">La empresa</h2>
           <p class="prosa mt-3 text-sm text-navy/75">
             {SITIO.entidadLegal} es una empresa registrada en Dinamarca (CVR {SITIO.cvr})
-            con base en {SITIO.ciudadOrigen}.
+            con base en {SITIO.pais}.
           </p>
         </section>
       </div>

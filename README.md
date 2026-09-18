@@ -38,6 +38,7 @@ public/
 - **Datos de la empresa, precio, teléfono, navegación**: `src/config/sitio.ts`.
 - **Color de una familia académica**: `src/lib/areas.ts`.
 - **Tokens de marca**: `tailwind.config.mjs` + `src/styles/global.css`.
+- **Logotipo**: `src/lib/marca.ts` (trazado del isotipo) y `Marca.astro`.
 - **Un grado**: un JSON en `src/content/grados/`. El esquema está en
   `src/content.config.ts`; lo que falte se renderiza como «Por confirmar»,
   nunca se inventa.
