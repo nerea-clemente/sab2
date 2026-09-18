@@ -1,0 +1,57 @@
+---
+import Base from '@/layouts/Base.astro';
+import Imagen from '@/components/Imagen.astro';
+import CtaFinal from '@/components/CtaFinal.astro';
+import { HISTORIAS } from '@/config/historias';
+---
+
+<Base
+  titulo="Historias"
+  descripcion="Estudiantes que ya dieron el paso y estudian en Dinamarca: su carrera, su ciudad y cómo les ha ido."
+>
+  <section class="bg-navy text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <p class="etiqueta text-amarillo">Estudiantes</p>
+      <h1 class="mt-6 max-w-[16ch] text-seccion text-white">
+        Estudiar en Dinamarca, contado por <span class="text-coral">quienes ya lo hicieron.</span>
+      </h1>
+      <p class="mt-7 max-w-prosa text-lg text-white/80">
+        Carreras distintas, ciudades distintas y experiencias distintas. Estas son
+        algunas de las personas que eligieron Dinamarca para estudiar.
+      </p>
+    </div>
+  </section>
+
+  <section class="contenedor ritmo">
+    <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {HISTORIAS.map((h, i) => (
+        <li class="reveal flex h-full flex-col overflow-hidden rounded-tarjeta border border-hairline bg-papel">
+          <!-- Foto real pendiente (nada de banco de imágenes). Ver PENDIENTE.md. -->
+          <Imagen
+            alt={`Foto de ${h.nombre}, estudiante en Dinamarca`}
+            ratio="1/1"
+            rotulo={h.nombre}
+            tono={(['cielo', 'mantequilla', 'menta'] as const)[i % 3]}
+            class="!rounded-none"
+          />
+          <div class="flex flex-1 flex-col p-6 sm:p-7">
+            <blockquote class="text-[17px] leading-snug text-navy">«{h.cita}»</blockquote>
+            <div class="mt-5 border-t border-hairline pt-5">
+              <p class="text-h3 text-navy">{h.nombre}</p>
+              <p class="dato text-sm text-slate">
+                {h.carrera}{h.ciudad ? ` · ${h.ciudad}` : ''}
+              </p>
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <CtaFinal
+    titulo="¿Quieres ser la próxima historia?"
+    texto="La primera sesión es gratuita. Revisamos tu perfil y qué grados podrías estudiar en Dinamarca."
+    cta="Ver qué podrías estudiar tú"
+    href="/grados/"
+  />
+</Base>

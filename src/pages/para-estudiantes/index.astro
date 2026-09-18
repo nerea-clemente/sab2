@@ -1,0 +1,86 @@
+---
+import Base from '@/layouts/Base.astro';
+import { ruta } from '@/lib/ruta';
+import CtaFinal from '@/components/CtaFinal.astro';
+import Icono from '@/components/Icono.astro';
+import { tono } from '@/lib/areas';
+
+const bloques = [
+  { t: 'Learning by doing', d: 'Proyectos, casos reales, trabajo en grupo y, en muchas titulaciones, prácticas dentro del plan de estudios. El objetivo es entender y aplicar, no memorizar por memorizar.' },
+  { t: 'Todo en inglés', d: 'Clases, materiales y exámenes pueden ser íntegramente en inglés. El danés no es un requisito para empezar muchos de los programas internacionales.' },
+  { t: 'Trabajo mientras estudias', d: 'Muchos estudiantes tienen un trabajo a tiempo parcial. Con el tiempo, también existen student jobs relacionados con la carrera.' },
+  { t: 'SU', d: 'Si eres estudiante europeo y cumples los requisitos aplicables, puedes solicitar esta ayuda mensual del Estado danés.' },
+];
+---
+
+<Base
+  titulo="Para estudiantes"
+  descripcion="Qué puedes estudiar en Dinamarca, cómo se estudia (learning by doing, en inglés) y cómo funciona el proceso de admisión. El punto de partida para valorar la opción."
+>
+  <section class="bg-navy text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <p class="etiqueta text-amarillo">Para estudiantes</p>
+      <h1 class="mt-6 max-w-[13ch] text-seccion text-white">
+        Estudia tu carrera en <span class="text-coral">Dinamarca.</span>
+      </h1>
+      <p class="mt-7 max-w-prosa text-lg text-white/80">
+        Si estás buscando qué estudiar, si quieres hacerlo fuera o si ya tienes
+        Dinamarca en mente, aquí puedes ver qué opciones existen y cómo funciona el
+        proceso.
+      </p>
+      <a href={ruta('/grados/')} class="cta-claro mt-9">Explorar grados <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- Primero: qué puedes estudiar -->
+  <section class="contenedor ritmo">
+    <p class="etiqueta-suelta text-coral-700">01 / Qué estudiar</p>
+    <h2 class="mt-5 max-w-[18ch] text-seccion text-navy">Primero: qué puedes estudiar</h2>
+    <p class="prosa mt-6 text-lg">
+      Hay grados en negocios, ingeniería, tecnología, diseño, ciencia de datos,
+      ciencias sociales y otras áreas. Revisar las opciones es el mejor punto de
+      partida.
+    </p>
+    <a href={ruta('/grados/')} class="enlace mt-7">Explorar grados <span aria-hidden="true">→</span></a>
+  </section>
+
+  <!-- Después: cómo se estudia -->
+  <section class="bg-hueso">
+    <div class="contenedor ritmo">
+      <p class="etiqueta-suelta text-coral-700">02 / Cómo se estudia</p>
+      <h2 class="mt-5 max-w-[18ch] text-seccion text-navy">Después: cómo se estudia</h2>
+      <div class="mt-10 grid gap-4 sm:grid-cols-2">
+        {bloques.map((b, i) => (
+          <div class:list={['reveal rounded-tarjeta p-6 sm:p-7', tono(i)]}>
+            <span class="fecha-mono text-sm font-medium text-navy/70">{String(i + 1).padStart(2, '0')}</span>
+            <p class="mt-3 text-h3 font-extrabold text-navy">{b.t}</p>
+            <p class="mt-2.5 text-navy/75">{b.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Y el proceso de admisión -->
+  <section class="contenedor ritmo">
+    <p class="etiqueta-suelta text-coral-700">03 / La admisión</p>
+    <h2 class="mt-5 max-w-[18ch] text-seccion text-navy">Y el proceso de admisión</h2>
+    <p class="prosa mt-6 text-lg">
+      Ahí entra Study and Beyond. Revisamos tu perfil, identificamos opciones,
+      preparamos la estrategia de solicitudes y gestionamos contigo la documentación
+      y la admisión.
+    </p>
+    <a href={ruta('/servicios/')} class="enlace mt-7">Ver cómo funciona <span aria-hidden="true">→</span></a>
+
+    <p class="mt-10 flex items-start gap-2.5 text-sm text-slate">
+      <Icono nombre="pin" class="mt-0.5 h-[18px] w-[18px] shrink-0 text-coral" />
+      <span>Study &amp; Beyond está basado en Aarhus y habla claro sobre tu siguiente paso.</span>
+    </p>
+  </section>
+
+  <CtaFinal
+    titulo="Empieza por saber qué opciones tienes"
+    texto="La primera sesión es gratuita. Revisamos tu situación y te decimos qué caminos merece la pena explorar."
+    cta="Reservar sesión"
+  />
+</Base>

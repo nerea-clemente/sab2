@@ -1,0 +1,46 @@
+name: Desplegar en GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/vigilant-faraday-igaszh
+      - main
+  workflow_dispatch:
+
+# Necesario para poder empujar a la rama gh-pages.
+permissions:
+  contents: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Construir el sitio (base /sab2 para Pages)
+        run: npm run build
+        env:
+          PUBLIC_BASE: /sab2
+      # .nojekyll evita que GitHub Pages procese el sitio con Jekyll
+      # (así se sirve la carpeta _astro/ y no se rompe nada).
+      - name: Publicar el sitio ya construido en la rama gh-pages
+        run: |
+          cd dist
+          touch .nojekyll
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -qm "Despliegue de ${GITHUB_SHA}"
+          git branch -M gh-pages
+          git push -f "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

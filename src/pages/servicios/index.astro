@@ -1,0 +1,168 @@
+---
+import Base from '@/layouts/Base.astro';
+import { ruta } from '@/lib/ruta';
+import JsonLd from '@/components/JsonLd.astro';
+import CabeceraPagina from '@/components/CabeceraPagina.astro';
+import Itinerario from '@/components/Itinerario.astro';
+import CtaFinal from '@/components/CtaFinal.astro';
+import Sello from '@/components/Sello.astro';
+import { tono } from '@/lib/areas';
+import { SITIO } from '@/config/sitio';
+
+// Separador de miles manual (independiente de la disponibilidad de ICU).
+const eur = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const precio = eur(SITIO.precioServicio);
+const mitad = eur(SITIO.precioServicio / 2);
+
+const servicios = [
+  { t: 'Orientación académica', d: 'Revisamos tu perfil, tus intereses y los requisitos de los programas. Te presentamos las opciones que encajan y definimos una estrategia de solicitudes.' },
+  { t: 'Gestión de admisión', d: 'Preparamos y gestionamos las solicitudes a los programas acordados. Revisamos documentación, requisitos y fechas.' },
+  { t: 'Traducciones y documentación', d: 'Te indicamos qué documentos necesitas y coordinamos las traducciones juradas cuando son necesarias.' },
+  { t: 'Alojamiento', d: 'Te asesoramos sobre opciones de alojamiento, zonas, precios, plataformas y plazos. La elección y contratación final del alojamiento corresponde al estudiante.' },
+  { t: 'Preparación para Dinamarca', d: 'Antes de llegar, revisamos los pasos prácticos y la documentación que conviene tener preparada.' },
+  { t: 'Primeros trámites', d: 'Una vez en Dinamarca, te orientamos con CPR, banco, sanidad, trabajo de estudiante y solicitud de la SU.' },
+];
+
+const pasos = [
+  { t: 'Primera sesión', d: 'Revisamos tu perfil y las opciones disponibles. Gratuita y sin compromiso.' },
+  { t: 'Plan', d: 'Si decides continuar, definimos los grados, requisitos y calendario.' },
+  { t: 'Solicitudes', d: 'Preparamos documentación y gestionamos las admisiones.' },
+  { t: 'Alojamiento', d: 'Te asesoramos sobre el proceso y las opciones de tu ciudad.' },
+  { t: 'Admisión', d: 'Con la plaza confirmada, preparamos los siguientes pasos.' },
+  { t: 'Dinamarca', d: 'Te orientamos con los principales trámites de llegada.' },
+];
+
+const faqs = [
+  { q: '¿Cuánto cuesta?', a: `${precio} € IVA incluido, dividido en dos pagos de ${mitad} €. El segundo solo se abona si obtienes una plaza en una de las opciones solicitadas.` },
+  { q: '¿Qué ocurre si no me admiten?', a: 'No se abona el segundo pago. El primero corresponde al trabajo y las gestiones ya realizadas.' },
+  { q: '¿A cuántos grados puedo solicitar?', a: 'El precio no cambia por el número de solicitudes incluidas en la estrategia acordada.' },
+  { q: '¿Me conseguís alojamiento?', a: 'Te asesoramos sobre el proceso y las opciones disponibles y te ayudamos a prepararlo con tiempo. No garantizamos una plaza concreta de alojamiento.' },
+  { q: '¿Me conseguís trabajo?', a: 'No. Compartimos recursos y ofertas y te orientamos con la búsqueda, pero la contratación depende de cada empresa.' },
+  { q: '¿Hasta cuándo dura el servicio?', a: 'Incluye el proceso de admisión y el asesoramiento sobre los primeros trámites al llegar a Dinamarca, según las condiciones definidas en el servicio.' },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Base
+  titulo="Servicios y precio"
+  descripcion={`Qué hacemos, cómo y cuánto cuesta: ${precio} € en dos pagos del 50 %. Y qué pasa, con claridad, si no te admiten.`}
+>
+  <JsonLd slot="head" datos={faqLd} />
+
+  <!-- Cabecera -->
+  <section class="contenedor pb-4 pt-12 lg:pt-16">
+    <CabeceraPagina
+      etiqueta="Servicio"
+      titulo="Te ayudamos con todo el proceso"
+      lead="Study and Beyond gestiona el proceso completo: orientación académica, estrategia de solicitudes, admisión, documentación y asesoramiento práctico para empezar en Dinamarca."
+    >
+      <Fragment slot="titulo">Te ayudamos con <span class="text-coral">todo</span> el proceso</Fragment>
+    </CabeceraPagina>
+  </section>
+
+  <!-- Qué incluye · tarjetas de color -->
+  <section aria-labelledby="incluye" class="contenedor ritmo">
+    <h2 id="incluye" class="text-h2 text-navy">Qué incluye</h2>
+    <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {servicios.map((s, i) => (
+        <li class:list={['reveal flex h-full flex-col rounded-tarjeta p-6 sm:p-7', tono(i)]}>
+          <span class="fecha-mono text-sm font-medium text-navy/70">{String(i + 1).padStart(2, '0')}</span>
+          <h3 class="mt-3 text-h3 text-navy">{s.t}</h3>
+          <p class="mt-2.5 text-sm text-navy/75">{s.d}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Precio · banda azul pastel con la cifra grande -->
+  <section aria-labelledby="precio" class="bg-cielo">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="grid gap-12 lg:grid-cols-[auto_1fr] lg:gap-16">
+        <div class="relative">
+          <p class="etiqueta text-azul-700">Precio</p>
+          <p class="mt-5 font-display text-cifra font-extrabold leading-none text-navy">{precio} €</p>
+          <p class="etiqueta-suelta mt-3 text-navy/70">IVA incluido</p>
+          <Sello tono="coral" tamano="sm" class="mt-8 hidden lg:flex">
+            Dos pagos<br />del 50 %
+          </Sello>
+        </div>
+
+        <div class="max-w-prosa">
+          <h2 id="precio" class="text-h2 text-navy">Precio y condiciones</h2>
+          <p class="mt-5 text-lg text-navy/75">
+            Un precio único, sin importar a cuántas carreras solicites plaza, en dos
+            pagos del 50 %.
+          </p>
+
+          <dl class="ficha-datos mt-7 border-navy/15 divide-navy/15">
+            <div><dt class="text-navy/70">Primer pago · al firmar el contrato</dt><dd>{mitad} €</dd></div>
+            <div><dt class="text-navy/70">Segundo pago · solo si hay plaza</dt><dd>{mitad} €</dd></div>
+          </dl>
+          <p class="mt-4 text-sm text-navy/70">
+            El primer pago cubre el trabajo de orientación, preparación y gestión
+            realizado durante el proceso. El segundo se activa cuando existe una
+            admisión, en firme o condicionada, en una de las opciones acordadas.
+          </p>
+
+          <div class="bloque-condicion mt-7 bg-papel">
+            <strong>¿Qué pasa si no entras?</strong> Si no consigues admisión en
+            ninguna de las opciones solicitadas, <strong>no abonas el segundo pago</strong>.
+            El primer pago no se devuelve, porque corresponde al trabajo y las
+            gestiones ya realizadas. No prometemos una plaza: nos comprometemos a
+            gestionar bien tu proceso para que tengas buenas opciones delante.
+          </div>
+
+          <p class="mt-5 text-sm text-navy/70">
+            <strong class="font-bold text-navy">Derecho de desistimiento.</strong> Como
+            consumidor en España, dispones de 14 días naturales para desistir del
+            contrato desde su firma. Si el servicio empieza a tu petición dentro de
+            ese plazo, puede corresponderte abonar la parte ya prestada.
+            <span class="text-navy/70">(Redacción pendiente de revisión legal.)</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- El proceso · itinerario común -->
+  <section aria-labelledby="proceso" class="contenedor ritmo">
+    <h2 id="proceso" class="text-h2 text-navy">El proceso, paso a paso</h2>
+    <div class="mt-10 max-w-3xl">
+      <Itinerario pasos={pasos} flechaFinal />
+    </div>
+    <a href={ruta('/grados/')} class="enlace mt-10">Explorar los grados <span aria-hidden="true">→</span></a>
+  </section>
+
+  <!-- FAQ -->
+  <section aria-labelledby="faq" class="bg-hueso">
+    <div class="contenedor ritmo">
+      <h2 id="faq" class="text-h2 text-navy">Preguntas frecuentes</h2>
+      <div class="mt-8 grid max-w-3xl gap-3">
+        {faqs.map((f) => (
+          <details class="group rounded-tarjeta border border-hairline bg-papel px-6 py-5">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 font-extrabold text-navy [&::-webkit-details-marker]:hidden">
+              {f.q}
+              <span class="shrink-0 text-2xl leading-none text-coral transition-transform group-open:rotate-45" aria-hidden="true">+</span>
+            </summary>
+            <p class="mt-3 text-slate">{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="Empecemos por la primera sesión"
+    texto="Gratuita y sin compromiso. Revisamos tu situación, qué grados pueden encajar y cómo sería el proceso en tu caso."
+    cta="Reservar la primera sesión"
+  />
+</Base>

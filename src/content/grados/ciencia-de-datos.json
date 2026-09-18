@@ -1,0 +1,46 @@
+{
+  "nombre_oficial": "Grado en Ciencia de Datos",
+  "nombre_es": "Grado en Ciencia de Datos",
+  "descripcion": "Conviértete en analista de datos con habilidades técnicas y de negocio para el manejo, análisis y visualización de grandes volúmenes de datos.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "ciencias-ingenieria",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 375,
+        "antiguedad": "cursadas en los últimos 3 años, con una nota mínima de 7"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Analista de datos",
+    "Científico de datos",
+    "Analista de negocios y mercados"
+  ],
+  "masteres_afines": [
+    "Informática",
+    "Ciencia de datos",
+    "Innovación y negocios"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": true
+}

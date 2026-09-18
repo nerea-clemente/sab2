@@ -1,0 +1,55 @@
+{
+  "nombre_oficial": "Grado en Administración de Empresas y Gestión de Servicios",
+  "nombre_es": "Grado en Administración de Empresas y Gestión de Servicios",
+  "descripcion": "Administración de empresas con el otro pilar en la gestión de servicios y especialización en tres ramas según la industria.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "negocios",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [
+    "Arte y cultura",
+    "Servicios e innovación",
+    "Turismo y hospitalidad"
+  ],
+  "requisitos": {
+    "ingles": {
+      "toefl": 90,
+      "ielts": 7,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 250,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Economía, historia o historia del mundo contemporáneo",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Dirección de hotel",
+    "Agencia de viajes",
+    "Dirección de museos",
+    "Marketing y administración"
+  ],
+  "masteres_afines": [
+    "Administración",
+    "Gestión hotelera"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

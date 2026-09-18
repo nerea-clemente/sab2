@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Las @font-face se declaran en el <head> (Base.astro) para prefijar la URL
+   con la base del despliegue (GitHub Pages). */
+
+@layer base {
+  :root {
+    --navy: #0e2148;
+    --crema: #f7f3ea;
+    --azul: #1358e0;
+    --coral: #ee5a44;
+    --amarillo: #ffc93d;
+    --slate: #55637f;
+    --linea: #e5dfd3;
+    --papel: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    @apply bg-crema text-navy font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+  @media (min-width: 1024px) { body { font-size: 17px; } }
+
+  /* Titulares: muy apretados, peso alto. Es la firma tipográfica de la marca. */
+  h1, h2, h3, h4 { @apply font-display font-extrabold; text-wrap: balance; }
+  h1 { letter-spacing: -0.03em; line-height: 1.0; }
+  h2 { letter-spacing: -0.025em; line-height: 1.06; }
+
+  p { text-wrap: pretty; }
+
+  /* Foco de teclado con la forma de la marca (píldora azul). */
+  :focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 3px;
+    border-radius: 999px;
+  }
+
+  /* Cifras y datos: numeración tabular. */
+  .dato, .tabular { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum' 1; }
+  .fecha-mono { @apply font-mono; font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+}
+
+@layer components {
+  .contenedor { @apply mx-auto w-full max-w-contenido px-5 sm:px-7 lg:px-10; }
+  .prosa { @apply max-w-prosa text-slate; }
+
+  /* Ritmo vertical entre secciones. */
+  .ritmo { @apply py-16 lg:py-24; }
+
+  .saltar-contenido { @apply sr-only; }
+  .saltar-contenido:focus { @apply not-sr-only fixed left-4 top-4 z-50 rounded-full bg-navy px-5 py-2 text-white; }
+
+  /* -------------------------------------------------------------------------
+     Rótulo de sección. Mayúsculas espaciadas precedidas de un filete corto.
+     La variante suelta (sin filete) es la del "01 / ..." numerado.
+     ------------------------------------------------------------------------- */
+  .etiqueta {
+    @apply inline-flex items-center gap-2.5 text-[11px] font-extrabold uppercase sm:text-xs;
+    letter-spacing: 0.15em;
+  }
+  .etiqueta::before {
+    content: '';
+    @apply h-[3px] w-6 rounded-full bg-current;
+  }
+  /* Variante sin filete (para el "01 / ..." que ya lleva numeral). */
+  .etiqueta-suelta {
+    @apply inline-block text-[11px] font-extrabold uppercase sm:text-xs;
+    letter-spacing: 0.15em;
+  }
+
+  /* -------------------------------------------------------------------------
+     Acción. Todo lo que se pulsa es una píldora.
+     ------------------------------------------------------------------------- */
+  .cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-azul px-7 py-3.5
+           font-bold text-white transition-colors duration-150 hover:bg-azul-700;
+    min-height: 48px;
+  }
+  .cta-secundario {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy/25
+           bg-transparent px-7 py-3.5 font-bold text-navy transition-colors duration-150
+           hover:border-navy hover:bg-navy hover:text-white;
+    min-height: 48px;
+  }
+  /* Sobre fondo navy o foto. */
+  .cta-claro {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5
+           font-bold text-navy transition-colors duration-150 hover:bg-amarillo;
+    min-height: 48px;
+  }
+  .cta-secundario-claro {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/50
+           px-7 py-3.5 font-bold text-white transition-colors duration-150 hover:bg-white/10;
+    min-height: 48px;
+  }
+
+  /* Enlace editorial: texto + flecha, subrayado que aparece al pasar. */
+  .enlace {
+    @apply inline-flex items-center gap-1.5 font-bold text-azul underline decoration-transparent
+           decoration-2 underline-offset-4 transition-colors hover:decoration-azul;
+  }
+  .enlace-claro {
+    @apply inline-flex items-center gap-1.5 font-bold text-white underline decoration-transparent
+           decoration-2 underline-offset-4 transition-colors hover:decoration-white/70;
+  }
+  .link-sub {
+    @apply font-bold text-navy underline decoration-coral decoration-2 underline-offset-4
+           transition-colors hover:text-coral-700;
+  }
+
+  /* -------------------------------------------------------------------------
+     Superficies.
+     ------------------------------------------------------------------------- */
+  .tarjeta {
+    @apply rounded-tarjeta border border-hairline bg-papel transition-all duration-200;
+  }
+  .tarjeta-hover:hover { @apply -translate-y-1 border-navy/15 shadow-flotante; }
+
+  /* Tarjeta de color (pastel): el color lo pone la utilidad bg-* que la
+     acompaña; aquí solo la forma y el comportamiento. */
+  .tarjeta-color {
+    @apply flex h-full flex-col rounded-tarjeta p-6 transition-all duration-200
+           hover:-translate-y-1 hover:shadow-flotante sm:p-7;
+  }
+
+  /* Pastilla de categoría dentro de una tarjeta de color. */
+  .pastilla {
+    @apply inline-block text-[10px] font-extrabold uppercase text-navy/70;
+    letter-spacing: 0.14em;
+  }
+
+  /* Chip de filtro (buscador de grados y familias de la portada). */
+  .chip {
+    @apply inline-flex items-center rounded-full border border-navy/15 bg-papel px-5 py-2.5
+           text-sm font-bold text-slate transition-colors hover:border-navy/40 hover:text-navy;
+    min-height: 44px;
+  }
+  .chip-activo {
+    @apply border-transparent bg-azul text-white hover:border-transparent hover:text-white;
+  }
+
+  /* Sello circular: coral o amarillo, texto navy/blanco, ligeramente girado.
+     Es el grafismo firma de la portada. */
+  .sello {
+    @apply flex items-center justify-center rounded-full text-center font-extrabold leading-tight;
+    transform: rotate(-8deg);
+  }
+
+  /* Filete fino de sección. */
+  .regla { @apply border-0 border-t border-hairline; }
+  .regla-blanca { @apply border-0 border-t border-white/20; }
+
+  /* Numeral gigante como grafismo (40+, 0 €, 01…). */
+  .numeral { @apply font-display font-extrabold text-numeral; font-variant-numeric: tabular-nums; }
+
+  /* Aparición de sección: 14px hacia arriba, una sola vez. Solo con JS. */
+  .js .reveal { opacity: 0; transform: translateY(14px); }
+  .js .reveal.visible { opacity: 1; transform: translateY(0); transition: opacity 600ms ease, transform 600ms ease; }
+
+  /* -------------------------------------------------------------------------
+     Bloques informativos.
+     ------------------------------------------------------------------------- */
+  .bloque-condicion, .aviso-condicion {
+    @apply my-6 rounded-tarjeta border-l-4 border-azul bg-azul-100 px-5 py-4 text-navy;
+  }
+  .bloque-condicion::before, .aviso-condicion::before {
+    content: 'Condición';
+    @apply mb-1 block text-[11px] font-extrabold uppercase text-azul-700;
+    letter-spacing: 0.14em;
+  }
+  .nota { @apply my-6 rounded-tarjeta border-l-[3px] border-hairline bg-hueso px-5 py-4 text-slate; }
+
+  /* Ficha de datos: filas etiqueta/valor. */
+  .ficha-datos { @apply divide-y divide-hairline border-y border-hairline; }
+  .ficha-datos > div { @apply flex items-baseline justify-between gap-4 py-3; }
+  .ficha-datos dt { @apply text-sm text-slate; }
+  .ficha-datos dd { @apply text-sm font-extrabold text-navy; font-variant-numeric: tabular-nums; }
+
+  /* Campo de formulario. */
+  .campo {
+    @apply w-full rounded-2xl border border-hairline bg-papel px-5 py-3.5 text-navy
+           transition-colors placeholder:text-slate-400 focus-visible:border-azul
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-azul/25;
+  }
+
+  /* -------------------------------------------------------------------------
+     Contenido MDX (guías y blog).
+     ------------------------------------------------------------------------- */
+  .contenido-mdx { @apply max-w-prosa text-slate; }
+  .contenido-mdx > * + * { @apply mt-4; }
+  .contenido-mdx h2 { @apply mt-12 text-h2 font-extrabold text-navy; }
+  .contenido-mdx h3 { @apply mt-8 text-h3 font-extrabold text-navy; }
+  .contenido-mdx a { @apply font-bold text-azul underline underline-offset-2 hover:text-azul-700; }
+  .contenido-mdx ul { @apply list-disc space-y-1 pl-5 marker:text-coral; }
+  .contenido-mdx ol { @apply list-decimal space-y-1 pl-5 marker:font-bold marker:text-coral; }
+  .contenido-mdx strong { @apply font-bold text-navy; }
+  .contenido-mdx blockquote { @apply rounded-tarjeta border-l-[3px] border-coral bg-papel px-5 py-3 text-navy; }
+  .contenido-mdx table { @apply my-6 w-full border-collapse overflow-hidden rounded-tarjeta text-left text-sm; }
+  .contenido-mdx th { @apply border-b border-hairline bg-azul-100 p-3 font-extrabold text-navy; }
+  .contenido-mdx td { @apply border-b border-hairline p-3 align-top; font-variant-numeric: tabular-nums; }
+}

@@ -1,0 +1,506 @@
+---
+import { getCollection } from 'astro:content';
+import { ruta } from '@/lib/ruta';
+import Base from '@/layouts/Base.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import Imagen from '@/components/Imagen.astro';
+import Icono from '@/components/Icono.astro';
+import Sello from '@/components/Sello.astro';
+import Itinerario from '@/components/Itinerario.astro';
+import CtaFinal from '@/components/CtaFinal.astro';
+import { bgArea } from '@/lib/areas';
+import { SITIO } from '@/config/sitio';
+import { HISTORIAS } from '@/config/historias';
+import { ETIQUETA_AREA, ETIQUETA_NIVEL, formatoDuracion } from '@/lib/grados';
+
+const grados = await getCollection('grados');
+const destacados = grados.filter((g) => g.data.destacado).slice(0, 6);
+const total = grados.length;
+
+const organizationLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: SITIO.nombre,
+  legalName: SITIO.entidadLegal,
+  url: SITIO.dominio,
+  logo: new URL('/og/default.png', SITIO.dominio).href,
+  email: SITIO.email,
+  telephone: SITIO.telefono,
+  description: SITIO.descripcion,
+  areaServed: { '@type': 'Country', name: 'España' },
+  address: { '@type': 'PostalAddress', addressLocality: SITIO.ciudadOrigen, addressCountry: 'DK' },
+  knowsAbout: [
+    'Estudiar en Dinamarca',
+    'Universidades danesas',
+    'Grados universitarios en inglés',
+    'Beca SU',
+    'Admisión universitaria en Dinamarca',
+    'Matrícula gratuita para estudiantes de la UE',
+  ],
+  identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: SITIO.cvr },
+};
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITIO.nombre,
+  url: SITIO.dominio,
+  inLanguage: 'es-ES',
+  description: SITIO.descripcion,
+  publisher: { '@type': 'Organization', name: SITIO.entidadLegal },
+};
+
+// Banda amarilla bajo el héroe: los datos que antes vivían sueltos en el héroe,
+// ahora como franja de energía de la marca.
+const franja = [
+  { icono: 'birrete', t: '0 € matrícula', d: 'Estudiantes de la UE' },
+  { icono: 'capas', t: `${total} grados en inglés`, d: 'Opciones para descubrir' },
+  { icono: 'chispa', t: 'Learning by doing', d: 'Proyectos y casos reales' },
+  { icono: 'maletin', t: 'SU ↗', d: 'Ayuda mensual del Estado' },
+] as const;
+
+// Cómo se estudia: los tres rasgos que ya describía el texto de "aprendes
+// haciendo", ahora como lista marcada.
+const aprendizaje = [
+  { t: 'Proyectos y casos reales', d: 'Trabajas sobre preguntas que tienen contexto, decisiones y cambios.' },
+  { t: 'Trabajo en grupo', d: 'Compartes ideas, repartes tareas y aprendes con otras perspectivas.' },
+  { t: 'Prácticas dentro del plan de estudios', d: 'Muchos grados acercan el estudio a una experiencia laboral.' },
+];
+
+// Recorrido del proceso (numerales grandes, no cinco columnas iguales).
+const pasos = [
+  { t: 'Orientación académica', d: 'Revisamos tu perfil y las opciones que encajan contigo.' },
+  { t: 'Solicitudes', d: 'Preparamos el proceso y gestionamos las solicitudes de admisión.' },
+  { t: 'Documentación', d: 'Revisamos requisitos y coordinamos las traducciones cuando son necesarias.' },
+  { t: 'Alojamiento', d: 'Te asesoramos sobre opciones, zonas, precios y plazos.' },
+  { t: 'Llegada a Dinamarca', d: 'Te orientamos con CPR, banco, trabajo de estudiante y solicitud de la SU.' },
+];
+
+// Calendario editorial (fechas como diseño). Contenido factual del itinerario.
+const fechas = [
+  { d: '15 mar', l: 'Solicitud' },
+  { d: 'Primavera', l: 'Documentación' },
+  { d: 'Fin de julio', l: 'Admisión' },
+  { d: 'Agosto', l: 'Empieza el curso' },
+];
+
+// Cita corta para la portada (la historia completa vive en /historias/).
+const acorta = (s: string) => (s.length > 150 ? s.slice(0, s.lastIndexOf(' ', 150)) + '…' : s);
+---
+
+<Base
+  titulo="Estudiar en Dinamarca desde España"
+  descripcion="Grados en inglés, matrícula gratuita para estudiantes de la UE y una forma de estudiar más práctica. Study and Beyond está especializado exclusivamente en Dinamarca y gestiona contigo todo el proceso."
+>
+  <JsonLd slot="head" datos={[organizationLd, websiteLd]} />
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={ruta('/img/dk-vertical-1000.webp')}
+    imagesrcset={`${ruta('/img/dk-vertical-800.webp')} 800w, ${ruta('/img/dk-vertical-1000.webp')} 1000w`}
+    imagesizes="(min-width: 1024px) 34vw, 100vw"
+    fetchpriority="high"
+  />
+
+  <!-- ╌╌ HÉROE · titular monumental + collage con sello ╌╌ -->
+  <section class="contenedor pb-4 pt-12 lg:pb-8 lg:pt-20">
+    <div class="grid gap-12 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:gap-14">
+      <div>
+        <p class="etiqueta text-azul">Estudiar en Dinamarca</p>
+        <h1 class="mt-6 max-w-[13ch] text-monumento text-navy">
+          ¿Has pensado en estudiar tu carrera en <span class="text-coral">Dinamarca?</span>
+        </h1>
+        <p class="mt-7 max-w-prosa text-lg text-slate lg:text-xl">
+          Grados en inglés, matrícula gratuita para estudiantes de la UE y una
+          forma de estudiar mucho más práctica. Study and Beyond está especializado
+          exclusivamente en Dinamarca y gestiona contigo todo el proceso para
+          estudiar aquí.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href={ruta('/grados/')} class="cta">Explorar grados <span aria-hidden="true">→</span></a>
+          <a href={ruta('/servicios/')} class="cta-secundario">Ver cómo funciona</a>
+        </div>
+
+        <p class="mt-8 flex items-start gap-2.5 text-sm text-slate">
+          <Icono nombre="pin" class="mt-0.5 h-[18px] w-[18px] shrink-0 text-coral" />
+          <span>
+            En <strong class="font-bold text-navy">Study &amp; Beyond</strong> estamos
+            especializados exclusivamente en Dinamarca.
+          </span>
+        </p>
+      </div>
+
+      <!-- Collage: foto principal con marco amarillo desplazado, foto pequeña
+           solapada, cartela navy y sello coral girado. -->
+      <div class="relative mx-auto w-full max-w-[30rem] pb-12 pl-10 pr-4 pt-12 sm:pb-16 sm:pl-14 lg:mx-0 lg:max-w-none">
+        <!-- Foto principal con el marco amarillo desplazado por detrás -->
+        <div class="relative ml-auto w-[88%]">
+          <span
+            class="pointer-events-none absolute inset-0 translate-x-3 translate-y-3 rounded-imagen bg-amarillo"
+            aria-hidden="true"
+          ></span>
+          <div class="relative overflow-hidden rounded-imagen">
+            <img
+              src={ruta('/img/dk-vertical-1000.webp')}
+              srcset={`${ruta('/img/dk-vertical-800.webp')} 800w, ${ruta('/img/dk-vertical-1000.webp')} 1000w`}
+              sizes="(min-width: 1024px) 34vw, 86vw"
+              width="1000"
+              height="1250"
+              alt="Nyhavn, el puerto de casas de colores de Copenhague"
+              fetchpriority="high"
+              decoding="async"
+              class="aspect-[4/5] w-full object-cover"
+            />
+          </div>
+
+          <!-- Cartela de ubicación, sobre la esquina de la foto -->
+          <div class="absolute bottom-4 right-4 rounded-2xl bg-navy px-4 py-2.5 text-white shadow-flotante sm:bottom-5 sm:right-5 sm:px-5 sm:py-3">
+            <p class="text-[13px] font-extrabold leading-tight sm:text-sm">Aarhus, DK</p>
+            <p class="text-[11px] text-white/70 sm:text-xs">base de Study &amp; Beyond</p>
+          </div>
+        </div>
+
+        <!-- Foto pequeña solapada abajo a la izquierda -->
+        <div class="absolute bottom-3 left-0 w-[40%] overflow-hidden rounded-2xl ring-[6px] ring-crema sm:bottom-8 sm:w-[46%] sm:ring-8">
+          <img
+            src={ruta('/img/dk-cuadrada-720.webp')}
+            width="720"
+            height="720"
+            alt="Un canal de Copenhague al atardecer"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full object-cover"
+          />
+        </div>
+
+        <!-- Sello -->
+        <Sello class="absolute left-0 top-0 sm:-left-3">
+          Estudia<br />tu camino<br />en Dinamarca
+        </Sello>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ FRANJA AMARILLA · los datos de un vistazo ╌╌ -->
+  <section aria-label="Dinamarca de un vistazo" class="mt-10 bg-amarillo lg:mt-14">
+    <div class="contenedor">
+      <ul class="grid divide-y divide-navy/15 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+        {franja.map((f, i) => (
+          <li
+            class:list={[
+              'flex items-start gap-3 py-5 lg:px-7',
+              i === 0 && 'lg:pl-0',
+              i === franja.length - 1 && 'lg:pr-0',
+              i % 2 === 1 && 'sm:border-l sm:border-navy/15 lg:border-l',
+              i >= 2 && 'sm:border-t sm:border-navy/15 lg:border-t-0',
+            ]}
+          >
+            <Icono nombre={f.icono} class="mt-0.5 h-5 w-5 shrink-0 text-navy" />
+            <div>
+              <p class="dato font-extrabold leading-tight text-navy">{f.t}</p>
+              <p class="mt-0.5 text-sm text-navy/65">{f.d}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ╌╌ 01 · POR QUÉ DINAMARCA ╌╌ -->
+  <section aria-labelledby="porque" class="contenedor ritmo">
+    <p class="etiqueta-suelta text-coral-700">01 / Por qué Dinamarca</p>
+    <div class="mt-6 grid gap-10 lg:grid-cols-[1.45fr_1fr] lg:items-start lg:gap-16">
+      <div>
+        <h2 id="porque" class="reveal max-w-[15ch] text-seccion text-navy">
+          ¿Por qué estudiar en <span class="text-azul">Dinamarca?</span>
+        </h2>
+        <p class="reveal mt-7 max-w-prosa text-lg text-slate">
+          Cuando se piensa en estudiar una carrera en inglés en el extranjero, suelen
+          aparecer Reino Unido, Estados Unidos o Países Bajos. Dinamarca no siempre
+          entra en la lista. Y, sin embargo, tiene algunas diferencias bastante
+          importantes.
+        </p>
+      </div>
+      <figure class="reveal relative">
+        <Imagen src={ruta('/img/dk-cuadrada-1000.webp')} alt="Un canal de Copenhague, Dinamarca" ratio="1/1" />
+      </figure>
+    </div>
+
+    <!-- 0 € y SU: composición tipográfica -->
+    <div class="mt-16 grid items-end gap-6 border-t border-hairline pt-10 lg:grid-cols-[auto_1fr] lg:gap-16">
+      <p class="numeral leading-none text-coral">0&nbsp;€</p>
+      <div class="max-w-prosa lg:pb-3">
+        <p class="etiqueta text-navy">Matrícula · estudiantes de la UE</p>
+        <p class="mt-5 text-lg text-slate">
+          Si eres estudiante de la Unión Europea, la matrícula de los grados públicos
+          tiene coste 0. Puede haber gastos asociados a libros o materiales, pero no
+          una cuota anual de matrícula.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-14 grid items-start gap-6 border-t border-hairline pt-10 lg:grid-cols-[auto_1fr] lg:gap-16">
+      <p class="font-display text-cifra font-extrabold leading-none text-navy">SU <span class="text-coral">↗</span></p>
+      <div class="max-w-prosa">
+        <p class="etiqueta text-navy">Ayuda mensual del Estado danés</p>
+        <p class="mt-5 text-lg text-slate">
+          Los estudiantes europeos que cumplen los requisitos de trabajo pueden
+          solicitar la SU, una ayuda mensual del Estado danés.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ 02 · CÓMO SE ESTUDIA · banda navy ╌╌ -->
+  <section aria-labelledby="aprender" class="bg-navy text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:gap-16">
+        <figure class="relative order-last lg:order-first">
+          <img
+            src={ruta('/img/banner-nyhavn-1200.webp')}
+            srcset={`${ruta('/img/banner-nyhavn-1200.webp')} 1200w, ${ruta('/img/banner-nyhavn-1920.webp')} 1920w`}
+            sizes="(min-width: 1024px) 44vw, 100vw"
+            width="1200"
+            height="800"
+            alt="El puerto de Copenhague, Dinamarca"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/3] w-full rounded-imagen object-cover"
+          />
+          <Sello tono="amarillo" tamano="sm" class="absolute -bottom-6 right-4 sm:right-10">
+            Teoría<br />+ práctica<br />+ equipo
+          </Sello>
+        </figure>
+
+        <div>
+          <p class="etiqueta-suelta text-amarillo">02 / Cómo se estudia</p>
+          <h2 id="aprender" class="reveal mt-6 max-w-[16ch] text-seccion text-white">
+            Aprendes <span class="text-coral">haciendo.</span>
+          </h2>
+          <p class="reveal mt-7 max-w-prosa text-lg text-white/80">
+            Aquí el objetivo no es memorizar apuntes para repetirlos en un examen.
+            Muchos grados trabajan con proyectos, casos reales, trabajos en grupo y
+            prácticas dentro del plan de estudios.
+          </p>
+
+          <ul class="mt-10 divide-y divide-white/15 border-y border-white/15">
+            {aprendizaje.map((a) => (
+              <li class="flex items-start gap-4 py-5">
+                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-coral/20" aria-hidden="true">
+                  <Icono nombre="check" class="h-3.5 w-3.5 text-coral-300" />
+                </span>
+                <div>
+                  <p class="font-extrabold text-white">{a.t}</p>
+                  <p class="mt-1 text-sm text-white/65">{a.d}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ 03 · GRADOS EN INGLÉS ╌╌ -->
+  <section aria-labelledby="grados" class="contenedor ritmo">
+    <p class="etiqueta-suelta text-coral-700">03 / Grados en inglés</p>
+
+    <div class="mt-6 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-2xl">
+        <h2 id="grados" class="reveal text-seccion text-navy">
+          Encuentra el grado <span class="text-azul">adecuado para ti.</span>
+        </h2>
+        <p class="reveal mt-7 max-w-prosa text-lg text-slate">
+          Revisamos tu perfil académico, tus intereses y las opciones disponibles
+          en Dinamarca. A veces la mejor opción es la que ya tenías en mente. Otras
+          veces aparece una que ni sabías que existía.
+        </p>
+      </div>
+
+      <!-- Sello con el catálogo -->
+      <div class="flex shrink-0 items-center gap-5">
+        <span class="flex h-28 w-28 flex-col items-center justify-center rounded-full bg-coral text-white sm:h-32 sm:w-32">
+          <Icono nombre="birrete" class="h-5 w-5" />
+          <span class="dato mt-1 font-display text-3xl font-extrabold leading-none">{total}</span>
+          <span class="mt-1 text-[11px] font-bold leading-tight">grados en inglés</span>
+        </span>
+        <a href={ruta('/grados/')} class="enlace">Ver los grados disponibles <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+
+    <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {destacados.map((g) => (
+        <li class="reveal">
+          <a href={ruta(`/grados/${g.id}/`)} class:list={['tarjeta-color group', bgArea(g.data.area)]}>
+            <span class="pastilla">{ETIQUETA_AREA[g.data.area]}</span>
+            <h3 class="mt-3 text-h3 text-navy">{g.data.nombre_es}</h3>
+            <p class="dato mt-auto pt-6 text-sm text-navy/65">
+              {ETIQUETA_NIVEL[g.data.nivel]} · {formatoDuracion(g.data.duracion_anios)} · {g.data.ects} ECTS
+            </p>
+            <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-extrabold text-azul">
+              Ver grado
+              <span class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ╌╌ 04 · EL PROCESO ╌╌ -->
+  <section aria-labelledby="proceso" class="bg-hueso">
+    <div class="contenedor ritmo">
+      <p class="etiqueta-suelta text-coral-700">04 / El proceso</p>
+      <div class="mt-6 max-w-2xl">
+        <h2 id="proceso" class="reveal text-seccion text-navy">Cómo funciona el proceso</h2>
+        <p class="reveal mt-7 text-lg text-slate">
+          Study and Beyond se ocupa del proceso para que tú puedas centrarte en tomar
+          buenas decisiones. Asesoramiento académico, estrategia de solicitudes,
+          documentación, admisión y orientación práctica antes y después de llegar a
+          Dinamarca.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-start lg:gap-16">
+        <Itinerario pasos={pasos} flechaFinal />
+
+        <figure class="lg:sticky lg:top-28">
+          <img
+            src={ruta('/img/hero-nyhavn-1200.webp')}
+            srcset={`${ruta('/img/hero-nyhavn-1200.webp')} 1200w, ${ruta('/img/hero-nyhavn-1920.webp')} 1920w`}
+            sizes="(min-width: 1024px) 38vw, 100vw"
+            width="1200"
+            height="900"
+            alt="Nyhavn, Copenhague"
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/5] w-full rounded-imagen object-cover"
+          />
+        </figure>
+      </div>
+
+      <a href={ruta('/servicios/')} class="enlace mt-12">Ver el servicio completo <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <!-- ╌╌ FECHAS IMPORTANTES · banda azul ╌╌ -->
+  <section aria-labelledby="cuando" class="bg-azul text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+        <div class="max-w-2xl">
+          <p class="etiqueta text-amarillo">Cuándo</p>
+          <h2 id="cuando" class="mt-5 text-h2 text-white">Fechas importantes</h2>
+          <p class="mt-6 max-w-prosa text-lg text-white/85">
+            El curso empieza en agosto, pero la admisión se prepara meses antes.
+            Cuanto antes sepamos qué quieres estudiar, más margen hay para revisar
+            requisitos y preparar una buena solicitud.
+          </p>
+        </div>
+      </div>
+
+      <ol class="mt-14 grid gap-x-8 gap-y-10 border-t border-white/25 pt-12 sm:grid-cols-2 lg:grid-cols-4">
+        {fechas.map((f, i) => (
+          <li>
+            <span class="fecha-mono text-sm text-white/70">0{i + 1}</span>
+            <p class="mt-2 font-display text-4xl font-extrabold leading-none tracking-[-0.03em] lg:text-5xl">{f.d}</p>
+            <p class="etiqueta-suelta mt-3 text-amarillo">{f.l}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-12 text-sm text-white/75">Las fechas exactas dependen del grado, la universidad y el perfil del estudiante.</p>
+    </div>
+  </section>
+
+  <!-- ╌╌ 05 · POR QUÉ STUDY & BEYOND ╌╌ -->
+  <section aria-labelledby="sb" class="contenedor ritmo">
+    <p class="etiqueta-suelta text-coral-700">05 / Especialistas en Dinamarca</p>
+    <div class="mt-6 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+      <figure class="reveal relative order-last lg:order-first">
+        <!-- Foto real de Aarhus / la fundadora pendiente. Ver PENDIENTE.md. -->
+        <Imagen alt="Aarhus, donde tiene su base Study and Beyond" ratio="4/5" tono="menta" rotulo="Aarhus · Dinamarca" />
+        <Sello tono="amarillo" tamano="sm" class="absolute -right-3 top-6 sm:right-6">
+          base de<br />Study &amp;<br />Beyond
+        </Sello>
+      </figure>
+      <div>
+        <h2 id="sb" class="reveal text-seccion text-navy">Por qué Study &amp; Beyond</h2>
+        <p class="reveal mt-7 text-2xl font-extrabold leading-snug tracking-[-0.02em] text-navy lg:text-3xl">
+          No trabajamos con diez destinos. Trabajamos con <span class="text-coral">uno</span>.
+        </p>
+        <p class="mt-6 max-w-prosa text-lg text-slate">
+          Study and Beyond es una empresa danesa con base en Aarhus y especializada
+          exclusivamente en estudiar en Dinamarca. Conocemos el sistema educativo, el
+          proceso de admisión y los trámites que vienen después porque trabajamos con
+          ellos cada año.
+        </p>
+        <a href={ruta('/sobre-mi/')} class="enlace mt-8">Conocer Study and Beyond <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ PARA FAMILIAS · banda azul pastel ╌╌ -->
+  <section aria-labelledby="familias" class="bg-cielo">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+        <div>
+          <p class="etiqueta text-azul-700">Para familias</p>
+          <h2 id="familias" class="mt-5 text-seccion text-navy">Los datos antes de decidir</h2>
+          <p class="mt-7 max-w-prosa text-lg text-navy/75">
+            Matrícula, presupuesto, alojamiento, trabajo, SU, sanidad y qué ocurre
+            cuando llega a Dinamarca. Hemos reunido la información que normalmente
+            aparece en las primeras conversaciones con las familias.
+          </p>
+          <a href={ruta('/para-familias/')} class="enlace mt-8">Información para familias <span aria-hidden="true">→</span></a>
+        </div>
+
+        <ul class="grid grid-cols-2 gap-3">
+          {['Matrícula', 'SU', 'Alojamiento', 'Sanidad', 'Trabajo', 'Admisión'].map((t) => (
+            <li class="rounded-2xl bg-papel px-5 py-4 text-[15px] font-extrabold text-navy">{t}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ HISTORIAS ╌╌ -->
+  <section aria-labelledby="historias" class="contenedor ritmo">
+    <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+      <div class="max-w-2xl">
+        <p class="etiqueta text-azul">Estudiantes</p>
+        <h2 id="historias" class="mt-5 text-seccion text-navy">Historias de estudiantes</h2>
+        <p class="mt-6 text-lg text-slate">Conoce la experiencia de estudiantes que ya han elegido Dinamarca para estudiar.</p>
+      </div>
+      <a href={ruta('/historias/')} class="enlace">Ver historias <span aria-hidden="true">→</span></a>
+    </div>
+
+    <ul class="mt-12 grid gap-x-8 gap-y-12 sm:grid-cols-3">
+      {HISTORIAS.map((h, i) => (
+        <li class="reveal">
+          <a href={ruta('/historias/')} class="group block">
+            <!-- Retrato real del estudiante pendiente. Ver PENDIENTE.md. -->
+            <Imagen
+              alt={`${h.nombre}, estudiante en Dinamarca`}
+              ratio="4/5"
+              tono={(['cielo', 'mantequilla', 'menta'] as const)[i % 3]}
+              rotulo={h.nombre}
+            />
+            <p class="mt-5 text-h3 text-navy transition-colors group-hover:text-azul">{h.nombre}</p>
+            <p class="dato text-sm text-slate">{h.carrera}{h.ciudad ? ` · ${h.ciudad}` : ''}</p>
+            <p class="mt-3 text-[17px] leading-snug text-navy">«{acorta(h.cita)}»</p>
+            <span class="enlace mt-4 text-sm">Su historia <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ╌╌ CTA FINAL ╌╌ -->
+  <CtaFinal
+    grande
+    titulo="¿Quieres saber qué opciones tienes en Dinamarca?"
+    texto="La primera sesión es gratuita. Revisamos tu situación, qué grados pueden encajar y cómo sería el proceso en tu caso."
+  >
+    <Fragment slot="titulo">¿Quieres saber qué opciones tienes en <span class="text-coral">Dinamarca?</span></Fragment>
+  </CtaFinal>
+</Base>

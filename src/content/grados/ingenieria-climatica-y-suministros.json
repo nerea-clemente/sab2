@@ -1,0 +1,52 @@
+{
+  "nombre_oficial": "Grado en Ingeniería Climática y de Suministros",
+  "nombre_es": "Grado en Ingeniería Climática y de Suministros",
+  "descripcion": "Trabaja en ingeniería del sector del suministro con una base científica en matemáticas, física y química, y un enfoque de digitalización e innovación.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "ciencias-ingenieria",
+  "nivel": "grado",
+  "duracion_anios": 3.5,
+  "ects": 210,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 375,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Química o Física",
+        "horas_minimas": 150,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Ingeniería térmica",
+    "Consultoría de suministros",
+    "Prevención de inundaciones",
+    "Sector público y privado de suministros"
+  ],
+  "masteres_afines": [
+    "Ingeniería de suministros",
+    "Ingeniería energética",
+    "Ciencias sostenibles"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": true
+}

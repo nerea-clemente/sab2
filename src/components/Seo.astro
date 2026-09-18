@@ -1,0 +1,55 @@
+---
+// Metadatos por página, escritos a mano (no generados por plantilla).
+import { SITIO } from '@/config/sitio';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  // Ruta canónica relativa, p. ej. "/grados/". Por defecto la actual.
+  canonical?: string;
+  // Imagen OG relativa a la raíz del sitio.
+  imagenOg?: string;
+  noindex?: boolean;
+  // Tipo Open Graph: 'website' por defecto, 'article' en el blog.
+  tipoOg?: 'website' | 'article';
+}
+
+const { titulo, descripcion, canonical, imagenOg, noindex = false, tipoOg = 'website' } = Astro.props;
+
+// Los canonical/OG deben apuntar SIEMPRE al dominio real, sin el segmento de
+// base del despliegue (p. ej. el /studyandbeyond/ de GitHub Pages).
+const base = import.meta.env.BASE_URL; // '/' en producción, '/studyandbeyond/' en Pages
+let rutaLogica = canonical ?? Astro.url.pathname;
+if (base !== '/' && rutaLogica.startsWith(base)) {
+  rutaLogica = '/' + rutaLogica.slice(base.length);
+}
+const urlCanonica = new URL(rutaLogica, SITIO.dominio).href;
+const og = new URL(imagenOg ?? '/og/default.png', SITIO.dominio).href;
+const tituloCompleto =
+  titulo === SITIO.nombre ? titulo : `${titulo} · ${SITIO.nombre}`;
+
+// Cualquier despliegue que no sea la raíz del dominio real (vista previa de
+// GitHub Pages) va en noindex para no competir con producción.
+const esVistaPrevia = base !== '/';
+const noIndexar = noindex || esVistaPrevia;
+---
+
+<title>{tituloCompleto}</title>
+<meta name="description" content={descripcion} />
+<link rel="canonical" href={urlCanonica} />
+{!noIndexar && <link rel="alternate" hreflang="es-es" href={urlCanonica} />}
+{!noIndexar && <link rel="alternate" hreflang="x-default" href={urlCanonica} />}
+{noIndexar && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:type" content={tipoOg} />
+<meta property="og:site_name" content={SITIO.nombre} />
+<meta property="og:title" content={tituloCompleto} />
+<meta property="og:description" content={descripcion} />
+<meta property="og:url" content={urlCanonica} />
+<meta property="og:image" content={og} />
+<meta property="og:locale" content="es_ES" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={tituloCompleto} />
+<meta name="twitter:description" content={descripcion} />
+<meta name="twitter:image" content={og} />

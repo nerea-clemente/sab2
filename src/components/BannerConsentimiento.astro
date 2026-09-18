@@ -1,0 +1,59 @@
+---
+import { SITIO } from '@/config/sitio';
+const { habilitada, dominio, script } = SITIO.analitica;
+// Solo se renderiza si hay analítica que consentir. Sin analítica, no hay
+// banner: no habría nada que consentir (el sitio no pone cookies).
+---
+{habilitada && (
+  <div
+    id="consentimiento"
+    role="dialog"
+    aria-modal="false"
+    aria-label="Consentimiento de analítica"
+    hidden
+    class="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-tarjeta border border-hairline bg-papel p-5 shadow-flotante"
+  >
+    <p class="text-sm text-navy">
+      Usamos una analítica <strong>sin cookies</strong> para medir visitas de forma
+      agregada. ¿Nos das permiso? Puedes cambiarlo cuando quieras.
+      <a href="/cookies/" class="font-bold text-azul underline underline-offset-2">Más información</a>.
+    </p>
+    <div class="mt-3 flex flex-wrap gap-2">
+      <button type="button" data-consent="accepted" class="cta px-6 py-2.5 text-sm">Aceptar</button>
+      <button type="button" data-consent="rejected" class="cta-secundario px-6 py-2.5 text-sm">Rechazar</button>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ dominio, script }}>
+    (function () {
+      var CLAVE = 'sb-consent';
+      var banner = document.getElementById('consentimiento');
+      function cargarAnalitica() {
+        if (document.getElementById('sb-analitica')) return;
+        var s = document.createElement('script');
+        s.id = 'sb-analitica';
+        s.defer = true;
+        s.setAttribute('data-domain', dominio);
+        s.src = script;
+        document.head.appendChild(s);
+      }
+      var eleccion = null;
+      try { eleccion = localStorage.getItem(CLAVE); } catch (e) {}
+      if (eleccion === 'accepted') {
+        cargarAnalitica();
+      } else if (eleccion !== 'rejected' && banner) {
+        banner.hidden = false;
+      }
+      if (banner) {
+        banner.addEventListener('click', function (ev) {
+          var t = ev.target.closest('[data-consent]');
+          if (!t) return;
+          var valor = t.getAttribute('data-consent');
+          try { localStorage.setItem(CLAVE, valor); } catch (e) {}
+          banner.hidden = true;
+          if (valor === 'accepted') cargarAnalitica();
+        });
+      }
+    })();
+  </script>
+)}

@@ -1,0 +1,56 @@
+{
+  "nombre_oficial": "Grado en Economía y Administración de Empresas",
+  "nombre_es": "Grado en Economía y Administración de Empresas",
+  "descripcion": "Enfoque internacional de la empresa: marketing, ventas, finanzas, macroeconomía, derecho y comportamiento organizacional.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "negocios",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [
+    "Marketing",
+    "Finanzas",
+    "Administración"
+  ],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Economía, historia o historia del mundo contemporáneo",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Empresa multinacional",
+    "Consultoría",
+    "Gestión financiera",
+    "Marketing y administración"
+  ],
+  "masteres_afines": [
+    "Inteligencia y analítica de negocios",
+    "Marketing B2B y logística",
+    "Innovación y emprendimiento"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": true
+}

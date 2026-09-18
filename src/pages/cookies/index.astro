@@ -1,0 +1,45 @@
+---
+import Base from '@/layouts/Base.astro';
+import AvisoRevisionLegal from '@/components/AvisoRevisionLegal.astro';
+---
+
+<Base
+  titulo="Política de cookies"
+  descripcion="Este sitio no usa cookies de publicidad ni de seguimiento. Explicamos qué almacenamos y por qué."
+  noindex={true}
+>
+  <section class="contenedor py-12 lg:py-16">
+    <h1 class="text-titulo text-navy">Política de cookies</h1>
+    <div class="contenido-mdx mt-8">
+      <AvisoRevisionLegal />
+
+      <h2>Nuestra postura</h2>
+      <p>
+        Este sitio está pensado para funcionar <strong>sin cookies de publicidad ni
+        de seguimiento</strong>. No compartimos tu navegación con terceros con fines
+        comerciales.
+      </p>
+
+      <h2>Qué almacenamos</h2>
+      <ul>
+        <li>
+          <strong>Preferencia de consentimiento</strong>: si aceptas o rechazas la
+          analítica, guardamos tu elección en el almacenamiento local de tu
+          navegador para no volver a preguntártelo. No es una cookie de seguimiento
+          y no sale de tu dispositivo.
+        </li>
+        <li>
+          <strong>Analítica respetuosa</strong> (solo si la aceptas): medimos visitas
+          de forma agregada y <strong>sin cookies</strong>, sin identificarte. [Confirmar
+          proveedor, p. ej. Plausible.]
+        </li>
+      </ul>
+
+      <h2>Cómo cambiar tu elección</h2>
+      <p>
+        Puedes revocar o cambiar tu consentimiento en cualquier momento borrando los
+        datos de sitio de tu navegador; volveremos a preguntarte en tu próxima visita.
+      </p>
+    </div>
+  </section>
+</Base>

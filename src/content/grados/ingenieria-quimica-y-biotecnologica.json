@@ -1,0 +1,57 @@
+{
+  "nombre_oficial": "Grado en Ingeniería Química y Biotecnológica",
+  "nombre_es": "Grado en Ingeniería Química y Biotecnológica",
+  "descripcion": "Desarrolla procesos y productos sostenibles: tratamiento del agua, protección del medio ambiente y biotecnología industrial.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "ciencias-ingenieria",
+  "nivel": "grado",
+  "duracion_anios": 3.5,
+  "ects": 210,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 375,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Física",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Química",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Ingeniería de calidad",
+    "Control de procesos",
+    "Industria farmacéutica",
+    "Investigación"
+  ],
+  "masteres_afines": [
+    "Química",
+    "Biotecnología",
+    "Nanociencia"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

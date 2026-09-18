@@ -1,0 +1,32 @@
+---
+// Itinerario vertical: número en píldora azul unido por una línea fina, con el
+// texto al lado. Es la forma única de representar un proceso por pasos en todo
+// el sitio (portada y servicios).
+interface Props {
+  pasos: readonly { t: string; d: string }[];
+  flechaFinal?: boolean; // marca el último paso con ↗ (llegada)
+}
+const { pasos, flechaFinal = false } = Astro.props;
+---
+
+<ol>
+  {pasos.map((p, i) => (
+    <li class="reveal grid grid-cols-[auto_1fr] gap-5 sm:gap-7">
+      <div class="flex flex-col items-center">
+        <span
+          class:list={[
+            'flex h-12 w-12 shrink-0 items-center justify-center rounded-full font-display text-lg font-extrabold sm:h-14 sm:w-14 sm:text-xl',
+            i === pasos.length - 1 ? 'bg-coral text-white' : 'bg-azul text-white',
+          ]}
+        >{i + 1}</span>
+        {i < pasos.length - 1 && <span class="my-2 w-[2px] flex-1 rounded-full bg-azul/20" aria-hidden="true"></span>}
+      </div>
+      <div class:list={['pt-2 sm:pt-3', i < pasos.length - 1 ? 'pb-8' : 'pb-0']}>
+        <h3 class="text-h3 text-navy">
+          {p.t}{flechaFinal && i === pasos.length - 1 ? <span class="text-coral"> ↗</span> : null}
+        </h3>
+        <p class="mt-2 text-slate">{p.d}</p>
+      </div>
+    </li>
+  ))}
+</ol>

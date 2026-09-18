@@ -1,0 +1,119 @@
+---
+import Base from '@/layouts/Base.astro';
+import { ruta } from '@/lib/ruta';
+import CabeceraPagina from '@/components/CabeceraPagina.astro';
+import CtaFinal from '@/components/CtaFinal.astro';
+import { tono } from '@/lib/areas';
+
+const preguntas = [
+  {
+    q: '¿Podrá trabajar?',
+    a: 'Existe un mercado amplio de trabajos de estudiante, pero ningún empleo puede garantizarse. Orientamos sobre búsqueda, proceso y requisitos administrativos.',
+  },
+  {
+    q: '¿Qué es la SU?',
+    a: 'Es una ayuda mensual del Estado danés. Los estudiantes europeos pueden acceder si cumplen las condiciones aplicables, entre ellas los requisitos relacionados con el trabajo.',
+  },
+  {
+    q: '¿En qué idioma estudiará?',
+    a: 'Los programas que presentamos en el buscador se imparten en inglés. No es necesario saber danés para comenzar esos estudios.',
+  },
+  {
+    q: '¿Cómo funciona el alojamiento?',
+    a: 'Depende de la ciudad. Asesoramos sobre residencias, plataformas, zonas, precios y plazos de solicitud.',
+  },
+  {
+    q: '¿Qué pasa cuando llega a Dinamarca?',
+    a: 'Orientamos al estudiante con los principales trámites de llegada: registro, CPR, banco, sanidad, trabajo y SU.',
+  },
+];
+---
+
+<Base
+  titulo="Para familias"
+  descripcion="Qué cuesta, cómo funciona la admisión, dónde vivirá, si puede trabajar, qué es la SU y qué ocurre cuando llega. Las preguntas que conviene resolver antes de decidir."
+>
+  <section class="contenedor pb-4 pt-12 lg:pt-16">
+    <CabeceraPagina
+      etiqueta="Para familias"
+      titulo="Estudiar en Dinamarca: los datos antes de tomar la decisión"
+      lead="Qué cuesta, cómo funciona la admisión, dónde vivirá, si puede trabajar, qué es la SU y qué ocurre cuando llega. Aquí reunimos las preguntas que normalmente hay que resolver antes de decidir."
+    >
+      <Fragment slot="titulo">Estudiar en Dinamarca: los <span class="text-coral">datos</span> antes de decidir</Fragment>
+    </CabeceraPagina>
+  </section>
+
+  <section class="contenedor ritmo">
+    <!-- Estudiar en Dinamarca -->
+    <section aria-labelledby="estudiar">
+      <h2 id="estudiar" class="text-h2 text-navy">Estudiar en Dinamarca</h2>
+      <p class="prosa mt-4 text-lg">
+        Dinamarca permite estudiar numerosos grados en inglés y los estudiantes de la
+        UE no pagan matrícula en los programas públicos. Además, el sistema danés
+        permite combinar los estudios con trabajo a tiempo parcial y, si se cumplen
+        los requisitos, solicitar la SU.
+      </p>
+    </section>
+
+    <!-- Presupuesto -->
+    <section aria-labelledby="presupuesto" class="mt-14">
+      <h2 id="presupuesto" class="text-h2 text-navy">Presupuesto</h2>
+      <p class="prosa mt-4 text-lg">
+        El alojamiento suele ser la partida principal. El resto depende de la ciudad
+        y del estilo de vida. Preferimos trabajar con un presupuesto realista para
+        cada estudiante en lugar de presentar una cifra universal que luego no se
+        parece a su situación.
+      </p>
+      <dl class="ficha-datos mt-8 max-w-xl rounded-tarjeta border-navy/10 bg-cielo px-6 py-2 divide-navy/10">
+        <div><dt class="text-navy/70">Alojamiento (referencia, residencia)</dt><dd>300–550 €/mes</dd></div>
+        <div><dt class="text-navy/70">Matrícula (estudiantes de la UE, grados públicos)</dt><dd>0 €</dd></div>
+        <div><dt class="text-navy/70">Sanidad (una vez completado el registro)</dt><dd>pública</dd></div>
+      </dl>
+      <p class="mt-4 max-w-prosa text-sm text-slate">
+        La referencia de alojamiento corresponde al material actual de la web; la
+        cifra real depende de ciudad, ubicación y tipo de habitación.
+      </p>
+
+      <div class="bloque-condicion mt-7 max-w-prosa bg-papel">
+        <strong>La SU se solicita, no es automática.</strong> Los estudiantes
+        europeos pueden acceder a esta ayuda mensual del Estado danés si cumplen las
+        condiciones aplicables, entre ellas los requisitos relacionados con el
+        trabajo.
+        {' '}<a href={ruta('/estudiar-en-dinamarca/su-beca-estudiantes/')} class="font-bold text-azul underline underline-offset-2">Cómo funciona la SU</a>.
+      </div>
+    </section>
+
+    <!-- Preguntas habituales -->
+    <section aria-labelledby="preguntas" class="mt-16">
+      <h2 id="preguntas" class="text-h2 text-navy">Preguntas habituales</h2>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2">
+        {preguntas.map((p, i) => (
+          <div class:list={['reveal rounded-tarjeta p-6 sm:p-7', tono(i)]}>
+            <h3 class="text-h3 text-navy">{p.q}</h3>
+            <p class="mt-2.5 text-navy/75">{p.a}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </section>
+
+  <!-- Study and Beyond está en Dinamarca -->
+  <section aria-labelledby="danesa" class="bg-menta">
+    <div class="contenedor py-16 lg:py-20">
+      <div class="max-w-3xl">
+        <h2 id="danesa" class="text-h2 text-navy">Study and Beyond está en Dinamarca</h2>
+        <p class="mt-5 max-w-prosa text-lg text-navy/80">
+          Somos una empresa danesa con base en Aarhus y trabajamos exclusivamente con
+          Dinamarca. Esto nos permite especializarnos en un solo sistema educativo y
+          seguir de cerca los procesos que afectan a nuestros estudiantes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="Hablemos con calma"
+    texto="La primera sesión es gratuita y sin compromiso. También para madres y padres con dudas."
+    cta="Reservar una primera sesión"
+  />
+</Base>

@@ -1,0 +1,46 @@
+{
+  "nombre_oficial": "Grado en Tecnología de la Arquitectura y Gestión de la Construcción",
+  "nombre_es": "Grado en Tecnología de la Arquitectura y Gestión de la Construcción",
+  "descripcion": "Diseña, planifica, ejecuta y gestiona proyectos de construcción. El grado se organiza por proyectos, uno por semestre, con herramientas digitales.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "ciencias-ingenieria",
+  "nivel": "grado",
+  "duracion_anios": 3.5,
+  "ects": 210,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 150,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Consultoría arquitectónica",
+    "Firmas de arquitectura",
+    "Diseño de construcciones",
+    "Coordinación de proyectos"
+  ],
+  "masteres_afines": [
+    "Arquitectura",
+    "Construcción"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

@@ -1,0 +1,14 @@
+# build
+dist/
+.astro/
+
+# deps
+node_modules/
+
+# entorno
+.env
+.env.production
+.DS_Store
+
+# netlify
+.netlify/

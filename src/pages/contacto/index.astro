@@ -1,0 +1,106 @@
+---
+import Base from '@/layouts/Base.astro';
+import { ruta } from '@/lib/ruta';
+import Icono from '@/components/Icono.astro';
+import { SITIO } from '@/config/sitio';
+---
+
+<Base
+  titulo="Contacto"
+  descripcion="Reserva tu sesión de asesoramiento gratuita y sin compromiso. Te contamos qué opciones tienes para estudiar un grado en Dinamarca según tu perfil."
+>
+  <section class="contenedor py-12 lg:py-16">
+    <div class="lg:grid lg:grid-cols-[1fr_21rem] lg:gap-14">
+      <div class="min-w-0">
+        <p class="etiqueta text-azul">Primera sesión</p>
+        <h1 class="mt-5 max-w-[16ch] text-titulo text-navy">
+          Cuéntanos qué quieres <span class="text-coral">estudiar</span>
+        </h1>
+        <p class="mt-6 max-w-prosa text-lg text-slate">
+          La primera sesión es gratuita y sin compromiso. Revisamos tu situación, qué
+          opciones pueden encajar en Dinamarca y cuáles serían los siguientes pasos.
+          Los campos con * son obligatorios.
+        </p>
+
+        <!--
+          Formulario gestionado por Netlify Forms (sin backend).
+          data-netlify + input oculto form-name + honeypot antispam.
+        -->
+        <form
+          name="asesoramiento"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action={ruta('/contacto/gracias/')}
+          class="mt-10 grid max-w-xl gap-5"
+        >
+          <input type="hidden" name="form-name" value="asesoramiento" />
+          <p class="hidden">
+            <label>No rellenes esto: <input name="bot-field" /></label>
+          </p>
+
+          <label class="grid gap-1.5">
+            <span class="text-sm font-extrabold text-navy">Nombre *</span>
+            <input required type="text" name="nombre" autocomplete="name" class="campo" />
+          </label>
+
+          <label class="grid gap-1.5">
+            <span class="text-sm font-extrabold text-navy">Correo electrónico *</span>
+            <input required type="email" name="email" autocomplete="email" class="campo" />
+          </label>
+
+          <label class="grid gap-1.5">
+            <span class="text-sm font-extrabold text-navy">Teléfono</span>
+            <input type="tel" name="telefono" autocomplete="tel" class="campo" />
+          </label>
+
+          <fieldset class="grid gap-1.5">
+            <legend class="text-sm font-extrabold text-navy">¿Quién nos escribe?</legend>
+            <div class="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm text-navy">
+              <label class="flex items-center gap-2"><input type="radio" name="perfil" value="estudiante" class="accent-azul" checked /> Estudiante</label>
+              <label class="flex items-center gap-2"><input type="radio" name="perfil" value="familiar" class="accent-azul" /> Madre, padre o familiar</label>
+            </div>
+          </fieldset>
+
+          <label class="grid gap-1.5">
+            <span class="text-sm font-extrabold text-navy">¿En qué te ayudamos?</span>
+            <textarea name="mensaje" rows="4" class="campo"></textarea>
+          </label>
+
+          <!-- Consentimiento: sin premarcar, finalidad explícita. -->
+          <label class="flex items-start gap-3 text-sm text-slate">
+            <input required type="checkbox" name="consentimiento" value="si" class="mt-1 accent-azul" />
+            <span>
+              He leído y acepto la <a href={ruta('/privacidad/')} class="font-bold text-azul underline underline-offset-2">política de privacidad</a>
+              y consiento que {SITIO.entidadLegal} trate mis datos con la única
+              finalidad de responder a esta solicitud de asesoramiento. *
+            </span>
+          </label>
+
+          <div>
+            <button type="submit" class="cta">Enviar solicitud <span aria-hidden="true">→</span></button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Datos de contacto -->
+      <aside class="mt-14 lg:mt-0">
+        <div class="rounded-tarjeta border border-hairline bg-papel p-6 lg:sticky lg:top-28">
+          <h2 class="etiqueta text-azul">Contacto directo</h2>
+          <ul class="mt-5 space-y-3 text-sm font-bold">
+            <li><a class="text-navy hover:text-azul" href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
+            <li><a class="text-navy hover:text-azul" href={`tel:${SITIO.telefonoPlano}`}>{SITIO.telefono}</a></li>
+          </ul>
+          <p class="mt-4 text-xs text-slate">
+            Study and Beyond está en Dinamarca. El número de teléfono es español para
+            facilitar el contacto desde España.
+          </p>
+          <p class="mt-5 flex items-start gap-2 border-t border-hairline pt-4 text-xs text-slate">
+            <Icono nombre="pin" class="mt-px h-4 w-4 shrink-0 text-coral" />
+            <span>{SITIO.entidadLegal} · CVR {SITIO.cvr}</span>
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>

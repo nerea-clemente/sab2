@@ -1,0 +1,20 @@
+---
+import Base from '@/layouts/Base.astro';
+import { ruta } from '@/lib/ruta';
+---
+
+<Base
+  titulo="Universidades en Dinamarca"
+  descripcion="Las universidades danesas donde puedes estudiar tu grado. Estamos preparando las fichas de cada una."
+  noindex={true}
+>
+  <section class="contenedor py-20">
+    <p class="etiqueta text-azul">Universidades</p>
+    <h1 class="mt-5 text-titulo text-navy">Fichas de universidad, en camino</h1>
+    <p class="prosa mt-5 text-lg">
+      Estamos preparando esta sección. Mientras tanto, explora el catálogo
+      completo de grados.
+    </p>
+    <a href={ruta("/grados/")} class="cta mt-8">Explora los grados <span aria-hidden="true">→</span></a>
+  </section>
+</Base>

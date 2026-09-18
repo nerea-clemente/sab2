@@ -1,0 +1,94 @@
+---
+// Itinerario de admisión — elemento firma del sitio.
+// Cinco paradas numeradas unidas por una línea. El 15 de marzo es la parada
+// grande, en coral, y pulsa cuando faltan menos de 60 días. Las fechas van en
+// DM Mono (única aparición de la monoespaciada junto a los datos).
+// `grande` lo agranda para la banda de la portada; por defecto es compacto.
+interface Props {
+  grande?: boolean;
+}
+const { grande = false } = Astro.props;
+
+const hitos = [
+  { etiqueta: 'Cuanto antes', detalle: 'Revisamos tu perfil y opciones', tono: 'normal' },
+  { etiqueta: '15 mar', detalle: 'Fecha clave de solicitud', tono: 'plazo' },
+  { etiqueta: 'Primavera', detalle: 'Documentación y requisitos', tono: 'normal' },
+  { etiqueta: 'Fin de julio', detalle: 'Cartas de admisión', tono: 'normal' },
+  { etiqueta: 'Agosto', detalle: 'Inicio del curso', tono: 'inicio' },
+] as const;
+
+const circulo = (t: string) => {
+  const base = 'flex items-center justify-center rounded-full font-display font-extrabold ring-4 ring-crema';
+  const color =
+    t === 'plazo' ? 'bg-coral text-white'
+    : t === 'inicio' ? 'bg-navy text-white'
+    : 'bg-papel text-navy border border-hairline';
+  const tam =
+    t === 'plazo' ? (grande ? 'h-16 w-16 text-2xl' : 'h-12 w-12 text-base')
+    : (grande ? 'h-12 w-12 text-lg' : 'h-10 w-10 text-sm');
+  return [base, color, tam].join(' ');
+};
+const cajaH = grande ? 'h-16' : 'h-12';
+const lineaTop = grande ? 'top-[30px]' : 'top-[22px]';
+---
+
+<figure class:list={['not-prose', grande ? 'mt-12' : 'my-8']} data-calendario>
+  <figcaption class="mb-8 flex flex-wrap items-center justify-between gap-3">
+    <span class:list={['etiqueta text-azul', grande && 'text-sm']}>Calendario de admisión</span>
+    <span class="fecha-mono rounded-full bg-coral-100 px-4 py-1.5 text-xs font-bold text-coral-700" data-cuenta hidden></span>
+  </figcaption>
+
+  <!-- Escritorio: eje horizontal -->
+  <div class="relative hidden sm:block">
+    <div class:list={['absolute left-[10%] right-[10%] h-[3px] rounded-full bg-navy/10', lineaTop]} aria-hidden="true"></div>
+    <ol class="relative grid grid-cols-5 gap-4 text-center">
+      {hitos.map((h, i) => (
+        <li class="flex flex-col items-center">
+          <div class:list={['flex items-center justify-center', cajaH]}>
+            <span data-punto={h.tono} class={circulo(h.tono)}>{i + 1}</span>
+          </div>
+          <span class:list={['fecha-mono mt-4 font-medium', h.tono === 'plazo' ? 'text-coral-700' : 'text-navy', grande ? 'text-lg sm:text-xl' : 'text-sm']}>{h.etiqueta}</span>
+          <span class:list={['mt-1 text-slate', grande ? 'text-sm sm:text-base' : 'text-xs']}>{h.detalle}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+
+  <!-- Móvil: eje vertical -->
+  <ol class="sm:hidden">
+    {hitos.map((h, i) => (
+      <li class="flex gap-4">
+        <div class="flex flex-col items-center">
+          <span data-punto={h.tono} class={circulo(h.tono)}>{i + 1}</span>
+          {i < hitos.length - 1 && <span class="w-[2px] flex-1 rounded-full bg-navy/10" aria-hidden="true"></span>}
+        </div>
+        <div class="pb-8 pt-2">
+          <span class:list={['fecha-mono block font-medium', h.tono === 'plazo' ? 'text-coral-700' : 'text-navy']}>{h.etiqueta}</span>
+          <span class="text-sm text-slate">{h.detalle}</span>
+        </div>
+      </li>
+    ))}
+  </ol>
+</figure>
+
+<script>
+  // Cuenta atrás al próximo 15 de marzo. Si faltan menos de 60 días, muestra el
+  // aviso y hace pulsar la parada del plazo.
+  document.querySelectorAll('[data-calendario]').forEach((cal) => {
+    const hoy = new Date();
+    let marzo = new Date(hoy.getFullYear(), 2, 15);
+    if (hoy > marzo) marzo = new Date(hoy.getFullYear() + 1, 2, 15);
+    const dias = Math.ceil((marzo.getTime() - hoy.getTime()) / 86400000);
+    if (dias > 0 && dias < 60) {
+      const cuenta = cal.querySelector('[data-cuenta]');
+      if (cuenta instanceof HTMLElement) {
+        cuenta.textContent = `Quedan ${dias} días para el 15 de marzo`;
+        cuenta.hidden = false;
+      }
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        cal.querySelectorAll('[data-punto="plazo"]').forEach((p) => p.classList.add('animate-pulso'));
+      }
+    }
+  });
+</script>

@@ -1,0 +1,77 @@
+---
+import Base from '@/layouts/Base.astro';
+import AvisoRevisionLegal from '@/components/AvisoRevisionLegal.astro';
+import { SITIO } from '@/config/sitio';
+---
+
+<Base
+  titulo="Política de privacidad"
+  descripcion="Cómo trata Study and Beyond ApS los datos personales que recoge a través de studyandbeyond.es, conforme al RGPD."
+  noindex={true}
+>
+  <section class="contenedor py-12 lg:py-16">
+    <h1 class="text-titulo text-navy">Política de privacidad</h1>
+    <div class="contenido-mdx mt-8">
+      <AvisoRevisionLegal />
+
+      <h2>Responsable del tratamiento</h2>
+      <p>
+        <strong>{SITIO.entidadLegal}</strong> (CVR {SITIO.cvr}), con domicilio en
+        {SITIO.domicilio}. Contacto: <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>.
+        Al ser una entidad danesa, la autoridad de control principal es la agencia
+        danesa de protección de datos (<em>Datatilsynet</em>). [Confirmar con
+        criterio legal si procede también la AEPD para usuarios en España.]
+      </p>
+
+      <h2>Qué datos recogemos y con qué finalidad</h2>
+      <ul>
+        <li>
+          <strong>Formulario de contacto</strong>: nombre, correo, teléfono
+          (opcional) y el mensaje. Finalidad: responder a tu solicitud de sesión de
+          asesoramiento. Base jurídica: tu <strong>consentimiento</strong>.
+        </li>
+        <li>
+          <strong>Prestación del servicio</strong> (si contratas): los datos
+          necesarios para gestionar tu admisión y alojamiento. Base jurídica:
+          <strong>ejecución del contrato</strong>.
+        </li>
+      </ul>
+
+      <h2>Acceso a plataformas en tu nombre</h2>
+      <p>
+        Como parte del servicio, y solo con tu consentimiento expreso en el contrato,
+        {SITIO.entidadLegal} puede acceder con tus credenciales a las plataformas de
+        admisión y alojamiento con el único fin de verificar el estado de tus
+        solicitudes. [Detalle a revisar con criterio legal.]
+      </p>
+
+      <h2>Menores de edad</h2>
+      <p>
+        Parte de nuestro público son estudiantes que pueden ser menores de edad. [La
+        base legal y el consentimiento aplicables a menores deben revisarse con
+        criterio jurídico antes de publicar.]
+      </p>
+
+      <h2>Encargados del tratamiento</h2>
+      <ul>
+        <li><strong>Netlify</strong> (alojamiento del sitio y gestión del formulario). Puede implicar transferencia internacional de datos; [confirmar garantías, p. ej. cláusulas contractuales tipo].</li>
+        <li><strong>[Analítica]</strong>: herramienta respetuosa con la privacidad, sin cookies de seguimiento. [Confirmar proveedor.]</li>
+      </ul>
+
+      <h2>Conservación</h2>
+      <p>
+        Conservamos tus datos el tiempo necesario para atender tu solicitud y, si
+        contratas, durante la relación contractual y los plazos legales aplicables.
+        [Concretar plazos con criterio legal.]
+      </p>
+
+      <h2>Tus derechos</h2>
+      <p>
+        Puedes ejercer los derechos de acceso, rectificación, supresión, oposición,
+        limitación y portabilidad escribiendo a
+        <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>. También puedes reclamar
+        ante la autoridad de control competente.
+      </p>
+    </div>
+  </section>
+</Base>

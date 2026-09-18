@@ -1,0 +1,65 @@
+---
+import Base from '@/layouts/Base.astro';
+import AvisoRevisionLegal from '@/components/AvisoRevisionLegal.astro';
+import { SITIO } from '@/config/sitio';
+---
+
+<Base
+  titulo="Aviso legal"
+  descripcion="Información legal del titular del sitio studyandbeyond.es."
+  noindex={true}
+>
+  <section class="contenedor py-12 lg:py-16">
+    <h1 class="text-titulo text-navy">Aviso legal</h1>
+    <div class="contenido-mdx mt-8">
+      <AvisoRevisionLegal />
+
+      <h2>Titular del sitio</h2>
+      <p>
+        Este sitio web (studyandbeyond.es) es titularidad de <strong>{SITIO.entidadLegal}</strong>,
+        empresa danesa con número de registro (CVR) <strong>{SITIO.cvr}</strong> y
+        domicilio en {SITIO.domicilio}.
+      </p>
+      <ul>
+        <li>Correo electrónico: <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
+        <li>Teléfono: {SITIO.telefono}</li>
+        <li>Forma jurídica: [confirmar: ApS danesa]</li>
+      </ul>
+
+      <h2>Objeto</h2>
+      <p>
+        {SITIO.entidadLegal} presta servicios de intermediación, orientación y
+        gestión de trámites para que estudiantes puedan matricularse en
+        universidades de Dinamarca.
+      </p>
+
+      <h2>Condiciones de uso</h2>
+      <p>
+        El acceso a este sitio es gratuito. La información sobre grados, requisitos,
+        plazos y ayudas es orientativa y puede cambiar; no sustituye a la
+        información oficial de las universidades y de las administraciones danesas.
+        Verifica siempre los datos oficiales antes de tomar decisiones.
+      </p>
+
+      <h2>Propiedad intelectual</h2>
+      <p>
+        Los contenidos de este sitio (textos, diseño y elementos gráficos) pertenecen
+        a {SITIO.entidadLegal} salvo indicación en contrario, y no pueden reproducirse
+        sin autorización.
+      </p>
+
+      <h2>Responsabilidad</h2>
+      <p>
+        {SITIO.entidadLegal} no se responsabiliza de las decisiones tomadas a partir
+        de información orientativa que no haya sido verificada en la fuente oficial
+        correspondiente.
+      </p>
+
+      <h2>Legislación aplicable</h2>
+      <p>
+        [Confirmar con criterio legal la ley y jurisdicción aplicables, dado que el
+        titular es una empresa danesa que dirige servicios al mercado español.]
+      </p>
+    </div>
+  </section>
+</Base>

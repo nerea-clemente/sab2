@@ -1,0 +1,57 @@
+{
+  "nombre_oficial": "Grado en Administración y Negocios Globales",
+  "nombre_es": "Grado en Administración y Negocios Globales",
+  "descripcion": "La gama de temas de un ADE típico (marketing, contabilidad, finanzas, organización) con la perspectiva internacional del siglo XXI.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "negocios",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [
+    "Marketing",
+    "Finanzas",
+    "Organización empresarial"
+  ],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Economía, historia o historia del mundo contemporáneo",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": "7 sobre 10",
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Coordinación de marketing",
+    "Analista de mercados",
+    "Recursos humanos",
+    "Analista financiero"
+  ],
+  "masteres_afines": [
+    "Marketing",
+    "Analítica de mercados",
+    "Contabilidad y finanzas",
+    "Innovación empresarial"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

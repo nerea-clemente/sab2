@@ -1,0 +1,24 @@
+---
+// Sello circular girado: el grafismo firma de la marca. Coral con texto blanco
+// o amarillo con texto navy. Se coloca siempre solapando una foto o una
+// composición, nunca suelto en medio del texto.
+interface Props {
+  tono?: 'coral' | 'amarillo';
+  tamano?: 'sm' | 'md';
+  class?: string;
+}
+const { tono = 'coral', tamano = 'md', class: clase = '' } = Astro.props;
+
+const colores = {
+  coral: 'bg-coral text-white',
+  amarillo: 'bg-amarillo text-navy',
+};
+const tamanos = {
+  sm: 'h-24 w-24 px-3 text-[13px]',
+  md: 'h-32 w-32 px-3 text-[13px] sm:h-36 sm:w-36 sm:px-4 sm:text-[15px]',
+};
+---
+
+<span class:list={['sello', colores[tono], tamanos[tamano], clase]}>
+  <slot />
+</span>

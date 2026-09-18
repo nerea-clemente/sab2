@@ -1,0 +1,27 @@
+---
+// Cabecera estándar de página interior: rótulo + título + entradilla, sobre una
+// banda de color suave que separa la cabecera del contenido.
+// El título admite slot para acentuar una palabra en coral.
+interface Props {
+  etiqueta: string;
+  titulo: string;
+  lead?: string;
+  nivel?: 'h1' | 'h2';
+  id?: string;
+  class?: string;
+}
+const { etiqueta, titulo, lead, nivel = 'h1', id, class: clase = '' } = Astro.props;
+const Titulo = nivel;
+---
+
+<div class:list={['max-w-3xl', clase]}>
+  <p class="etiqueta text-azul">{etiqueta}</p>
+  <Titulo
+    id={id}
+    class:list={['mt-5 text-navy', nivel === 'h1' ? 'text-titulo' : 'text-h2']}
+  >
+    <slot name="titulo">{titulo}</slot>
+  </Titulo>
+  {lead && <p class="mt-5 max-w-prosa text-lg text-slate">{lead}</p>}
+  <slot />
+</div>

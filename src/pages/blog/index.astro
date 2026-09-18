@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import { ruta } from '@/lib/ruta';
+import Base from '@/layouts/Base.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.borrador))
+  .sort((a, b) => b.data.fecha.localeCompare(a.data.fecha));
+
+const fechaLarga = (iso: string) =>
+  new Date(iso + 'T00:00:00').toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Base
+  titulo="Blog: todo sobre estudiar en Dinamarca"
+  descripcion="Cómo se estudia, cuánto cuesta, qué es la SU, cómo funciona la admisión y cómo es la vida universitaria en Dinamarca. Información sin convertir cada artículo en un folleto."
+>
+  <section class="contenedor py-12 lg:py-16">
+    <p class="etiqueta text-azul">Guías y artículos</p>
+    <h1 class="mt-5 max-w-[16ch] text-titulo text-navy">Todo sobre estudiar en <span class="text-coral">Dinamarca</span></h1>
+    <p class="mt-6 max-w-prosa text-lg text-slate">
+      Cómo se estudia, cuánto cuesta, qué es la SU, cómo funciona la admisión y cómo
+      es realmente la vida universitaria. Información sobre Dinamarca sin convertir
+      cada artículo en un folleto.
+    </p>
+
+    {posts.length === 0 ? (
+      <p class="mt-10 text-slate">Pronto, los primeros artículos.</p>
+    ) : (
+      <ul class="mt-12 grid gap-4 sm:grid-cols-2">
+        {posts.map((p) => (
+          <li>
+            <a href={ruta(`/blog/${p.id}/`)} class="tarjeta-color group border border-hairline bg-papel">
+              <time datetime={p.data.fecha} class="fecha-mono text-xs text-slate">{fechaLarga(p.data.fecha)}</time>
+              <h2 class="mt-3 text-h3 text-navy">{p.data.titulo}</h2>
+              <p class="mt-2.5 text-sm text-slate">{p.data.descripcion}</p>
+              <span class="mt-auto inline-flex items-center gap-1.5 pt-6 text-sm font-extrabold text-azul">
+                Leer
+                <span class="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">↗</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+  </section>
+</Base>

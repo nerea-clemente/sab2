@@ -1,0 +1,114 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ruta } from '@/lib/ruta';
+import Base from '@/layouts/Base.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import { SITIO } from '@/config/sitio';
+import CtaFinal from '@/components/CtaFinal.astro';
+
+export async function getStaticPaths() {
+  const guias = await getCollection('guias', ({ data }) => !data.borrador);
+  return guias.map((guia) => ({ params: { slug: guia.id }, props: { guia } }));
+}
+
+const { guia } = Astro.props;
+const { Content } = await render(guia);
+const d = guia.data;
+
+const faqJsonLd = d.faq.length > 0
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: d.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.pregunta,
+        acceptedAnswer: { '@type': 'Answer', text: f.respuesta },
+      })),
+    }
+  : null;
+
+// Resto de guías para navegación entre ellas.
+const todas = (await getCollection('guias', ({ data }) => !data.borrador))
+  .sort((a, b) => a.data.orden - b.data.orden);
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Estudiar en Dinamarca', item: `${SITIO.dominio}/estudiar-en-dinamarca/` },
+    { '@type': 'ListItem', position: 2, name: d.titulo, item: `${SITIO.dominio}/estudiar-en-dinamarca/${guia.id}/` },
+  ],
+};
+---
+
+<Base titulo={d.titulo} descripcion={d.descripcion}>
+  {faqJsonLd && <JsonLd slot="head" datos={faqJsonLd} />}
+  <JsonLd slot="head" datos={breadcrumbLd} />
+
+  <article class="contenedor py-10 lg:py-14">
+    <nav aria-label="Migas de pan" class="mb-6 text-sm font-bold text-slate">
+      <a href={ruta("/estudiar-en-dinamarca/")} class="hover:text-navy">Estudiar en Dinamarca</a>
+    </nav>
+
+    <header class="max-w-3xl">
+      <h1 class="text-titulo text-navy">{d.titulo}</h1>
+      <p class="mt-5 max-w-prosa text-lg text-slate">{d.descripcion}</p>
+    </header>
+
+    <div class="mt-10 lg:grid lg:grid-cols-[1fr_17rem] lg:gap-14">
+      <div class="contenido-mdx">
+        <Content />
+
+        {d.faq.length > 0 && (
+          <section aria-labelledby="faq" class="mt-12">
+            <h2 id="faq" class="text-h2 text-navy">Preguntas frecuentes</h2>
+            <dl class="mt-6 space-y-3">
+              {d.faq.map((f) => (
+                <div class="rounded-tarjeta border border-hairline bg-papel p-6">
+                  <dt class="font-extrabold text-navy">{f.pregunta}</dt>
+                  <dd class="mt-1.5 text-slate">{f.respuesta}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
+
+        <p class="mt-10 border-t border-hairline pt-5 text-sm text-slate">
+          Los plazos y requisitos exactos dependen de tu carrera y de tu caso.
+          <a href={ruta('/contacto/')} class="font-bold text-azul underline underline-offset-2">Escríbenos</a>
+          y te damos los datos concretos para ti.
+        </p>
+      </div>
+
+      <!-- Índice lateral de guías -->
+      <aside class="mt-10 lg:mt-0">
+        <nav aria-label="Otras guías" class="lg:sticky lg:top-24">
+          <p class="etiqueta text-azul">Guías</p>
+          <ul class="mt-4 space-y-1 text-sm">
+            {todas.map((g) => (
+              <li>
+                <a
+                  href={ruta(`/estudiar-en-dinamarca/${g.id}/`)}
+                  aria-current={g.id === guia.id ? 'page' : undefined}
+                  class:list={[
+                    'block rounded-xl px-4 py-2.5 font-bold',
+                    g.id === guia.id ? 'bg-azul-100 text-azul' : 'text-slate hover:text-navy',
+                  ]}
+                >{g.data.titulo}</a>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8 rounded-tarjeta bg-navy p-6 text-white">
+            <p class="text-sm text-white/80">¿Dudas con tu caso concreto?</p>
+            <a href={ruta("/contacto/")} class="cta-claro mt-4 w-full px-6 py-3 text-sm">Hablamos <span aria-hidden="true">→</span></a>
+          </div>
+        </nav>
+      </aside>
+    </div>
+  </article>
+
+  <CtaFinal
+    titulo="¿Cómo se aplica esto a tu caso?"
+    texto="La primera sesión es gratuita. Revisamos tu perfil, los requisitos que te afectan y los plazos concretos para ti."
+  />
+</Base>

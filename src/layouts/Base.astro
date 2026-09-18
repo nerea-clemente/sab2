@@ -1,0 +1,72 @@
+---
+import '@/styles/global.css';
+import Seo from '@/components/Seo.astro';
+import Encabezado from '@/components/Encabezado.astro';
+import PieDePagina from '@/components/PieDePagina.astro';
+import BannerConsentimiento from '@/components/BannerConsentimiento.astro';
+import { ruta } from '@/lib/ruta';
+
+// Identidad 2026: una sola familia tipográfica para todo (Plus Jakarta Sans,
+// geométrica-humanista) y DM Mono solo para datos, numerales y fechas.
+const jakarta = ruta('/fonts/plus-jakarta-sans-latin-var.woff2');
+const mono = ruta('/fonts/dm-mono-latin.woff2');
+const fontFaces = `
+@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:200 800;font-display:swap;src:url('${jakarta}') format('woff2');}
+@font-face{font-family:'DM Mono';font-style:normal;font-weight:400 500;font-display:swap;src:url('${mono}') format('woff2');}
+`.trim();
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  canonical?: string;
+  imagenOg?: string;
+  noindex?: boolean;
+  tipoOg?: 'website' | 'article';
+}
+
+const { titulo, descripcion, canonical, imagenOg, noindex, tipoOg } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F7F3EA" />
+    <link rel="icon" href={ruta('/favicon.svg')} type="image/svg+xml" />
+    <link rel="preload" href={jakarta} as="font" type="font/woff2" crossorigin />
+    <style is:inline set:html={fontFaces}></style>
+    <Seo {titulo} {descripcion} {canonical} {imagenOg} {noindex} {tipoOg} />
+    <slot name="head" />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <a href="#contenido" class="saltar-contenido">Saltar al contenido</a>
+    <Encabezado />
+    <main id="contenido" class="flex-1">
+      <slot />
+    </main>
+    <PieDePagina />
+    <BannerConsentimiento />
+    <script is:inline>
+      // Aparición de secciones al entrar en pantalla, una sola vez.
+      // Respeta prefers-reduced-motion (el CSS anula el estado oculto).
+      (function () {
+        var root = document.documentElement;
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce || !('IntersectionObserver' in window)) return;
+        root.classList.add('js');
+        var io = new IntersectionObserver(function (entradas) {
+          entradas.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
+        var reveals = document.querySelectorAll('.reveal');
+        reveals.forEach(function (el) { io.observe(el); });
+        // Red de seguridad: nada queda oculto aunque el observer no dispare.
+        setTimeout(function () {
+          reveals.forEach(function (el) { el.classList.add('visible'); });
+        }, 1400);
+      })();
+    </script>
+  </body>
+</html>

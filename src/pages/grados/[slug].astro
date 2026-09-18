@@ -1,0 +1,179 @@
+---
+import { getCollection } from 'astro:content';
+import { ruta } from '@/lib/ruta';
+import Base from '@/layouts/Base.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import CarrilAdmision from '@/components/CarrilAdmision.astro';
+import { SITIO } from '@/config/sitio';
+import CtaFinal from '@/components/CtaFinal.astro';
+import { bgArea } from '@/lib/areas';
+import {
+  ETIQUETA_AREA, ETIQUETA_NIVEL, formatoDuracion, jsonLdCurso,
+} from '@/lib/grados';
+
+export async function getStaticPaths() {
+  const grados = await getCollection('grados');
+  return grados.map((grado) => ({ params: { slug: grado.id }, props: { grado } }));
+}
+
+const { grado } = Astro.props;
+const d = grado.data;
+
+const ingles = d.requisitos.ingles;
+const filasIngles = [
+  ingles.toefl && ['TOEFL', `mínimo ${ingles.toefl}, con menos de dos años de antigüedad`],
+  ingles.ielts && ['IELTS', `mínimo ${String(ingles.ielts).replace('.', ',')}, con menos de dos años de antigüedad`],
+  ingles.cambridge && ['Cambridge', ingles.cambridge],
+  ingles.exenciones && ['Exenciones', ingles.exenciones],
+].filter(Boolean) as [string, string][];
+
+// Meta description: corta en límite de palabra, sin partir palabras.
+const truncar = (t: string, max = 155) =>
+  t.length <= max ? t : t.slice(0, t.lastIndexOf(' ', max)).trimEnd() + '…';
+const descripcionMeta = truncar(
+  d.descripcion ?? `${d.nombre_es} en Dinamarca: requisitos, duración, ramas y salidas.`,
+);
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Grados', item: `${SITIO.dominio}/grados/` },
+    { '@type': 'ListItem', position: 2, name: d.nombre_es, item: `${SITIO.dominio}/grados/${grado.id}/` },
+  ],
+};
+---
+
+<Base titulo={d.nombre_es} descripcion={descripcionMeta}>
+  <JsonLd slot="head" datos={jsonLdCurso(grado)} />
+  <JsonLd slot="head" datos={breadcrumbLd} />
+
+  <article class="contenedor py-10 lg:py-14">
+    <!-- Migas -->
+    <nav aria-label="Migas de pan" class="mb-6 text-sm font-bold text-slate">
+      <a href={ruta('/grados/')} class="hover:text-navy">Grados</a>
+      <span aria-hidden="true" class="mx-1 text-slate-400">/</span>
+      <a href={ruta(`/grados/?area=${d.area}`)} class="hover:text-navy">{ETIQUETA_AREA[d.area]}</a>
+    </nav>
+
+    <div class="grid gap-10 lg:grid-cols-[1fr_21rem] lg:items-start lg:gap-14">
+      <!-- Columna principal -->
+      <div class="min-w-0">
+        <div class:list={['rounded-tarjeta p-7 lg:p-10', bgArea(d.area)]}>
+          <p class="pastilla">{ETIQUETA_AREA[d.area]}</p>
+          <h1 class="mt-3 text-titulo text-navy">{d.nombre_es}</h1>
+          {d.descripcion && <p class="mt-5 max-w-prosa text-lg text-navy/75">{d.descripcion}</p>}
+          <div class="mt-7 flex flex-wrap items-center gap-2">
+            {[ETIQUETA_NIVEL[d.nivel], formatoDuracion(d.duracion_anios), `${d.ects} ECTS`, d.idioma].map((t) => (
+              <span class="dato rounded-full bg-papel/80 px-4 py-1.5 text-xs font-extrabold text-navy">{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <CarrilAdmision />
+
+        <!-- Requisitos -->
+        <section aria-labelledby="requisitos" class="mt-12">
+          <h2 id="requisitos" class="text-h2 text-navy">Requisitos de acceso</h2>
+
+          <div class="mt-6 overflow-hidden rounded-tarjeta border border-hairline bg-papel">
+            <div class="overflow-x-auto">
+              <table class="w-full border-collapse text-left text-sm">
+                <caption class="sr-only">Requisitos de acceso de {d.nombre_es}</caption>
+                <tbody class="tabular">
+                  <tr class="border-b border-hairline bg-azul-100/60">
+                    <th scope="row" class="w-44 p-4 align-top font-extrabold text-navy">Nivel de inglés</th>
+                    <td class="p-4 text-slate">
+                      <ul class="space-y-1">
+                        {filasIngles.map(([k, v]) => (<li><span class="font-bold text-navy">{k}:</span> {v}</li>))}
+                      </ul>
+                    </td>
+                  </tr>
+                  {d.requisitos.asignaturas.map((asg) => (
+                    <tr class="border-b border-hairline">
+                      <th scope="row" class="p-4 align-top font-extrabold text-navy">{asg.materia}</th>
+                      <td class="p-4 text-slate">
+                        {asg.horas_minimas ? `${asg.horas_minimas} horas mínimo` : 'Requisito previo'}
+                        {asg.antiguedad ? `, ${asg.antiguedad}` : ''}
+                      </td>
+                    </tr>
+                  ))}
+                  {d.requisitos.nota_media_minima && (
+                    <tr class="border-b border-hairline">
+                      <th scope="row" class="p-4 align-top font-extrabold text-navy">Nota media</th>
+                      <td class="p-4 text-slate">{d.requisitos.nota_media_minima}</td>
+                    </tr>
+                  )}
+                  <tr>
+                    <th scope="row" class="p-4 align-top font-extrabold text-navy">Examen de admisión</th>
+                    <td class="p-4 text-slate">{d.requisitos.examen_admision ? 'Sí, forma parte de la selección' : 'No obligatorio'}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Ramas -->
+        {d.ramas_especializacion.length > 0 && (
+          <section aria-labelledby="ramas" class="mt-12">
+            <h2 id="ramas" class="text-h2 text-navy">Ramas de especialización</h2>
+            <ul class="mt-5 flex flex-wrap gap-2">
+              {d.ramas_especializacion.map((r) => (
+                <li class="rounded-full border border-hairline bg-papel px-5 py-2.5 text-sm font-bold text-navy">{r}</li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <!-- Salidas -->
+        {d.salidas_laborales.length > 0 && (
+          <section aria-labelledby="salidas" class="mt-12">
+            <h2 id="salidas" class="text-h2 text-navy">Salidas laborales</h2>
+            <ul class="prosa mt-5 list-disc space-y-1.5 pl-5 marker:text-coral">
+              {d.salidas_laborales.map((s) => (<li>{s}</li>))}
+            </ul>
+          </section>
+        )}
+
+        <!-- Másteres afines -->
+        {d.masteres_afines.length > 0 && (
+          <section aria-labelledby="masteres" class="mt-12">
+            <h2 id="masteres" class="text-h2 text-navy">Continúa con un máster</h2>
+            <p class="prosa mt-4">Áreas de máster relacionadas: {d.masteres_afines.join(', ')}.</p>
+          </section>
+        )}
+      </div>
+
+      <!-- Barra lateral de datos -->
+      <aside class="lg:sticky lg:top-28">
+        <div class="rounded-tarjeta border border-hairline bg-papel p-6">
+          <h2 class="etiqueta text-azul">Datos del grado</h2>
+          <dl class="ficha-datos mt-5">
+            <div><dt>Duración</dt><dd>{formatoDuracion(d.duracion_anios)}</dd></div>
+            <div><dt>Créditos</dt><dd>{d.ects} ECTS</dd></div>
+            <div><dt>Idioma</dt><dd>{d.idioma}</dd></div>
+            <div><dt>Comienzo</dt><dd>{d.comienzo}</dd></div>
+          </dl>
+
+          {d.url_oficial && (
+            <a href={d.url_oficial} rel="noopener" class="cta-secundario mt-6 w-full text-sm">Web oficial</a>
+          )}
+        </div>
+
+        <div class="mt-4 rounded-tarjeta bg-navy p-6 text-white">
+          <p class="text-h3 text-white">¿Encaja contigo?</p>
+          <p class="mt-2 text-sm text-white/75">Lo vemos en una sesión de asesoramiento, sin compromiso.</p>
+          <a href={ruta('/contacto/')} class="cta-claro mt-5 w-full px-6 py-3 text-sm">
+            Reservar sesión <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </article>
+
+  <CtaFinal
+    titulo="¿Es este el grado que encaja contigo?"
+    texto="La primera sesión es gratuita. Revisamos tu perfil, los requisitos de este grado y qué otras opciones podrían encajar."
+  />
+</Base>

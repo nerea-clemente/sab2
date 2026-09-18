@@ -1,0 +1,63 @@
+---
+// Componente único de imagen del sitio.
+// - Con `src`: renderiza <img> con width/height implícitos por aspecto (sin
+//   salto de maquetación), loading lazy salvo `prioridad`.
+// - Sin `src`: superficie pastel de marca con el rótulo en navy (nunca un hueco
+//   gris con "pendiente"). Ver PENDIENTE.md: aquí van fotos reales de Dinamarca
+//   en WebP/AVIF con srcset 640/1280/1920.
+interface Props {
+  src?: string;
+  alt: string;
+  ratio?: '4/5' | '1/1' | '3/2' | '21/9';
+  prioridad?: boolean;
+  rotulo?: string;
+  tono?: 'cielo' | 'menta' | 'melocoton' | 'lavanda' | 'mantequilla' | 'navy';
+  class?: string;
+}
+const {
+  src,
+  alt,
+  ratio = '3/2',
+  prioridad = false,
+  rotulo,
+  tono = 'cielo',
+  class: clase = '',
+} = Astro.props;
+
+const aspecto: Record<string, string> = {
+  '4/5': 'aspect-[4/5]',
+  '1/1': 'aspect-square',
+  '3/2': 'aspect-[3/2]',
+  '21/9': 'aspect-[21/9]',
+};
+const tonos: Record<string, string> = {
+  cielo: 'bg-cielo text-navy',
+  menta: 'bg-menta text-navy',
+  melocoton: 'bg-melocoton text-navy',
+  lavanda: 'bg-lavanda text-navy',
+  mantequilla: 'bg-mantequilla text-navy',
+  navy: 'bg-navy text-white',
+};
+// Luz cálida para que la superficie no sea un plano muerto.
+const luz = 'radial-gradient(circle at 76% 22%, rgba(255,255,255,0.65) 0, transparent 55%)';
+---
+
+{src ? (
+  <img
+    src={src}
+    alt={alt}
+    class:list={['h-full w-full rounded-imagen object-cover', aspecto[ratio], clase]}
+    loading={prioridad ? 'eager' : 'lazy'}
+    decoding={prioridad ? 'sync' : 'async'}
+    fetchpriority={prioridad ? 'high' : 'auto'}
+  />
+) : (
+  <div
+    role="img"
+    aria-label={alt}
+    class:list={['relative flex items-end overflow-hidden rounded-imagen', tonos[tono], aspecto[ratio], clase]}
+  >
+    <span class="pointer-events-none absolute inset-0 opacity-45" aria-hidden="true" style={`background-image:${luz}`}></span>
+    <span class="relative p-6 font-display text-2xl font-extrabold leading-tight tracking-[-0.02em] lg:text-3xl">{rotulo ?? 'Study & Beyond'}</span>
+  </div>
+)}

@@ -1,0 +1,41 @@
+{
+  "nombre_oficial": "Top-up en Desarrollo de Páginas Web",
+  "nombre_es": "Top-up en Desarrollo de Páginas Web",
+  "descripcion": "Completa tu grado universitario en año y medio si ya tienes un AP o un ciclo de formación superior. Construye sistemas web con IDE orientado a objetos, CMS y bases de datos.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "diseno-creativo",
+  "nivel": "top-up",
+  "duracion_anios": 1.5,
+  "ects": 90,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Un AP degree o un CFS en Marketing, Tecnología, Informática, Diseño web o gráfico",
+        "horas_minimas": null,
+        "antiguedad": null
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Desarrollo web front y back",
+    "Bases de datos"
+  ],
+  "masteres_afines": [],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

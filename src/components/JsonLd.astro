@@ -1,0 +1,8 @@
+---
+interface Props {
+  datos: Record<string, unknown> | Record<string, unknown>[];
+}
+const { datos } = Astro.props;
+// set:html con JSON.stringify es seguro: no interpolamos entrada de usuario.
+---
+<script type="application/ld+json" set:html={JSON.stringify(datos)} is:inline />

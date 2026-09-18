@@ -1,0 +1,51 @@
+{
+  "nombre_oficial": "Grado en Administración de Empresas y Sociología",
+  "nombre_es": "Grado en Administración de Empresas y Sociología",
+  "descripcion": "Administración de empresas con el otro pilar en la sociología: cómo los cambios sociales y culturales impactan en los procesos comerciales.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "negocios",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 90,
+      "ielts": 7,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 250,
+        "antiguedad": "cursadas en los últimos 3 años, con una nota mínima de 7"
+      },
+      {
+        "materia": "Economía, historia o historia del mundo contemporáneo",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Dirección de marketing",
+    "Administración",
+    "Recursos humanos"
+  ],
+  "masteres_afines": [
+    "Administración",
+    "Marketing",
+    "Sociología y cultura"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

@@ -1,0 +1,19 @@
+---
+// La página se renombró a /sobre-mi/ (voz en primera persona). Redirección.
+import { ruta } from '@/lib/ruta';
+const destino = ruta('/sobre-mi/');
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <link rel="canonical" href="https://studyandbeyond.es/sobre-mi/" />
+    <meta http-equiv="refresh" content={`0; url=${destino}`} />
+    <title>Sobre nosotros · Study and Beyond</title>
+  </head>
+  <body>
+    <p>Esta página se ha movido a <a href={destino}>Sobre nosotros</a>.</p>
+    <script is:inline set:html={`location.replace(${JSON.stringify(destino)})`}></script>
+  </body>
+</html>

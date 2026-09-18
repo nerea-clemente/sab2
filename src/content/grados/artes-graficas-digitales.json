@@ -1,0 +1,48 @@
+{
+  "nombre_oficial": "Grado en Artes Gráficas Digitales",
+  "nombre_es": "Grado en Artes Gráficas Digitales",
+  "descripcion": "Producción de películas de animación 2D y 3D con base sólida en narración y diseño: modelado, texturizado, iluminación y renderizado para videojuegos y cine.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "diseno-creativo",
+  "nivel": "grado",
+  "duracion_anios": 3.5,
+  "ects": 210,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 375,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Química o Física",
+        "horas_minimas": 150,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Artista 3D",
+    "Modelado y texturizado",
+    "Videojuegos",
+    "Cine de animación"
+  ],
+  "masteres_afines": [],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

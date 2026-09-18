@@ -1,0 +1,22 @@
+---
+import Base from '@/layouts/Base.astro';
+import { ruta } from '@/lib/ruta';
+---
+
+<Base
+  titulo="Solicitud recibida"
+  descripcion="Hemos recibido tu solicitud de sesión de asesoramiento."
+  noindex={true}
+>
+  <section class="contenedor py-24 text-center">
+    <h1 class="text-titulo text-navy">¡Gracias! Hemos recibido tu mensaje</h1>
+    <p class="prosa mx-auto mt-5 text-lg">
+      Te escribiremos pronto al correo que nos has dejado para concretar tu sesión
+      de asesoramiento. Mientras tanto, puedes seguir explorando los grados y las guías.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href={ruta("/grados/")} class="cta">Explora los grados <span aria-hidden="true">→</span></a>
+      <a href={ruta("/estudiar-en-dinamarca/")} class="cta-secundario">Lee las guías</a>
+    </div>
+  </section>
+</Base>

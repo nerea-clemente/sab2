@@ -1,0 +1,50 @@
+{
+  "nombre_oficial": "Grado en Transporte Mercantil Marítimo",
+  "nombre_es": "Grado en Transporte Mercantil Marítimo",
+  "descripcion": "Economía empresarial, transporte marítimo y comercio, con un semestre en Singapur o Texas y experiencia práctica en la industria.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "negocios",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 90,
+      "ielts": 7,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 250,
+        "antiguedad": "cursadas en los últimos 3 años"
+      },
+      {
+        "materia": "Economía, historia o historia del mundo contemporáneo",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Dirección de logística",
+    "Analista de cadena de valor",
+    "Optimización del transporte de mercancías"
+  ],
+  "masteres_afines": [
+    "Transporte y cadena de valor",
+    "Derecho marítimo o mercantil"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

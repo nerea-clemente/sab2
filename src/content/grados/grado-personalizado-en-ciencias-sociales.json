@@ -1,0 +1,51 @@
+{
+  "nombre_oficial": "Grado Personalizado en Ciencias Sociales",
+  "nombre_es": "Grado Personalizado en Ciencias Sociales",
+  "descripcion": "Grado personalizable: solo seis asignaturas obligatorias y el resto lo eliges tú, combinando dos especialidades sociales.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "sociales-humanidades",
+  "nivel": "grado",
+  "duracion_anios": 3,
+  "ects": 180,
+  "idioma": "Inglés",
+  "ramas_especializacion": [
+    "Administración y dirección de empresas",
+    "Negocios y emprendimiento",
+    "Estudios internacionales"
+  ],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años, con una nota mínima de 6"
+      },
+      {
+        "materia": "Economía, historia o historia del mundo contemporáneo",
+        "horas_minimas": 200,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": "7 sobre 10",
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Según las especialidades elegidas"
+  ],
+  "masteres_afines": [
+    "Según las especialidades elegidas"
+  ],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

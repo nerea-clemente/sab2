@@ -1,0 +1,41 @@
+{
+  "nombre_oficial": "Top-up en Marketing y Branding de Moda",
+  "nombre_es": "Top-up en Marketing y Branding de Moda",
+  "descripcion": "Completa tu grado universitario en año y medio si ya tienes un AP o un ciclo de formación superior. Dirige lanzamientos y campañas para la industria textil.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "diseno-creativo",
+  "nivel": "top-up",
+  "duracion_anios": 1.5,
+  "ects": 90,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Un AP degree o un CFS en Marketing, Diseño de moda, Innovación o Branding",
+        "horas_minimas": null,
+        "antiguedad": null
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Campañas de moda",
+    "Branding corporativo"
+  ],
+  "masteres_afines": [],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}

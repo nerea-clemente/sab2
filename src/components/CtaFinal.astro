@@ -1,0 +1,55 @@
+---
+import { ruta } from '@/lib/ruta';
+import Icono from '@/components/Icono.astro';
+
+// Cierre único de todas las páginas: banda navy a sangre con el sello coral
+// girado, titular grande y un solo botón blanco. Sustituye a cualquier caja
+// de conversión suelta.
+interface Props {
+  titulo: string;
+  texto: string;
+  etiqueta?: string;
+  cta?: string;
+  href?: string;
+  grande?: boolean; // portada: escala monumental
+}
+const {
+  titulo,
+  texto,
+  etiqueta = 'Primera sesión',
+  cta = 'Reservar una sesión',
+  href = '/contacto/',
+  grande = false,
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-navy text-white">
+  <!-- Grafismo: círculo amarillo muy tenue saliendo por la esquina. -->
+  <span
+    class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-amarillo/10 lg:h-96 lg:w-96"
+    aria-hidden="true"
+  ></span>
+
+  <div class:list={['contenedor relative', grande ? 'py-20 lg:py-28' : 'py-16 lg:py-24']}>
+    <div class="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-16">
+      <div>
+        <p class="etiqueta text-amarillo">{etiqueta}</p>
+        <h2 class:list={['mt-5 max-w-[17ch] text-white', grande ? 'text-seccion' : 'text-h2']}>
+          <slot name="titulo">{titulo}</slot>
+        </h2>
+        <p class="mt-6 max-w-prosa text-lg text-white/80">{texto}</p>
+      </div>
+
+      <div class="flex flex-col items-start gap-6 lg:items-end">
+        <a href={ruta(href)} class="cta-claro">
+          {cta}
+          <span aria-hidden="true">→</span>
+        </a>
+        <p class="inline-flex items-center gap-2 text-sm text-white/60">
+          <Icono nombre="pin" class="h-4 w-4 text-coral-300" />
+          Study &amp; Beyond está en Aarhus, Dinamarca.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

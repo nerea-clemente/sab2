@@ -1,0 +1,106 @@
+---
+import Base from '@/layouts/Base.astro';
+import Imagen from '@/components/Imagen.astro';
+import { ruta } from '@/lib/ruta';
+import CtaFinal from '@/components/CtaFinal.astro';
+import { SITIO } from '@/config/sitio';
+
+const bloques = [
+  {
+    t: 'Un solo destino',
+    d: 'No trabajamos con una lista de países. Nos centramos en Dinamarca para conocer bien sus universidades, sus programas, sus procesos de admisión y los trámites que afectan a un estudiante cuando llega.',
+  },
+  {
+    t: 'Cómo empezó',
+    d: `${SITIO.nombre} nació en 2022 después de varios años de experiencia directa con el sistema educativo danés. La idea era sencilla: convertir toda esa información dispersa sobre grados, admisiones, alojamiento, trabajo y SU en un proceso claro para otros estudiantes.`,
+  },
+  {
+    t: 'Quién está detrás',
+    d: `Nerea Clemente llegó a ${SITIO.ciudadOrigen} en 2020 para estudiar en Dinamarca. Desde entonces ha estudiado y trabajado en el país y ha desarrollado ${SITIO.nombre} desde ${SITIO.ciudadOrigen}. Su experiencia personal es el origen del proyecto, pero el servicio se basa en algo más importante: especialización, procesos y conocimiento actualizado del sistema danés.`,
+  },
+];
+---
+
+<Base
+  titulo="Sobre Study and Beyond"
+  descripcion="Study and Beyond es una empresa danesa con base en Aarhus dedicada exclusivamente a asesorar a estudiantes que quieren estudiar en Dinamarca."
+>
+  <!-- Cabecera · banda navy con el sello DK -->
+  <section class="bg-navy text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-16">
+        <div>
+          <p class="etiqueta text-amarillo">Sobre Study &amp; Beyond</p>
+          <h1 class="mt-6 max-w-[14ch] text-seccion text-white">
+            Especialistas en estudiar en <span class="text-coral">Dinamarca.</span>
+          </h1>
+          <p class="mt-7 max-w-prosa text-lg text-white/80">
+            {SITIO.nombre} es una empresa danesa con base en {SITIO.ciudadOrigen}
+            dedicada exclusivamente a asesorar a estudiantes que quieren estudiar aquí.
+          </p>
+        </div>
+
+        <div class="flex justify-center lg:justify-end">
+          <span
+            class="flex h-52 w-52 flex-col items-center justify-center rounded-full border border-white/25 sm:h-64 sm:w-64"
+            aria-hidden="true"
+          >
+            <span class="font-display text-6xl font-extrabold tracking-[-0.04em] text-amarillo sm:text-7xl">DK</span>
+            <span class="mt-1 text-sm text-white/70">aarhus</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes somos -->
+  <section class="contenedor ritmo">
+    <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
+      <!-- Retrato pendiente (foto real, nada de banco de imágenes). Ver PENDIENTE.md. -->
+      <div class="lg:sticky lg:top-28">
+        <Imagen
+          alt="Nerea Clemente, fundadora de Study and Beyond, en Aarhus"
+          ratio="4/5"
+          tono="mantequilla"
+          rotulo="Aarhus, Dinamarca"
+        />
+      </div>
+
+      <div>
+        <p class="etiqueta text-azul">Estamos en Dinamarca</p>
+        <h2 class="mt-5 max-w-[16ch] text-seccion text-navy">
+          Conocemos el sistema y lo que viene <span class="text-coral">después.</span>
+        </h2>
+
+        <div class="mt-10 divide-y divide-hairline border-y border-hairline">
+          {bloques.map((b) => (
+            <div class="py-7">
+              <h3 class="text-h3 text-navy">{b.t}</h3>
+              <p class="mt-2.5 max-w-prosa text-slate">{b.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <a href={ruta('/contacto/')} class="cta mt-10">
+          Conocernos en una sesión <span aria-hidden="true">→</span>
+        </a>
+
+        <!-- La empresa -->
+        <section aria-labelledby="empresa" class="mt-12 rounded-tarjeta bg-cielo p-7 lg:p-9">
+          <h2 id="empresa" class="text-h3 text-navy">La empresa</h2>
+          <p class="prosa mt-3 text-sm text-navy/75">
+            {SITIO.entidadLegal} es una empresa registrada en Dinamarca (CVR {SITIO.cvr})
+            con base en {SITIO.ciudadOrigen}.
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="¿Hablamos de tu caso?"
+    texto="La primera sesión es gratuita y sin compromiso. Revisamos tu situación y qué opciones tienes en Dinamarca."
+    cta="Ver cómo funciona el servicio"
+    href="/servicios/"
+  />
+</Base>

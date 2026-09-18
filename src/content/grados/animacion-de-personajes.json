@@ -1,0 +1,37 @@
+{
+  "nombre_oficial": "Grado en Animación de Personajes",
+  "nombre_es": "Grado en Animación de Personajes",
+  "descripcion": "Aprende a dar vida a personajes en 2D y 3D con los principios clásicos y los métodos estilizados de la animación, con práctica en preproducción y producción.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "diseno-creativo",
+  "nivel": "grado",
+  "duracion_anios": 3.5,
+  "ects": 210,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [],
+    "nota_media_minima": null,
+    "examen_admision": true
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Dirección de películas de animación",
+    "Dirección de arte",
+    "Diseño de personajes 2D/3D",
+    "Animación para cine, series o videojuegos"
+  ],
+  "masteres_afines": [],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": true
+}

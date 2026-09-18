@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import BuscadorGrados from '@/components/BuscadorGrados.tsx';
+import JsonLd from '@/components/JsonLd.astro';
+import Icono from '@/components/Icono.astro';
+import { aIndice } from '@/lib/grados';
+import { SITIO } from '@/config/sitio';
+
+const grados = await getCollection('grados');
+const indice = grados
+  .map(aIndice)
+  .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+
+// JSON-LD: lista de cursos.
+const itemList = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Grados en Dinamarca',
+  numberOfItems: indice.length,
+  itemListElement: indice.map((g, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${SITIO.dominio}${g.url}`,
+    name: g.nombre,
+  })),
+};
+---
+
+<Base
+  titulo="Grados en Dinamarca en inglés"
+  descripcion={`Busca entre ${indice.length} grados universitarios en Dinamarca en inglés: filtra por área y nivel, con requisitos, duración y salidas de cada uno.`}
+>
+  <JsonLd slot="head" datos={itemList} />
+
+  <!-- Cabecera en banda azul pastel con el sello del catálogo -->
+  <section class="bg-cielo">
+    <div class="contenedor py-14 lg:py-20">
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+        <div class="max-w-3xl">
+          <p class="etiqueta text-azul-700">Grados en inglés</p>
+          <h1 class="mt-5 max-w-[14ch] text-seccion text-navy">
+            ¿Qué puedes estudiar en <span class="text-coral">Dinamarca?</span>
+          </h1>
+          <p class="mt-7 max-w-prosa text-lg text-navy/75">
+            Explora los grados disponibles por área y nivel. Cada ficha reúne la
+            información clave para empezar: contenido, duración, ECTS y requisitos de
+            inglés, con la fecha de la última verificación.
+          </p>
+        </div>
+
+        <span class="flex h-36 w-36 shrink-0 flex-col items-center justify-center rounded-full bg-coral text-white sm:h-44 sm:w-44">
+          <Icono nombre="birrete" class="h-6 w-6" />
+          <span class="dato mt-1.5 font-display text-4xl font-extrabold leading-none sm:text-5xl">{indice.length}</span>
+          <span class="mt-1.5 text-xs font-bold leading-tight">grados en inglés</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contenedor py-12 lg:py-16">
+    <BuscadorGrados grados={indice} client:load />
+  </section>
+</Base>

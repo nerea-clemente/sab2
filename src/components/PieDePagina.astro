@@ -1,0 +1,59 @@
+---
+import { NAV, NAV_PIE, SITIO } from '@/config/sitio';
+import { ruta } from '@/lib/ruta';
+import Marca from '@/components/Marca.astro';
+import Icono from '@/components/Icono.astro';
+
+const anio = 2026; // Se actualiza en build; evita depender de Date en SSG.
+---
+
+<footer class="bg-navy text-white">
+  <div class="contenedor grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-10 lg:py-20">
+    <div>
+      <Marca claro />
+      <p class="mt-5 max-w-xs text-[15px] text-white/70">
+        Especialistas en estudiar en Dinamarca.
+      </p>
+      <p class="mt-5 inline-flex items-center gap-2 text-sm text-white/60">
+        <Icono nombre="pin" class="h-4 w-4 text-amarillo" />
+        {SITIO.ciudadOrigen}, Dinamarca
+      </p>
+    </div>
+
+    <nav aria-label="Pie" class="text-[15px]">
+      <p class="etiqueta-suelta text-amarillo">Navegación</p>
+      <ul class="mt-4 space-y-2.5">
+        {[...NAV, ...NAV_PIE].map((item) => (
+          <li><a class="text-white/75 transition-colors hover:text-white" href={ruta(item.href)}>{item.texto}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="text-[15px]">
+      <p class="etiqueta-suelta text-amarillo">Contacto</p>
+      <ul class="mt-4 space-y-2.5 text-white/75">
+        <li><a class="transition-colors hover:text-white" href={`tel:${SITIO.telefonoPlano}`}>{SITIO.telefono}</a></li>
+        <li><a class="transition-colors hover:text-white" href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
+      </ul>
+      <a href={ruta('/contacto/')} class="cta-claro mt-6 px-6 py-3 text-[15px]">
+        Primera sesión <span aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="text-[15px]">
+      <p class="etiqueta-suelta text-amarillo">Legal</p>
+      <ul class="mt-4 space-y-2.5 text-white/75">
+        <li><a class="transition-colors hover:text-white" href={ruta('/aviso-legal/')}>Aviso legal</a></li>
+        <li><a class="transition-colors hover:text-white" href={ruta('/privacidad/')}>Privacidad</a></li>
+        <li><a class="transition-colors hover:text-white" href={ruta('/cookies/')}>Cookies</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="contenedor flex flex-col gap-1 py-6 text-xs text-white/60">
+      <p>© {anio} {SITIO.entidadLegal} · CVR {SITIO.cvr}</p>
+      <p>{SITIO.entidadLegal} · Empresa danesa con base en {SITIO.ciudadOrigen}.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,41 @@
+{
+  "nombre_oficial": "Grado AP en Diseño Multimedia",
+  "nombre_es": "Grado AP en Diseño Multimedia",
+  "descripcion": "Título AP (equivale a los dos primeros años de grado) centrado en diseño de imágenes y programación. Continúa con un top-up de desarrollo web o de conceptos digitales.",
+  "universidad": null,
+  "ciudad": null,
+  "area": "diseno-creativo",
+  "nivel": "profesionsbachelor",
+  "duracion_anios": 2,
+  "ects": 120,
+  "idioma": "Inglés",
+  "ramas_especializacion": [],
+  "requisitos": {
+    "ingles": {
+      "toefl": 83,
+      "ielts": 6.5,
+      "cambridge": "CAE (A, B o C) o FCE (A)",
+      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+    },
+    "asignaturas": [
+      {
+        "materia": "Matemáticas",
+        "horas_minimas": 125,
+        "antiguedad": "cursadas en los últimos 3 años"
+      }
+    ],
+    "nota_media_minima": null,
+    "examen_admision": false
+  },
+  "cuota_admision": null,
+  "comienzo": "Agosto",
+  "plazo_solicitud": null,
+  "salidas_laborales": [
+    "Diseño digital",
+    "Desarrollo web"
+  ],
+  "masteres_afines": [],
+  "url_oficial": null,
+  "ultima_verificacion": "Curso 2022-2023",
+  "destacado": false
+}
