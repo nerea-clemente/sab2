@@ -1,41 +1,70 @@
 {
-  "nombre_oficial": "Grado AP en Diseño Multimedia",
-  "nombre_es": "Grado AP en Diseño Multimedia",
-  "descripcion": "Título AP (equivale a los dos primeros años de grado) centrado en diseño de imágenes y programación. Continúa con un top-up de desarrollo web o de conceptos digitales.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "AP Degree en Multimedia Design",
+  "descripcion": "Aprende a diseñar y desarrollar experiencias digitales combinando UX, diseño visual, contenido, programación frontend y comunicación.",
   "area": "diseno-creativo",
-  "nivel": "profesionsbachelor",
+  "area_documento": "MODA, DISEÑO Y NEGOCIO",
+  "nivel": "ap",
+  "titulacion": "AP Degree",
   "duracion_anios": 2,
   "ects": 120,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "UX y diseño de interfaces",
+    "Frontend development",
+    "Diseño visual",
+    "Creación de contenido",
+    "Programación",
+    "Comunicación digital"
+  ],
+  "intro_areas": "El programa combina diseño, tecnología y comunicación para crear soluciones digitales orientadas a usuarios.",
+  "como_es": "Trabajarás con proyectos individuales y en grupo, casos reales y herramientas utilizadas en la industria. El programa en inglés tiene un peso importante de UX y frontend development.",
+  "practicas": "Incluye prácticas obligatorias como parte del programa y trabajo con empresas y organizaciones.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación y evaluación"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
-      "toefl": 83,
-      "ielts": 6.5,
-      "cambridge": "CAE (A, B o C) o FCE (A)",
-      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+      "toefl": null,
+      "ielts": null,
+      "cambridge": null,
+      "exenciones": null
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 125,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Examen de admisión",
+        "condicion": "No obligatorio; la selección puede valorar documentación adicional"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Diseño digital",
-    "Desarrollo web"
+    "UX designer",
+    "Frontend developer",
+    "Digital designer",
+    "Web developer",
+    "Digital communication specialist",
+    "Content / social media specialist"
   ],
-  "masteres_afines": [],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Tras el AP Degree puedes continuar con un Bachelor Top-Up compatible. Una opción directa en inglés es Digital Concept Development, sujeto a los requisitos de admisión vigentes.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: pueden aplicarse tasas de matrícula.",
   "destacado": false
 }

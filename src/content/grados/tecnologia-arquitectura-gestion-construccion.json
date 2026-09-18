@@ -1,15 +1,48 @@
 {
-  "nombre_oficial": "Grado en Tecnología de la Arquitectura y Gestión de la Construcción",
-  "nombre_es": "Grado en Tecnología de la Arquitectura y Gestión de la Construcción",
-  "descripcion": "Diseña, planifica, ejecuta y gestiona proyectos de construcción. El grado se organiza por proyectos, uno por semestre, con herramientas digitales.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Tecnología Arquitectónica y Gestión de la Construcción",
+  "descripcion": "Aprende a diseñar, planificar y coordinar proyectos de construcción desde el concepto hasta la ejecución.",
   "area": "ciencias-ingenieria",
-  "nivel": "grado",
+  "area_documento": "ARQUITECTURA Y CONSTRUCCIÓN",
+  "nivel": "grado-profesional",
+  "titulacion": "Grado profesional",
   "duracion_anios": 3.5,
   "ects": 210,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / febrero",
+  "areas_estudio": [
+    "Construcción",
+    "BIM",
+    "Materiales",
+    "Estructuras",
+    "Planificación",
+    "Gestión de proyectos",
+    "Sostenibilidad"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Aprendizaje basado en proyectos con herramientas digitales y problemas reales de construcción.",
+  "practicas": "Incluye 20 semanas de prácticas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / febrero",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,30 +50,21 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 150,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "75 horas mínimo, cursadas durante Bachillerato"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Consultoría arquitectónica",
-    "Firmas de arquitectura",
-    "Diseño de construcciones",
-    "Coordinación de proyectos"
+    "Architectural technologist",
+    "Construction manager",
+    "BIM coordinator",
+    "Project manager",
+    "Site manager"
   ],
-  "masteres_afines": [
-    "Arquitectura",
-    "Construcción"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Construction Management, Building Technology y Sustainable Construction.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

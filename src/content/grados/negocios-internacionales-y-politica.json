@@ -1,52 +1,69 @@
 {
-  "nombre_oficial": "Grado en Negocios Internacionales y Política",
   "nombre_es": "Grado en Negocios Internacionales y Política",
-  "descripcion": "Administración de empresas y negocios internacionales con el otro pilar en la política: cómo la política afecta a mercados y empresas.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Analiza cómo empresas, gobiernos e instituciones internacionales se influyen entre sí y cómo la política condiciona los mercados.",
   "area": "negocios",
+  "area_documento": "EMPRESA, POLÍTICA Y RELACIONES INTERNACIONALES",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Política",
+    "Economía",
+    "International business",
+    "Regulación",
+    "Comercio",
+    "Métodos de investigación"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina teoría económica y política, análisis de datos y casos internacionales.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 90,
-      "ielts": 7,
+      "ielts": 7.0,
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 250,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Marketing",
-    "Investigación de mercados",
-    "Exportación",
-    "Dirección"
+    "Consultoría",
+    "Public affairs",
+    "International business",
+    "Análisis político-económico",
+    "Regulación"
   ],
-  "masteres_afines": [
-    "Administración",
-    "Marketing",
-    "Política nacional o internacional"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "International Business and Politics, International Business, Economics y Public Policy.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

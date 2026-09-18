@@ -1,18 +1,47 @@
 {
-  "nombre_oficial": "Grado en Economía y Administración de Empresas",
   "nombre_es": "Grado en Economía y Administración de Empresas",
-  "descripcion": "Enfoque internacional de la empresa: marketing, ventas, finanzas, macroeconomía, derecho y comportamiento organizacional.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Construye una base amplia en economía, finanzas, marketing, estrategia y organización para comprender cómo funcionan las empresas.",
   "area": "negocios",
+  "area_documento": "EMPRESA Y ECONOMÍA",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
-    "Marketing",
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Micro y macroeconomía",
+    "Contabilidad",
     "Finanzas",
-    "Administración"
+    "Marketing",
+    "Organización",
+    "Estrategia",
+    "Métodos cuantitativos"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina teoría empresarial, ejercicios cuantitativos, casos y trabajo en grupo.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -21,36 +50,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "200 horas mínimo, cursadas durante Bachillerato"
       },
       {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Economía, historia o historia del mundo contemporáneo",
+        "condicion": "200 horas mínimo, cursadas en los últimos 3 años"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Empresa multinacional",
     "Consultoría",
-    "Gestión financiera",
-    "Marketing y administración"
+    "Marketing y ventas",
+    "Finanzas",
+    "Business development",
+    "Gestión de proyectos"
   ],
-  "masteres_afines": [
-    "Inteligencia y analítica de negocios",
-    "Marketing B2B y logística",
-    "Innovación y emprendimiento"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Business Administration, Finance, Marketing, Strategy, International Business y Management.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": true
 }

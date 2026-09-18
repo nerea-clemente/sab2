@@ -40,8 +40,9 @@ public/
 - **Tokens de marca**: `tailwind.config.mjs` + `src/styles/global.css`.
 - **Logotipo**: `src/lib/marca.ts` (trazado del isotipo) y `Marca.astro`.
 - **Un grado**: un JSON en `src/content/grados/`. El esquema está en
-  `src/content.config.ts`; lo que falte se renderiza como «Por confirmar»,
-  nunca se inventa.
+  `src/content.config.ts`. Los datos salen del documento maestro de grados;
+  las fichas públicas no incluyen universidad, ciudad o campus, cuota de
+  admisión, enlaces oficiales ni fecha de revisión, por decisión editorial.
 - **Una guía o un artículo**: MDX en `src/content/guias/` o `src/content/blog/`.
 
 ## Despliegue

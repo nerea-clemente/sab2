@@ -1,18 +1,46 @@
 {
-  "nombre_oficial": "Grado Personalizado en Ciencias Sociales",
-  "nombre_es": "Grado Personalizado en Ciencias Sociales",
-  "descripcion": "Grado personalizable: solo seis asignaturas obligatorias y el resto lo eliges tú, combinando dos especialidades sociales.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado Internacional en Ciencias Sociales",
+  "descripcion": "Estudia economía, política y relaciones sociales desde una perspectiva internacional e interdisciplinar.",
   "area": "sociales-humanidades",
+  "area_documento": "CIENCIAS SOCIALES",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
-    "Administración y dirección de empresas",
-    "Negocios y emprendimiento",
-    "Estudios internacionales"
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "Economía",
+    "Política",
+    "Sociología",
+    "Business",
+    "International Studies",
+    "Métodos de investigación"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Gran parte del aprendizaje se organiza alrededor de proyectos interdisciplinarios en grupo.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -21,31 +49,22 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años, con una nota mínima de 6"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": "7 sobre 10",
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Según las especialidades elegidas"
+    "Consultoría",
+    "Business",
+    "Policy",
+    "Organizaciones internacionales",
+    "Research",
+    "Project management"
   ],
-  "masteres_afines": [
-    "Según las especialidades elegidas"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Business, International Studies, Social Sciences y áreas relacionadas.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

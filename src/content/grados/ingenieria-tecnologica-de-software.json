@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado en Ingeniería Tecnológica de Software",
-  "nombre_es": "Grado en Ingeniería Tecnológica de Software",
-  "descripcion": "Programación y desarrollo de sistemas, con conocimientos de ingeniería de datos, medios interactivos y tecnologías de internet.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Ingeniería de Software",
+  "descripcion": "Aprende a diseñar, desarrollar, probar y mantener sistemas de software complejos.",
   "area": "ciencias-ingenieria",
+  "area_documento": "CIENCIAS E INGENIERÍA",
   "nivel": "grado",
-  "duracion_anios": 3.5,
-  "ects": 210,
+  "titulacion": "Grado",
+  "duracion_anios": 3,
+  "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Programación",
+    "Arquitectura de software",
+    "Algoritmos",
+    "Bases de datos",
+    "Testing",
+    "Sistemas y AI"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Los proyectos tienen un peso importante y permiten aplicar la teoría a problemas de software reales.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,35 +49,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 375,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       },
       {
-        "materia": "Física",
-        "horas_minimas": 150,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Física / Química",
+        "condicion": "Consultar equivalencia científica específica"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Desarrollo de software",
-    "Telecomunicaciones",
-    "Dirección de proyectos de software",
-    "Sector energético"
+    "Software engineer",
+    "Software developer",
+    "Systems developer",
+    "Software architect",
+    "IT consultant"
   ],
-  "masteres_afines": [
-    "Ingeniería tecnológica",
-    "Ingeniería energética"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Software Engineering, Computer Science, AI y Data Science.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: pueden aplicarse tasas de matrícula.",
   "destacado": false
 }

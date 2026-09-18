@@ -1,25 +1,26 @@
 {
-  "nombre_es": "Grado en Ingeniería Mecatrónica",
-  "descripcion": "Desarrolla una base sólida de ingeniería y aplica conocimientos técnicos al diseño y desarrollo de sistemas y productos.",
+  "nombre_es": "Grado en Ingeniería de Tecnología Interactiva",
+  "descripcion": "Combina software, interacción persona-ordenador y diseño para crear tecnologías y experiencias digitales interactivas.",
   "area": "ciencias-ingenieria",
   "area_documento": "CIENCIAS E INGENIERÍA",
-  "nivel": "grado-ingenieria",
-  "titulacion": "Grado de Ingeniería",
-  "duracion_anios": 3.5,
-  "ects": 210,
+  "nivel": "grado",
+  "titulacion": "Grado",
+  "duracion_anios": 3,
+  "ects": 180,
   "idioma": "Inglés",
   "comienzo": "Agosto / septiembre",
   "areas_estudio": [
-    "Mecánica",
-    "Electrónica",
     "Programación",
-    "Control",
-    "Automatización",
-    "Sistemas embebidos"
+    "HCI",
+    "UX/UI",
+    "XR",
+    "Videojuegos",
+    "Sistemas digitales",
+    "Diseño centrado en usuario"
   ],
   "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
-  "como_es": "La enseñanza se estructura alrededor de proyectos semestrales que combinan teoría, laboratorio y problemas próximos a la industria.",
-  "practicas": "Incluye aproximadamente medio año de prácticas obligatorias en empresa.",
+  "como_es": "Aprenderás mediante proyectos donde ingeniería y creatividad se encuentran.",
+  "practicas": null,
   "calendario": [
     {
       "cuando": "Cuanto antes",
@@ -56,18 +57,18 @@
       },
       {
         "requisito": "Física / Química",
-        "condicion": "Física: 200 horas mínimo · Química: 75 horas mínimo, o asignaturas equivalentes aceptadas"
+        "condicion": "Física: 200 horas mínimo, o formación equivalente en Geociencias"
       }
     ]
   },
   "salidas_laborales": [
-    "Mechatronics engineer",
-    "Robotics",
-    "Automation",
-    "Product development",
-    "Control systems"
+    "Frontend developer",
+    "UX engineer",
+    "Interaction designer",
+    "Game developer",
+    "XR developer"
   ],
-  "masteres": "MSc in Engineering en la misma disciplina y otras especializaciones relacionadas.",
-  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: pueden aplicarse tasas de matrícula.",
-  "destacado": true
+  "masteres": "Interactive Technology, Software Engineering, HCI y Computer Science.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
+  "destacado": false
 }

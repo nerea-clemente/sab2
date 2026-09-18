@@ -1,25 +1,24 @@
 {
-  "nombre_es": "Grado Internacional en Ciencias Naturales",
-  "descripcion": "Explora problemas científicos de medio ambiente, salud, medicina y tecnología mediante una formación interdisciplinar en ciencias naturales.",
-  "area": "ciencias-ingenieria",
-  "area_documento": "CIENCIAS E INGENIERÍA",
+  "nombre_es": "Grado en Administración de Empresas Internacional e Idiomas Extranjeros",
+  "descripcion": "Combina administración de empresas, comunicación intercultural e idiomas para trabajar en entornos internacionales.",
+  "area": "negocios",
+  "area_documento": "EMPRESA E IDIOMAS",
   "nivel": "grado",
   "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
-  "idioma": "Inglés",
-  "comienzo": "Agosto",
+  "idioma": "Multilingüe",
+  "comienzo": "Agosto / septiembre",
   "areas_estudio": [
-    "Biología",
-    "Química",
-    "Física",
-    "Matemáticas",
-    "Computer Science",
-    "Métodos científicos",
-    "Proyectos"
+    "Administración de empresas",
+    "Economía",
+    "Marketing",
+    "Organización",
+    "Idiomas",
+    "Comunicación intercultural"
   ],
   "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
-  "como_es": "El aprendizaje por proyectos es central. Trabajarás en grupos para investigar problemas científicos usando experimentos, análisis y modelos.",
+  "como_es": "Programa interdisciplinar que combina negocio, lengua y cultura en un entorno internacional.",
   "practicas": null,
   "calendario": [
     {
@@ -39,7 +38,7 @@
       "que": "Resolución de admisión"
     },
     {
-      "cuando": "Agosto",
+      "cuando": "Agosto / septiembre",
       "que": "Inicio del curso"
     }
   ],
@@ -58,13 +57,13 @@
     ]
   },
   "salidas_laborales": [
-    "Investigación",
-    "Biotecnología",
-    "Medio ambiente",
-    "Data/technology",
-    "Laboratorio y desarrollo científico"
+    "International business",
+    "Marketing internacional",
+    "Exportación y ventas",
+    "Comunicación",
+    "Gestión de proyectos"
   ],
-  "masteres": "Especialización posterior y másteres en ciencias naturales según las materias elegidas.",
+  "masteres": "International Business, Business Administration, Marketing y Communication.",
   "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

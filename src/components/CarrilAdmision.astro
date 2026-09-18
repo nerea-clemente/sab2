@@ -1,21 +1,21 @@
 ---
 // Itinerario de admisión — elemento firma del sitio.
-// Cinco paradas numeradas unidas por una línea. El 15 de marzo es la parada
+// Las paradas salen del calendario de cada programa. La del 15 de marzo es la
 // grande, en coral, y pulsa cuando faltan menos de 60 días. Las fechas van en
 // DM Mono (única aparición de la monoespaciada junto a los datos).
-// `grande` lo agranda para la banda de la portada; por defecto es compacto.
+interface Hito {
+  cuando: string;
+  que: string;
+}
 interface Props {
+  hitos: readonly Hito[];
   grande?: boolean;
 }
-const { grande = false } = Astro.props;
+const { hitos, grande = false } = Astro.props;
 
-const hitos = [
-  { etiqueta: 'Cuanto antes', detalle: 'Revisamos tu perfil y opciones', tono: 'normal' },
-  { etiqueta: '15 mar', detalle: 'Fecha clave de solicitud', tono: 'plazo' },
-  { etiqueta: 'Primavera', detalle: 'Documentación y requisitos', tono: 'normal' },
-  { etiqueta: 'Fin de julio', detalle: 'Cartas de admisión', tono: 'normal' },
-  { etiqueta: 'Agosto', detalle: 'Inicio del curso', tono: 'inicio' },
-] as const;
+// El plazo clave es el 15 de marzo; la última parada es el inicio del curso.
+const tonoDe = (h: Hito, i: number) =>
+  /^15\s*mar/i.test(h.cuando) ? 'plazo' : i === hitos.length - 1 ? 'inicio' : 'normal';
 
 const circulo = (t: string) => {
   const base = 'flex items-center justify-center rounded-full font-display font-extrabold ring-4 ring-crema';
@@ -41,14 +41,14 @@ const lineaTop = grande ? 'top-[30px]' : 'top-[22px]';
   <!-- Escritorio: eje horizontal -->
   <div class="relative hidden sm:block">
     <div class:list={['absolute left-[10%] right-[10%] h-[3px] rounded-full bg-navy/10', lineaTop]} aria-hidden="true"></div>
-    <ol class="relative grid grid-cols-5 gap-4 text-center">
+    <ol class:list={['relative grid gap-4 text-center', `grid-cols-${hitos.length}`]} style={`grid-template-columns:repeat(${hitos.length},minmax(0,1fr))`}>
       {hitos.map((h, i) => (
         <li class="flex flex-col items-center">
           <div class:list={['flex items-center justify-center', cajaH]}>
-            <span data-punto={h.tono} class={circulo(h.tono)}>{i + 1}</span>
+            <span data-punto={tonoDe(h, i)} class={circulo(tonoDe(h, i))}>{i + 1}</span>
           </div>
-          <span class:list={['fecha-mono mt-4 font-medium', h.tono === 'plazo' ? 'text-coral-700' : 'text-navy', grande ? 'text-lg sm:text-xl' : 'text-sm']}>{h.etiqueta}</span>
-          <span class:list={['mt-1 text-slate', grande ? 'text-sm sm:text-base' : 'text-xs']}>{h.detalle}</span>
+          <span class:list={['fecha-mono mt-4 font-medium', tonoDe(h, i) === 'plazo' ? 'text-coral-700' : 'text-navy', grande ? 'text-lg sm:text-xl' : 'text-sm']}>{h.cuando}</span>
+          <span class:list={['mt-1 text-slate', grande ? 'text-sm sm:text-base' : 'text-xs']}>{h.que}</span>
         </li>
       ))}
     </ol>
@@ -59,12 +59,12 @@ const lineaTop = grande ? 'top-[30px]' : 'top-[22px]';
     {hitos.map((h, i) => (
       <li class="flex gap-4">
         <div class="flex flex-col items-center">
-          <span data-punto={h.tono} class={circulo(h.tono)}>{i + 1}</span>
+          <span data-punto={tonoDe(h, i)} class={circulo(tonoDe(h, i))}>{i + 1}</span>
           {i < hitos.length - 1 && <span class="w-[2px] flex-1 rounded-full bg-navy/10" aria-hidden="true"></span>}
         </div>
         <div class="pb-8 pt-2">
-          <span class:list={['fecha-mono block font-medium', h.tono === 'plazo' ? 'text-coral-700' : 'text-navy']}>{h.etiqueta}</span>
-          <span class="text-sm text-slate">{h.detalle}</span>
+          <span class:list={['fecha-mono block font-medium', tonoDe(h, i) === 'plazo' ? 'text-coral-700' : 'text-navy']}>{h.cuando}</span>
+          <span class="text-sm text-slate">{h.que}</span>
         </div>
       </li>
     ))}

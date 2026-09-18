@@ -1,25 +1,24 @@
 {
-  "nombre_es": "Grado Internacional en Ciencias Naturales",
-  "descripcion": "Explora problemas científicos de medio ambiente, salud, medicina y tecnología mediante una formación interdisciplinar en ciencias naturales.",
-  "area": "ciencias-ingenieria",
-  "area_documento": "CIENCIAS E INGENIERÍA",
+  "nombre_es": "Grado en Economía y Administración de Empresas – itinerario internacional alternativo",
+  "descripcion": "Ofrece la misma base general de empresa y economía con una experiencia académica internacional y orientación hacia organizaciones y mercados globales.",
+  "area": "negocios",
+  "area_documento": "EMPRESA Y ECONOMÍA",
   "nivel": "grado",
   "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "comienzo": "Agosto",
+  "comienzo": "Agosto / septiembre",
   "areas_estudio": [
-    "Biología",
-    "Química",
-    "Física",
-    "Matemáticas",
-    "Computer Science",
-    "Métodos científicos",
-    "Proyectos"
+    "Economía",
+    "Contabilidad y finanzas",
+    "Marketing",
+    "Organización",
+    "Estrategia",
+    "Métodos cuantitativos"
   ],
   "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
-  "como_es": "El aprendizaje por proyectos es central. Trabajarás en grupos para investigar problemas científicos usando experimentos, análisis y modelos.",
+  "como_es": "Combina clases, casos empresariales, análisis cuantitativo y proyectos.",
   "practicas": null,
   "calendario": [
     {
@@ -39,7 +38,7 @@
       "que": "Resolución de admisión"
     },
     {
-      "cuando": "Agosto",
+      "cuando": "Agosto / septiembre",
       "que": "Inicio del curso"
     }
   ],
@@ -53,18 +52,22 @@
     "adicionales": [
       {
         "requisito": "Matemáticas",
-        "condicion": "Según programa"
+        "condicion": "200 horas mínimo, cursadas durante Bachillerato"
+      },
+      {
+        "requisito": "Economía, historia o historia del mundo contemporáneo",
+        "condicion": "200 horas mínimo, cursadas en los últimos 3 años"
       }
     ]
   },
   "salidas_laborales": [
-    "Investigación",
-    "Biotecnología",
-    "Medio ambiente",
-    "Data/technology",
-    "Laboratorio y desarrollo científico"
+    "Business development",
+    "Consultoría",
+    "Marketing",
+    "Finanzas",
+    "Gestión de proyectos"
   ],
-  "masteres": "Especialización posterior y másteres en ciencias naturales según las materias elegidas.",
+  "masteres": "Business Administration, International Business, Finance, Marketing y Management.",
   "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

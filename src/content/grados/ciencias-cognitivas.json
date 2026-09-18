@@ -1,19 +1,46 @@
 {
-  "nombre_oficial": "Grado en Ciencias Cognitivas",
   "nombre_es": "Grado en Ciencias Cognitivas",
-  "descripcion": "Estudia la mente, el cerebro y el comportamiento combinando psicología, análisis estadístico de datos y programación para diseñar tus propias investigaciones.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Estudia la mente, el cerebro y el comportamiento combinando psicología, neurociencia, programación, estadística y ciencias sociales.",
   "area": "ciencias-ingenieria",
+  "area_documento": "CIENCIAS SOCIALES Y TECNOLOGÍA",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
-    "Comunicación contemporánea",
-    "Mentes sociales",
-    "Ciencia de datos culturales",
-    "Estudios de datos críticos"
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Cognición y comportamiento",
+    "Psicología",
+    "Neurociencia",
+    "Programación",
+    "Estadística",
+    "Diseño experimental"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Trabajarás con experimentos, análisis de datos, discusión académica y proyectos interdisciplinarios.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -22,35 +49,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "200 horas mínimo, cursadas durante Bachillerato"
       },
       {
-        "materia": "Historia, historia de la filosofía o del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Economía, historia o historia del mundo contemporáneo",
+        "condicion": "200 horas mínimo, cursadas en los últimos 3 años"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Informática",
-    "Diseño de productos",
-    "Investigación en neurociencia",
-    "Recursos humanos"
+    "UX research",
+    "Análisis de comportamiento",
+    "Investigación cognitiva",
+    "Data analysis",
+    "Tecnología centrada en personas"
   ],
-  "masteres_afines": [
-    "Neurociencia",
-    "Ciencias cognitivas"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Cognitive Science, Neuroscience, HCI, Data Science y áreas de comportamiento.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

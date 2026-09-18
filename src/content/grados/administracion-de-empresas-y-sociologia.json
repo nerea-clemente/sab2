@@ -1,51 +1,69 @@
 {
-  "nombre_oficial": "Grado en Administración de Empresas y Sociología",
   "nombre_es": "Grado en Administración de Empresas y Sociología",
-  "descripcion": "Administración de empresas con el otro pilar en la sociología: cómo los cambios sociales y culturales impactan en los procesos comerciales.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Combina empresa y sociología para analizar cómo las personas, instituciones y cambios sociales afectan a organizaciones y mercados.",
   "area": "negocios",
+  "area_documento": "EMPRESA Y CIENCIAS SOCIALES",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Sociología",
+    "Economía",
+    "Organización",
+    "Métodos cuantitativos y cualitativos",
+    "Mercados y sociedad",
+    "Estrategia"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Aprenderás a analizar organizaciones desde perspectivas económicas y sociológicas usando teoría y datos.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 90,
-      "ielts": 7,
+      "ielts": 7.0,
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 250,
-        "antiguedad": "cursadas en los últimos 3 años, con una nota mínima de 7"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Dirección de marketing",
-    "Administración",
-    "Recursos humanos"
+    "Consultoría",
+    "People & organisation",
+    "Análisis de negocio",
+    "Research",
+    "Estrategia"
   ],
-  "masteres_afines": [
-    "Administración",
-    "Marketing",
-    "Sociología y cultura"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Business Administration, Sociology, Organisation, Strategy y Management.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

@@ -1,6 +1,6 @@
 {
-  "nombre_es": "Grado Internacional en Ciencias Naturales",
-  "descripcion": "Explora problemas científicos de medio ambiente, salud, medicina y tecnología mediante una formación interdisciplinar en ciencias naturales.",
+  "nombre_es": "Grado en Desarrollo de Productos IT",
+  "descripcion": "Combina informática y diseño para crear productos físicos y digitales centrados en las personas.",
   "area": "ciencias-ingenieria",
   "area_documento": "CIENCIAS E INGENIERÍA",
   "nivel": "grado",
@@ -8,18 +8,17 @@
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "comienzo": "Agosto",
+  "comienzo": "Agosto / septiembre",
   "areas_estudio": [
-    "Biología",
-    "Química",
-    "Física",
-    "Matemáticas",
-    "Computer Science",
-    "Métodos científicos",
-    "Proyectos"
+    "Programación",
+    "Diseño de interacción",
+    "Prototipado",
+    "IoT y sensores",
+    "3D modelling",
+    "User-centred design"
   ],
   "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
-  "como_es": "El aprendizaje por proyectos es central. Trabajarás en grupos para investigar problemas científicos usando experimentos, análisis y modelos.",
+  "como_es": "El aprendizaje es práctico y basado en proyectos: diseñarás, construirás y probarás prototipos con software y hardware.",
   "practicas": null,
   "calendario": [
     {
@@ -39,7 +38,7 @@
       "que": "Resolución de admisión"
     },
     {
-      "cuando": "Agosto",
+      "cuando": "Agosto / septiembre",
       "que": "Inicio del curso"
     }
   ],
@@ -53,18 +52,18 @@
     "adicionales": [
       {
         "requisito": "Matemáticas",
-        "condicion": "Según programa"
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       }
     ]
   },
   "salidas_laborales": [
-    "Investigación",
-    "Biotecnología",
-    "Medio ambiente",
-    "Data/technology",
-    "Laboratorio y desarrollo científico"
+    "IT product developer",
+    "UX/interaction designer",
+    "Product developer",
+    "Project manager",
+    "Software developer"
   ],
-  "masteres": "Especialización posterior y másteres en ciencias naturales según las materias elegidas.",
+  "masteres": "IT Product Development, HCI, Computer Science y Digital Design.",
   "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado en Electrónica Industrial",
-  "nombre_es": "Grado en Electrónica Industrial",
-  "descripcion": "Convertidores electrónicos de potencia, máquinas eléctricas, robótica, sistemas integrados y procesamiento de señales.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Electrónica Industrial Aplicada",
+  "descripcion": "Aprende a desarrollar electrónica, automatización y sistemas de control para robots, drones y procesos industriales.",
   "area": "ciencias-ingenieria",
+  "area_documento": "CIENCIAS E INGENIERÍA",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Septiembre",
+  "areas_estudio": [
+    "Electrónica",
+    "Programación",
+    "Control",
+    "Robótica",
+    "Automatización",
+    "Sistemas industriales"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "AAU utiliza aprendizaje basado en problemas y proyectos, con trabajo en equipo alrededor de retos de ingeniería.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,34 +49,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 375,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "375 horas mínimo de Matemáticas"
       },
       {
-        "materia": "Física",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Física / Química",
+        "condicion": "Física: 200 horas mínimo, o formación equivalente en Geociencias"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Sector energético",
-    "Industria",
-    "Control de sistemas electrónicos"
+    "Electronics engineer",
+    "Automation engineer",
+    "Robotics",
+    "Industrial control",
+    "Power electronics"
   ],
-  "masteres_afines": [
-    "Ingeniería electrónica",
-    "Ingeniería de energía"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Advanced Power Electronics, AI, Autonomous Systems y áreas de electrónica.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

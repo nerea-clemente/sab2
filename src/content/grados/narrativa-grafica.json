@@ -1,26 +1,25 @@
 {
-  "nombre_es": "Grado Internacional en Ciencias Naturales",
-  "descripcion": "Explora problemas científicos de medio ambiente, salud, medicina y tecnología mediante una formación interdisciplinar en ciencias naturales.",
-  "area": "ciencias-ingenieria",
-  "area_documento": "CIENCIAS E INGENIERÍA",
+  "nombre_es": "Grado en Narrativa Gráfica",
+  "descripcion": "Aprende a contar historias mediante ilustración, cómic, narrativa secuencial y diseño visual.",
+  "area": "diseno-creativo",
+  "area_documento": "DISEÑO Y NARRATIVA",
   "nivel": "grado",
   "titulacion": "Grado",
-  "duracion_anios": 3,
-  "ects": 180,
+  "duracion_anios": 4,
+  "ects": 240,
   "idioma": "Inglés",
-  "comienzo": "Agosto",
+  "comienzo": "Agosto, cada dos años",
   "areas_estudio": [
-    "Biología",
-    "Química",
-    "Física",
-    "Matemáticas",
-    "Computer Science",
-    "Métodos científicos",
-    "Proyectos"
+    "Ilustración",
+    "Cómic",
+    "Storytelling",
+    "Diseño de personajes",
+    "Worldbuilding",
+    "Portfolio"
   ],
   "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
-  "como_es": "El aprendizaje por proyectos es central. Trabajarás en grupos para investigar problemas científicos usando experimentos, análisis y modelos.",
-  "practicas": null,
+  "como_es": "Se desarrolla mediante proyectos creativos, talleres, feedback y producción de portfolio.",
+  "practicas": "Incluye 14 semanas de prácticas.",
   "calendario": [
     {
       "cuando": "Cuanto antes",
@@ -39,7 +38,7 @@
       "que": "Resolución de admisión"
     },
     {
-      "cuando": "Agosto",
+      "cuando": "Agosto, cada dos años",
       "que": "Inicio del curso"
     }
   ],
@@ -53,18 +52,22 @@
     "adicionales": [
       {
         "requisito": "Matemáticas",
-        "condicion": "Según programa"
+        "condicion": "No central"
+      },
+      {
+        "requisito": "Otros",
+        "condicion": "Portfolio/prueba artística"
       }
     ]
   },
   "salidas_laborales": [
-    "Investigación",
-    "Biotecnología",
-    "Medio ambiente",
-    "Data/technology",
-    "Laboratorio y desarrollo científico"
+    "Illustrator",
+    "Comic artist",
+    "Storyboard artist",
+    "Concept artist",
+    "Narrative designer"
   ],
-  "masteres": "Especialización posterior y másteres en ciencias naturales según las materias elegidas.",
+  "masteres": "Illustration, Visual Communication, Animation y Games.",
   "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

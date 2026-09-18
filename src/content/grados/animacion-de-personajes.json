@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado en Animación de Personajes",
   "nombre_es": "Grado en Animación de Personajes",
-  "descripcion": "Aprende a dar vida a personajes en 2D y 3D con los principios clásicos y los métodos estilizados de la animación, con práctica en preproducción y producción.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Desarrolla personajes y actuaciones para animación combinando dibujo, movimiento, narrativa y producción digital.",
   "area": "diseno-creativo",
+  "area_documento": "ANIMACIÓN Y CREATIVIDAD",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3.5,
   "ects": 210,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "Animación 2D/3D",
+    "Acting",
+    "Dibujo",
+    "Storytelling",
+    "Diseño de personajes",
+    "Producción"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Formación intensiva basada en proyectos y producción de portfolio.",
+  "practicas": "Incluye 14 semanas de prácticas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,21 +49,24 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [],
-    "nota_media_minima": null,
-    "examen_admision": true
+    "adicionales": [
+      {
+        "requisito": "Matemáticas",
+        "condicion": "No central"
+      },
+      {
+        "requisito": "Otros",
+        "condicion": "Portfolio/prueba artística"
+      }
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Dirección de películas de animación",
-    "Dirección de arte",
-    "Diseño de personajes 2D/3D",
-    "Animación para cine, series o videojuegos"
+    "Character animator",
+    "2D/3D animator",
+    "Animation artist",
+    "Cinematic animator"
   ],
-  "masteres_afines": [],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Animation, Visual Arts, Digital Media y Games.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": true
 }

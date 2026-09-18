@@ -9,12 +9,10 @@ interface Filtros {
   q: string;
   area: string;
   nivel: string;
-  ciudad: string;
   idioma: string;
-  cuota: string;
 }
 
-const VACIO: Filtros = { q: '', area: '', nivel: '', ciudad: '', idioma: '', cuota: '' };
+const VACIO: Filtros = { q: '', area: '', nivel: '', idioma: '' };
 
 // Color por familia académica. Texto charcoal encima (todas pasan AA).
 const AREA_BG: Record<string, string> = {
@@ -33,9 +31,7 @@ function desdeUrl(): Filtros {
     q: p.get('q') ?? '',
     area: p.get('area') ?? '',
     nivel: p.get('nivel') ?? '',
-    ciudad: p.get('ciudad') ?? '',
     idioma: p.get('idioma') ?? '',
-    cuota: p.get('cuota') ?? '',
   };
 }
 
@@ -43,7 +39,7 @@ function normaliza(s: string): string {
   return s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
 }
 
-function opciones(grados: GradoIndice[], clave: 'area' | 'nivel' | 'ciudad' | 'idioma') {
+function opciones(grados: GradoIndice[], clave: 'area' | 'nivel' | 'idioma') {
   const mapa = new Map<string, string>();
   for (const g of grados) {
     const valor = g[clave];
@@ -76,21 +72,14 @@ export default function BuscadorGrados({ grados }: Props) {
 
   const areas = useMemo(() => opciones(grados, 'area'), [grados]);
   const niveles = useMemo(() => opciones(grados, 'nivel'), [grados]);
-  const ciudades = useMemo(() => opciones(grados, 'ciudad'), [grados]);
   const idiomas = useMemo(() => opciones(grados, 'idioma'), [grados]);
-  const cuotas = useMemo(
-    () => [...new Set(grados.map((g) => g.cuota).filter((c): c is number => c != null))].sort(),
-    [grados],
-  );
 
   const resultados = useMemo(() => {
     const q = normaliza(filtros.q.trim());
     return grados.filter((g) => {
       if (filtros.area && g.area !== filtros.area) return false;
       if (filtros.nivel && g.nivel !== filtros.nivel) return false;
-      if (filtros.ciudad && g.ciudad !== filtros.ciudad) return false;
       if (filtros.idioma && g.idioma !== filtros.idioma) return false;
-      if (filtros.cuota && String(g.cuota ?? '') !== filtros.cuota) return false;
       if (q) {
         const heno = normaliza(`${g.nombre} ${g.descripcion} ${g.areaEtiqueta}`);
         if (!heno.includes(q)) return false;
@@ -148,7 +137,7 @@ export default function BuscadorGrados({ grados }: Props) {
         </div>
 
         {/* Refinar: filtros secundarios, discretos */}
-        {(niveles.length > 1 || ciudades.length > 0 || idiomas.length > 1 || cuotas.length > 0) && (
+        {(niveles.length > 1 || idiomas.length > 1) && (
           <div class="mt-5 flex flex-wrap items-center gap-2 border-t border-hairline pt-5">
             <span class="etiqueta-suelta mr-1 text-slate">Refinar</span>
             {niveles.length > 1 && (
@@ -157,22 +146,10 @@ export default function BuscadorGrados({ grados }: Props) {
                 {niveles.map(([v, t]) => (<option value={v}>{t}</option>))}
               </select>
             )}
-            {ciudades.length > 0 && (
-              <select value={filtros.ciudad} onChange={set('ciudad')} class={selectClase} aria-label="Ciudad">
-                <option value="">Cualquier ciudad</option>
-                {ciudades.map(([v, t]) => (<option value={v}>{t}</option>))}
-              </select>
-            )}
             {idiomas.length > 1 && (
               <select value={filtros.idioma} onChange={set('idioma')} class={selectClase} aria-label="Idioma">
                 <option value="">Cualquier idioma</option>
                 {idiomas.map(([v, t]) => (<option value={v}>{t}</option>))}
-              </select>
-            )}
-            {cuotas.length > 0 && (
-              <select value={filtros.cuota} onChange={set('cuota')} class={selectClase} aria-label="Cuota">
-                <option value="">Cualquier cuota</option>
-                {cuotas.map((c) => (<option value={String(c)}>Cuota {c}</option>))}
               </select>
             )}
           </div>

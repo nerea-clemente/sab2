@@ -4,12 +4,11 @@ import { ruta } from '@/lib/ruta';
 import Base from '@/layouts/Base.astro';
 import JsonLd from '@/components/JsonLd.astro';
 import CarrilAdmision from '@/components/CarrilAdmision.astro';
+import Icono from '@/components/Icono.astro';
 import { SITIO } from '@/config/sitio';
 import CtaFinal from '@/components/CtaFinal.astro';
 import { bgArea } from '@/lib/areas';
-import {
-  ETIQUETA_AREA, ETIQUETA_NIVEL, formatoDuracion, jsonLdCurso,
-} from '@/lib/grados';
+import { ETIQUETA_AREA, ETIQUETA_NIVEL, formatoDuracion, jsonLdCurso } from '@/lib/grados';
 
 export async function getStaticPaths() {
   const grados = await getCollection('grados');
@@ -30,9 +29,7 @@ const filasIngles = [
 // Meta description: corta en límite de palabra, sin partir palabras.
 const truncar = (t: string, max = 155) =>
   t.length <= max ? t : t.slice(0, t.lastIndexOf(' ', max)).trimEnd() + '…';
-const descripcionMeta = truncar(
-  d.descripcion ?? `${d.nombre_es} en Dinamarca: requisitos, duración, ramas y salidas.`,
-);
+const descripcionMeta = truncar(d.descripcion);
 
 const breadcrumbLd = {
   '@context': 'https://schema.org',
@@ -42,6 +39,14 @@ const breadcrumbLd = {
     { '@type': 'ListItem', position: 2, name: d.nombre_es, item: `${SITIO.dominio}/grados/${grado.id}/` },
   ],
 };
+
+const datos: [string, string][] = [
+  ['Titulación', d.titulacion],
+  ['Duración', formatoDuracion(d.duracion_anios)],
+  ['Créditos', `${d.ects} ECTS`],
+  ['Idioma', d.idioma],
+  ['Comienzo', d.comienzo],
+];
 ---
 
 <Base titulo={d.nombre_es} descripcion={descripcionMeta}>
@@ -60,9 +65,9 @@ const breadcrumbLd = {
       <!-- Columna principal -->
       <div class="min-w-0">
         <div class:list={['rounded-tarjeta p-7 lg:p-10', bgArea(d.area)]}>
-          <p class="pastilla">{ETIQUETA_AREA[d.area]}</p>
+          <p class="pastilla">{d.area_documento}</p>
           <h1 class="mt-3 text-titulo text-navy">{d.nombre_es}</h1>
-          {d.descripcion && <p class="mt-5 max-w-prosa text-lg text-navy/75">{d.descripcion}</p>}
+          <p class="mt-5 max-w-prosa text-lg text-navy/75">{d.descripcion}</p>
           <div class="mt-7 flex flex-wrap items-center gap-2">
             {[ETIQUETA_NIVEL[d.nivel], formatoDuracion(d.duracion_anios), `${d.ects} ECTS`, d.idioma].map((t) => (
               <span class="dato rounded-full bg-papel/80 px-4 py-1.5 text-xs font-extrabold text-navy">{t}</span>
@@ -70,7 +75,37 @@ const breadcrumbLd = {
           </div>
         </div>
 
-        <CarrilAdmision />
+        <!-- Qué vas a estudiar -->
+        {d.areas_estudio.length > 0 && (
+          <section aria-labelledby="estudiar" class="mt-12">
+            <h2 id="estudiar" class="text-h2 text-navy">¿Qué vas a estudiar?</h2>
+            <p class="mt-4 max-w-prosa text-slate">{d.intro_areas}</p>
+            <ul class="mt-6 grid gap-2.5 sm:grid-cols-2">
+              {d.areas_estudio.map((a) => (
+                <li class="flex items-start gap-3 rounded-2xl bg-papel px-5 py-3.5">
+                  <Icono nombre="check" class="mt-1 h-4 w-4 shrink-0 text-coral" />
+                  <span class="font-bold text-navy">{a}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <!-- Cómo es el grado -->
+        <section aria-labelledby="como" class="mt-12">
+          <h2 id="como" class="text-h2 text-navy">¿Cómo es el grado?</h2>
+          <p class="mt-4 max-w-prosa text-lg text-slate">{d.como_es}</p>
+
+          {d.practicas && (
+            <div class="mt-7 max-w-prosa rounded-tarjeta bg-papel px-6 py-5">
+              <p class="etiqueta-suelta text-azul-700">Prácticas y experiencia internacional</p>
+              <p class="mt-2 text-navy">{d.practicas}</p>
+            </div>
+          )}
+        </section>
+
+        <!-- Calendario -->
+        {d.calendario.length > 0 && <CarrilAdmision hitos={d.calendario} />}
 
         <!-- Requisitos -->
         <section aria-labelledby="requisitos" class="mt-12">
@@ -81,66 +116,53 @@ const breadcrumbLd = {
               <table class="w-full border-collapse text-left text-sm">
                 <caption class="sr-only">Requisitos de acceso de {d.nombre_es}</caption>
                 <tbody class="tabular">
-                  <tr class="border-b border-hairline bg-azul-100/60">
-                    <th scope="row" class="w-44 p-4 align-top font-extrabold text-navy">Nivel de inglés</th>
-                    <td class="p-4 text-slate">
-                      <ul class="space-y-1">
-                        {filasIngles.map(([k, v]) => (<li><span class="font-bold text-navy">{k}:</span> {v}</li>))}
-                      </ul>
-                    </td>
-                  </tr>
-                  {d.requisitos.asignaturas.map((asg) => (
-                    <tr class="border-b border-hairline">
-                      <th scope="row" class="p-4 align-top font-extrabold text-navy">{asg.materia}</th>
+                  {filasIngles.length > 0 && (
+                    <tr class="border-b border-hairline bg-azul-100/60">
+                      <th scope="row" class="w-44 p-4 align-top font-extrabold text-navy">Nivel de inglés</th>
                       <td class="p-4 text-slate">
-                        {asg.horas_minimas ? `${asg.horas_minimas} horas mínimo` : 'Requisito previo'}
-                        {asg.antiguedad ? `, ${asg.antiguedad}` : ''}
+                        <ul class="space-y-1">
+                          {filasIngles.map(([k, v]) => (<li><span class="font-bold text-navy">{k}:</span> {v}</li>))}
+                        </ul>
                       </td>
                     </tr>
-                  ))}
-                  {d.requisitos.nota_media_minima && (
-                    <tr class="border-b border-hairline">
-                      <th scope="row" class="p-4 align-top font-extrabold text-navy">Nota media</th>
-                      <td class="p-4 text-slate">{d.requisitos.nota_media_minima}</td>
-                    </tr>
                   )}
-                  <tr>
-                    <th scope="row" class="p-4 align-top font-extrabold text-navy">Examen de admisión</th>
-                    <td class="p-4 text-slate">{d.requisitos.examen_admision ? 'Sí, forma parte de la selección' : 'No obligatorio'}</td>
-                  </tr>
+                  {d.requisitos.adicionales.map((r, i) => (
+                    <tr class:list={[i < d.requisitos.adicionales.length - 1 && 'border-b border-hairline']}>
+                      <th scope="row" class="p-4 align-top font-extrabold text-navy">{r.requisito}</th>
+                      <td class="p-4 text-slate">{r.condicion}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           </div>
         </section>
 
-        <!-- Ramas -->
-        {d.ramas_especializacion.length > 0 && (
-          <section aria-labelledby="ramas" class="mt-12">
-            <h2 id="ramas" class="text-h2 text-navy">Ramas de especialización</h2>
+        <!-- Salidas -->
+        {d.salidas_laborales.length > 0 && (
+          <section aria-labelledby="salidas" class="mt-12">
+            <h2 id="salidas" class="text-h2 text-navy">Salidas laborales</h2>
             <ul class="mt-5 flex flex-wrap gap-2">
-              {d.ramas_especializacion.map((r) => (
-                <li class="rounded-full border border-hairline bg-papel px-5 py-2.5 text-sm font-bold text-navy">{r}</li>
+              {d.salidas_laborales.map((s) => (
+                <li class="rounded-full border border-hairline bg-papel px-5 py-2.5 text-sm font-bold text-navy">{s}</li>
               ))}
             </ul>
           </section>
         )}
 
-        <!-- Salidas -->
-        {d.salidas_laborales.length > 0 && (
-          <section aria-labelledby="salidas" class="mt-12">
-            <h2 id="salidas" class="text-h2 text-navy">Salidas laborales</h2>
-            <ul class="prosa mt-5 list-disc space-y-1.5 pl-5 marker:text-coral">
-              {d.salidas_laborales.map((s) => (<li>{s}</li>))}
-            </ul>
+        <!-- Másteres -->
+        {d.masteres && (
+          <section aria-labelledby="masteres" class="mt-12">
+            <h2 id="masteres" class="text-h2 text-navy">Continúa con un máster</h2>
+            <p class="mt-4 max-w-prosa text-slate">{d.masteres}</p>
           </section>
         )}
 
-        <!-- Másteres afines -->
-        {d.masteres_afines.length > 0 && (
-          <section aria-labelledby="masteres" class="mt-12">
-            <h2 id="masteres" class="text-h2 text-navy">Continúa con un máster</h2>
-            <p class="prosa mt-4">Áreas de máster relacionadas: {d.masteres_afines.join(', ')}.</p>
+        <!-- Matrícula -->
+        {d.matricula && (
+          <section aria-labelledby="matricula" class="mt-12">
+            <h2 id="matricula" class="text-h2 text-navy">Matrícula</h2>
+            <p class="mt-4 max-w-prosa text-slate">{d.matricula}</p>
           </section>
         )}
       </div>
@@ -150,15 +172,8 @@ const breadcrumbLd = {
         <div class="rounded-tarjeta border border-hairline bg-papel p-6">
           <h2 class="etiqueta text-azul">Datos del grado</h2>
           <dl class="ficha-datos mt-5">
-            <div><dt>Duración</dt><dd>{formatoDuracion(d.duracion_anios)}</dd></div>
-            <div><dt>Créditos</dt><dd>{d.ects} ECTS</dd></div>
-            <div><dt>Idioma</dt><dd>{d.idioma}</dd></div>
-            <div><dt>Comienzo</dt><dd>{d.comienzo}</dd></div>
+            {datos.map(([k, v]) => (<div><dt>{k}</dt><dd>{v}</dd></div>))}
           </dl>
-
-          {d.url_oficial && (
-            <a href={d.url_oficial} rel="noopener" class="cta-secundario mt-6 w-full text-sm">Web oficial</a>
-          )}
         </div>
 
         <div class="mt-4 rounded-tarjeta bg-navy p-6 text-white">

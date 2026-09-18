@@ -1,52 +1,71 @@
 {
-  "nombre_oficial": "Grado en Negocios entre Europa y Asia · Rama Japón",
-  "nombre_es": "Grado en Negocios entre Europa y Asia · Rama Japón",
-  "descripcion": "Cultura empresarial asiática con un semestre obligatorio en el extranjero. Perfil muy solicitado en la economía global. No hace falta saber japonés de antemano.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Negocios, Lengua y Cultura Asiática – Japonés",
+  "descripcion": "Combina administración de empresas con estudios de Asia y formación intensiva en japonés para trabajar entre mercados, culturas y organizaciones internacionales.",
   "area": "negocios",
+  "area_documento": "EMPRESA, IDIOMAS Y ESTUDIOS INTERNACIONALES",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 4,
   "ects": 240,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Administración de empresas",
+    "Microeconomía",
+    "Finanzas",
+    "Marketing",
+    "International Business in Asia",
+    "Lengua japonés",
+    "Historia, cultura y sociedad asiática"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Integra cursos de empresa con lengua y estudios culturales. El itinerario incluye formación lingüística intensiva y una fuerte dimensión internacional.",
+  "practicas": "Permite realizar intercambio y, dentro de los créditos optativos, prácticas aprobadas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 90,
-      "ielts": 7,
+      "ielts": 7.0,
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 250,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Dirección regional",
-    "Dirección de marketing",
-    "Logística y compras",
-    "Negociación"
+    "International business",
+    "Consultoría",
+    "Business development",
+    "Comercio con Asia",
+    "Marketing internacional",
+    "Organizaciones internacionales"
   ],
-  "masteres_afines": [
-    "Estudios internacionales",
-    "Negocios internacionales",
-    "Cultura asiática"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "International Business, Asian Studies, Strategy, Management y áreas relacionadas.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

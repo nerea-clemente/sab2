@@ -12,61 +12,63 @@ export const AREAS = [
   'diseno-creativo',
 ] as const;
 
-export const NIVELES = ['grado', 'master', 'profesionsbachelor', 'top-up'] as const;
-
-// Requisito de inglés: patrón común en los programas.
-const requisitoIngles = z.object({
-  toefl: z.number().nullable().default(null),
-  ielts: z.number().nullable().default(null),
-  cambridge: z.string().nullable().default(null),
-  exenciones: z.string().nullable().default(null),
-});
-
-const asignaturaRequisito = z.object({
-  materia: z.string(),
-  horas_minimas: z.number().nullable().default(null),
-  // Antigüedad máxima admitida (p. ej. "últimos 3 años").
-  antiguedad: z.string().nullable().default(null),
-});
+// Niveles tal y como los nombra el documento maestro de grados.
+export const NIVELES = [
+  'grado',
+  'grado-ingenieria',
+  'grado-profesional',
+  'ap',
+  'top-up',
+  'master',
+] as const;
 
 // ---------------------------------------------------------------------------
 // GRADOS — el núcleo del sitio.
-// universidad/ciudad/url_oficial/cuota_admision/plazo son opcionales: en la v1
-// se publica sin universidad (decisión del cliente). Lo que falte se renderiza
-// como "Por confirmar", nunca se inventa.
+// Las fichas públicas no incluyen universidad, ciudad o campus, cuota de
+// admisión, enlaces oficiales ni fecha de revisión: así lo define el documento
+// maestro del que salen estos datos.
 // ---------------------------------------------------------------------------
 const grados = defineCollection({
   loader: glob({ pattern: '**/*.json', base: './src/content/grados' }),
   schema: z.object({
-    nombre_oficial: z.string(),
     nombre_es: z.string(),
-    // Descripción del programa (del booklet). Opcional.
-    descripcion: z.string().nullable().default(null),
-    universidad: z.string().nullable().default(null),
-    ciudad: z.string().nullable().default(null),
+    descripcion: z.string(),
+    // Área del buscador y área tal y como la nombra el documento.
     area: z.enum(AREAS),
+    area_documento: z.string(),
     nivel: z.enum(NIVELES),
+    // Etiqueta literal del título: "Grado de Ingeniería", "AP Degree"…
+    titulacion: z.string(),
     duracion_anios: z.number(),
     ects: z.number(),
     idioma: z.string().default('Inglés'),
-    ramas_especializacion: z.array(z.string()).default([]),
+    comienzo: z.string().default('Agosto / septiembre'),
+    // Qué vas a estudiar.
+    intro_areas: z.string(),
+    areas_estudio: z.array(z.string()).default([]),
+    // Cómo es el grado y, cuando aplica, prácticas o experiencia internacional.
+    como_es: z.string(),
+    practicas: z.string().nullable().default(null),
+    // Calendario de admisión propio de cada programa.
+    calendario: z
+      .array(z.object({ cuando: z.string(), que: z.string() }))
+      .default([]),
     requisitos: z.object({
-      ingles: requisitoIngles,
-      asignaturas: z.array(asignaturaRequisito).default([]),
-      nota_media_minima: z.string().nullable().default(null),
-      examen_admision: z.boolean().default(false),
+      ingles: z.object({
+        toefl: z.number().nullable().default(null),
+        ielts: z.number().nullable().default(null),
+        cambridge: z.string().nullable().default(null),
+        exenciones: z.string().nullable().default(null),
+      }),
+      // Filas libres de la tabla del documento: materia, titulación previa,
+      // portfolio, examen de admisión…
+      adicionales: z
+        .array(z.object({ requisito: z.string(), condicion: z.string() }))
+        .default([]),
     }),
-    // 1 ó 2 — determina el plazo. null si aún no está verificado.
-    cuota_admision: z.union([z.literal(1), z.literal(2)]).nullable().default(null),
-    // Comienzo del curso y plazo de solicitud (texto libre).
-    comienzo: z.string().default('Agosto'),
-    plazo_solicitud: z.string().nullable().default(null),
     salidas_laborales: z.array(z.string()).default([]),
-    masteres_afines: z.array(z.string()).default([]),
-    url_oficial: z.string().url().nullable().default(null),
-    // Fecha o referencia de última verificación (se muestra en la ficha).
-    ultima_verificacion: z.string(),
-    // Destacar en portada / buscador.
+    masteres: z.string().default(''),
+    matricula: z.string().default(''),
     destacado: z.boolean().default(false),
   }),
 });

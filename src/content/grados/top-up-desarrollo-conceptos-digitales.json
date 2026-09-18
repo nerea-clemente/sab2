@@ -1,41 +1,74 @@
 {
-  "nombre_oficial": "Top-up en Desarrollo de Conceptos Digitales",
-  "nombre_es": "Top-up en Desarrollo de Conceptos Digitales",
-  "descripcion": "Completa tu grado universitario en año y medio si ya tienes un AP o un ciclo de formación superior. Estrategia y soluciones prácticas en plataformas digitales.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Bachelor Top-Up en Digital Concept Development",
+  "descripcion": "Profundiza en el desarrollo de conceptos y experiencias digitales combinando estrategia, negocio, tecnología y conocimiento del usuario.",
   "area": "diseno-creativo",
+  "area_documento": "DISEÑO DIGITAL Y TECNOLOGÍA",
   "nivel": "top-up",
+  "titulacion": "Bachelor Top-Up",
   "duracion_anios": 1.5,
   "ects": 90,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "Digital concept design",
+    "UX y user research",
+    "Business development",
+    "Digital strategy",
+    "Tecnología",
+    "Data-driven value creation"
+  ],
+  "intro_areas": "El programa prepara para desarrollar conceptos digitales que generen valor tanto para los usuarios como para las empresas.",
+  "como_es": "Combina clases, trabajo independiente, proyectos y trabajo en grupo. El enfoque es estratégico y práctico, con desarrollo de soluciones digitales para empresas y usuarios.",
+  "practicas": "Incluye 12 semanas de prácticas obligatorias.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu AP Degree y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave si tu titulación de acceso es extranjera"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación y evaluación"
+    },
+    {
+      "cuando": "Principios de julio",
+      "que": "Resolución y aceptación de plaza"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
-      "toefl": 83,
-      "ielts": 6.5,
-      "cambridge": "CAE (A, B o C) o FCE (A)",
-      "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
+      "toefl": null,
+      "ielts": null,
+      "cambridge": null,
+      "exenciones": null
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Un AP degree o un CFS en Marketing, Tecnología, Informática o Diseño",
-        "horas_minimas": null,
-        "antiguedad": null
+        "requisito": "Estudios previos",
+        "condicion": "AP Degree compatible, como Multimedia Design, Marketing Management, Design Technology and Business o Computer Science"
+      },
+      {
+        "requisito": "Examen de admisión",
+        "condicion": "No obligatorio como requisito general; la selección considera la nota media del título de acceso y puede valorar experiencia profesional"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Estrategia digital",
-    "Consultoría digital"
+    "UX designer",
+    "Digital concept developer",
+    "Digital business developer",
+    "Digital experience designer",
+    "Digital strategist",
+    "Project manager"
   ],
-  "masteres_afines": [],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Después del bachelor puedes solicitar acceso a másteres relacionados con digital business, UX, innovation, communication y technology management, dependiendo de los requisitos del programa.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: pueden aplicarse tasas de matrícula.",
   "destacado": false
 }

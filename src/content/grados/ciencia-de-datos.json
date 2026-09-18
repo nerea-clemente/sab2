@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado en Ciencia de Datos",
   "nombre_es": "Grado en Ciencia de Datos",
-  "descripcion": "Conviértete en analista de datos con habilidades técnicas y de negocio para el manejo, análisis y visualización de grandes volúmenes de datos.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Aprende a transformar datos en conocimiento mediante matemáticas, estadística, programación y aprendizaje automático.",
   "area": "ciencias-ingenieria",
+  "area_documento": "CIENCIAS E INGENIERÍA",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Programación",
+    "Probabilidad y estadística",
+    "Álgebra y cálculo",
+    "Machine learning",
+    "Algoritmos",
+    "Análisis de datos"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Alterna fundamentos matemáticos con programación, ejercicios y proyectos de análisis de datos.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,30 +49,21 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 375,
-        "antiguedad": "cursadas en los últimos 3 años, con una nota mínima de 7"
+        "requisito": "Matemáticas",
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Analista de datos",
-    "Científico de datos",
-    "Analista de negocios y mercados"
+    "Data scientist",
+    "Data analyst",
+    "Machine learning specialist",
+    "Business intelligence",
+    "Consultoría tecnológica"
   ],
-  "masteres_afines": [
-    "Informática",
-    "Ciencia de datos",
-    "Innovación y negocios"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Data Science, Computer Science, Statistics, AI y Machine Learning.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": true
 }

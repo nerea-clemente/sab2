@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Top-up en Diseño de Moda",
-  "nombre_es": "Top-up en Diseño de Moda",
-  "descripcion": "Completa tu grado universitario en año y medio si ya tienes un AP o un ciclo de formación superior. Diseño de colecciones y rastreo de tendencias.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Bachelor Top-Up en Design and Business – Fashion Design",
+  "descripcion": "Profundiza en diseño de moda, circularidad, materiales y desarrollo de colecciones con una perspectiva de negocio.",
   "area": "diseno-creativo",
+  "area_documento": "MODA, DISEÑO Y NEGOCIO",
   "nivel": "top-up",
+  "titulacion": "Bachelor Top-Up",
   "duracion_anios": 1.5,
   "ects": 90,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "Fashion design",
+    "Circularity",
+    "Materials",
+    "CLO3D",
+    "Design strategy",
+    "Product development"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "La enseñanza es project-oriented y combina módulos comunes, especialización, optativas, prácticas y proyecto final.",
+  "practicas": "Incluye 10 semanas de prácticas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,25 +49,28 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Un AP degree o un CFS en Marketing, Diseño de moda, Innovación o Branding",
-        "horas_minimas": null,
-        "antiguedad": null
+        "requisito": "Titulación previa",
+        "condicion": "AP Degree compatible, por ejemplo Design, Technology and Business u otras titulaciones admitidas"
+      },
+      {
+        "requisito": "Especialización",
+        "condicion": "Se solicita una de las tres ramas"
+      },
+      {
+        "requisito": "Proceso de admisión",
+        "condicion": "Puede incluir documentación o evaluación específica"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Diseño de colecciones",
-    "Rastreo de tendencias"
+    "Fashion designer",
+    "Product developer",
+    "Design consultant",
+    "Entrepreneur"
   ],
-  "masteres_afines": [],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Después del bachelor puedes solicitar másteres en Dinamarca o en el extranjero según los requisitos del programa.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

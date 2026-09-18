@@ -1,19 +1,46 @@
 {
-  "nombre_oficial": "Grado en Estudios Europeos",
   "nombre_es": "Grado en Estudios Europeos",
-  "descripcion": "Análisis de estructuras regionales, nacionales y transnacionales desde la ciencia política, los estudios culturales, la historia y la economía.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Comprende Europa desde perspectivas política, económica, histórica y social, con atención a instituciones y cooperación internacional.",
   "area": "sociales-humanidades",
+  "area_documento": "CIENCIAS SOCIALES Y ESTUDIOS INTERNACIONALES",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
-    "Política e instituciones",
-    "Integración europea",
-    "Desarrollo regional",
-    "Cooperación internacional"
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Política europea",
+    "Historia",
+    "Economía",
+    "Instituciones de la UE",
+    "Sociedad y cultura",
+    "Métodos de investigación"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina análisis interdisciplinar, proyectos y trabajo con cuestiones europeas contemporáneas.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -22,34 +49,21 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Historia, historia de la filosofía o del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": "7 sobre 10",
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Instituciones europeas",
-    "OCDE, embajadas y consulados",
-    "Empresas internacionales"
+    "Proyectos europeos",
+    "Administración pública",
+    "Organizaciones internacionales",
+    "Consultoría",
+    "Public affairs"
   ],
-  "masteres_afines": [
-    "Estudios europeos",
-    "Negocios internacionales"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "European Studies, International Relations, Political Science y Public Administration.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

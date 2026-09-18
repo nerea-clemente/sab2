@@ -1,50 +1,70 @@
 {
-  "nombre_oficial": "Grado en Transporte Mercantil Marítimo",
-  "nombre_es": "Grado en Transporte Mercantil Marítimo",
-  "descripcion": "Economía empresarial, transporte marítimo y comercio, con un semestre en Singapur o Texas y experiencia práctica en la industria.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Transporte Marítimo y Comercio Internacional",
+  "descripcion": "Estudia shipping, logística y comercio global desde una perspectiva empresarial, económica y financiera.",
   "area": "negocios",
+  "area_documento": "EMPRESA Y COMERCIO INTERNACIONAL",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Shipping",
+    "Comercio internacional",
+    "Economía",
+    "Finanzas",
+    "Logística",
+    "Derecho y regulación"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Conecta teoría empresarial con mercados marítimos y comercio global e incluye una fuerte dimensión internacional.",
+  "practicas": "Incluye una experiencia internacional obligatoria vinculada al sector, con intercambio y prácticas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 90,
-      "ielts": 7,
+      "ielts": 7.0,
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 250,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Dirección de logística",
-    "Analista de cadena de valor",
-    "Optimización del transporte de mercancías"
+    "Shipping",
+    "Logística",
+    "Supply chain",
+    "Chartering",
+    "Comercio internacional",
+    "Business development"
   ],
-  "masteres_afines": [
-    "Transporte y cadena de valor",
-    "Derecho marítimo o mercantil"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "International Business, Supply Chain, Finance, Strategy y Maritime Economics.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

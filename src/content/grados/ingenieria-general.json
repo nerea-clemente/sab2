@@ -1,19 +1,47 @@
 {
-  "nombre_oficial": "Grado en Ingeniería General",
   "nombre_es": "Grado en Ingeniería General",
-  "descripcion": "Primer año común de ciencias naturales con sesgo técnico y después especialización en dos de las cuatro áreas del programa.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Construye una base amplia en ciencias e ingeniería y aprende a combinar disciplinas para resolver problemas tecnológicos complejos.",
   "area": "ciencias-ingenieria",
+  "area_documento": "CIENCIAS E INGENIERÍA",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
-    "Sistemas vivos",
-    "Cibersistemas",
-    "Energías verdes",
-    "Materiales"
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Matemáticas",
+    "Física",
+    "Química",
+    "Programación",
+    "Diseño de ingeniería",
+    "Modelización",
+    "Proyectos interdisciplinarios"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina fundamentos científicos con proyectos de ingeniería y trabajo entre disciplinas.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -22,34 +50,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 375,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       },
       {
-        "materia": "Física",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Física / Química",
+        "condicion": "Física: 200 horas mínimo · Química: 200 horas mínimo"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Según la rama de especialización"
+    "Ingeniería y desarrollo tecnológico",
+    "Energía",
+    "Tecnología médica",
+    "Digitalización",
+    "I+D"
   ],
-  "masteres_afines": [
-    "Inteligencia y analítica de negocios",
-    "Biotecnología",
-    "Inteligencia artificial",
-    "Ingeniería de los alimentos"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Numerosos MSc in Engineering según la especialización elegida.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

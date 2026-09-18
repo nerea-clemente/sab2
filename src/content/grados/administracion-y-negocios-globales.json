@@ -1,18 +1,46 @@
 {
-  "nombre_oficial": "Grado en Administración y Negocios Globales",
-  "nombre_es": "Grado en Administración y Negocios Globales",
-  "descripcion": "La gama de temas de un ADE típico (marketing, contabilidad, finanzas, organización) con la perspectiva internacional del siglo XXI.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Ingeniería de Negocios Globales",
+  "descripcion": "Combina ingeniería, tecnología y sostenibilidad con marketing, finanzas y gestión internacional.",
   "area": "negocios",
-  "nivel": "grado",
-  "duracion_anios": 3,
-  "ects": 180,
+  "area_documento": "EMPRESA E INGENIERÍA",
+  "nivel": "grado-ingenieria",
+  "titulacion": "Grado de Ingeniería",
+  "duracion_anios": 4.5,
+  "ects": 270,
   "idioma": "Inglés",
-  "ramas_especializacion": [
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "Ingeniería",
+    "Sostenibilidad",
     "Marketing",
     "Finanzas",
-    "Organización empresarial"
+    "Gestión",
+    "Innovación"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina teoría, proyectos, laboratorio y colaboración con empresas.",
+  "practicas": "Incluye 20 semanas de prácticas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -21,37 +49,21 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "200 horas mínimo, cursadas durante Bachillerato"
       }
-    ],
-    "nota_media_minima": "7 sobre 10",
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Coordinación de marketing",
-    "Analista de mercados",
-    "Recursos humanos",
-    "Analista financiero"
+    "International project manager",
+    "Technical sales",
+    "Business development",
+    "Consulting",
+    "Product development"
   ],
-  "masteres_afines": [
-    "Marketing",
-    "Analítica de mercados",
-    "Contabilidad y finanzas",
-    "Innovación empresarial"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Másteres relacionados con ingeniería, tecnología, energía, producto o gestión según el perfil.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

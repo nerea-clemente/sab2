@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado en Ingeniería Mecánica",
   "nombre_es": "Grado en Ingeniería Mecánica",
-  "descripcion": "Resuelve problemas de ingeniería mecánica, diseña productos, plantas y sistemas, y elige métodos de producción óptimos.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Desarrolla una base sólida de ingeniería y aplica conocimientos técnicos al diseño y desarrollo de sistemas y productos.",
   "area": "ciencias-ingenieria",
-  "nivel": "grado",
-  "duracion_anios": 3,
-  "ects": 180,
+  "area_documento": "CIENCIAS E INGENIERÍA",
+  "nivel": "grado-ingenieria",
+  "titulacion": "Grado de Ingeniería",
+  "duracion_anios": 3.5,
+  "ects": 210,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Mecánica",
+    "CAD",
+    "Materiales",
+    "Fabricación",
+    "Energía",
+    "Automatización"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "La enseñanza se estructura alrededor de proyectos semestrales que combinan teoría, laboratorio y problemas próximos a la industria.",
+  "practicas": "Incluye aproximadamente medio año de prácticas obligatorias en empresa.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,34 +49,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 375,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       },
       {
-        "materia": "Física",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Física / Química",
+        "condicion": "Física: 200 horas mínimo · Química: 75 horas mínimo, o asignaturas equivalentes aceptadas"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Sector energético",
-    "Jefatura de proyectos",
-    "Desarrollo de productos",
-    "Ingeniería de desarrollo"
+    "Mechanical engineer",
+    "Product development",
+    "Manufacturing",
+    "Energy systems",
+    "Project management"
   ],
-  "masteres_afines": [
-    "Ingeniería"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "MSc in Engineering en la misma disciplina y otras especializaciones relacionadas.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: pueden aplicarse tasas de matrícula.",
   "destacado": false
 }

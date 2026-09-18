@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado en Antropología de Mercados y Gestión",
-  "nombre_es": "Grado en Antropología de Mercados y Gestión",
-  "descripcion": "Teoría antropológica y métodos prácticos aplicados al marketing y la gestión como procesos sociales: cómo emergen y funcionan los mercados.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Antropología de Mercado y Gestión",
+  "descripcion": "Estudia consumidores, mercados y organizaciones utilizando antropología, métodos cualitativos y conocimientos de gestión.",
   "area": "sociales-humanidades",
+  "area_documento": "EMPRESA Y CIENCIAS SOCIALES",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Antropología",
+    "Consumer behaviour",
+    "Marketing",
+    "Organización",
+    "Métodos cualitativos",
+    "Mercados y cultura"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina trabajo analítico, investigación de campo y problemas empresariales para comprender por qué las personas y los mercados se comportan como lo hacen.",
+  "practicas": "Incluye una dimensión internacional y trabajo aplicado; el programa incorpora un semestre internacional obligatorio.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,35 +49,22 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Historia, historia de la filosofía o del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
+    "Consumer insights",
+    "Market research",
+    "UX research",
     "Consultoría",
-    "Especialista en desarrollo e innovación",
-    "Analista de mercados"
+    "Brand strategy",
+    "Organisational analysis"
   ],
-  "masteres_afines": [
-    "Marketing",
-    "Análisis de mercados",
-    "Administración y dirección de empresas"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Market Anthropology, Business, Marketing, Management y áreas de ciencias sociales.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

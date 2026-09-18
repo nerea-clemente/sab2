@@ -1,55 +1,69 @@
 {
-  "nombre_oficial": "Grado en Administración de Empresas y Gestión de Servicios",
   "nombre_es": "Grado en Administración de Empresas y Gestión de Servicios",
-  "descripcion": "Administración de empresas con el otro pilar en la gestión de servicios y especialización en tres ramas según la industria.",
-  "universidad": null,
-  "ciudad": null,
+  "descripcion": "Estudia cómo crear, gestionar y mejorar servicios en sectores donde experiencia, operaciones y negocio están estrechamente conectados.",
   "area": "negocios",
+  "area_documento": "EMPRESA Y SERVICIOS",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
-    "Arte y cultura",
-    "Servicios e innovación",
-    "Turismo y hospitalidad"
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Service management",
+    "Economía",
+    "Marketing",
+    "Organización",
+    "Estrategia",
+    "Experiencia del cliente"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina teoría empresarial con análisis de industrias de servicios, casos y trabajo aplicado.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
       "toefl": 90,
-      "ielts": 7,
+      "ielts": 7.0,
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 250,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Economía, historia o historia del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Dirección de hotel",
-    "Agencia de viajes",
-    "Dirección de museos",
-    "Marketing y administración"
+    "Service management",
+    "Customer experience",
+    "Marketing",
+    "Consultoría",
+    "Business development"
   ],
-  "masteres_afines": [
-    "Administración",
-    "Gestión hotelera"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Business Administration, Service Management, Marketing, Strategy y Management.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

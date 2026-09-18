@@ -1,18 +1,47 @@
 {
-  "nombre_oficial": "Grado Personalizado en Humanidades",
-  "nombre_es": "Grado Personalizado en Humanidades",
-  "descripcion": "Grado personalizable: solo seis asignaturas obligatorias y el resto lo eliges tú, combinando dos especialidades humanísticas.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Humanidades Globales",
+  "descripcion": "Estudia cultura, comunicación, identidad y sociedad desde una perspectiva internacional y crítica.",
   "area": "sociales-humanidades",
+  "area_documento": "HUMANIDADES Y COMUNICACIÓN",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [
+  "comienzo": "Agosto",
+  "areas_estudio": [
+    "Cultural studies",
     "Comunicación",
-    "Cultura",
-    "Psicología"
+    "Historia",
+    "Filosofía",
+    "Media",
+    "Psicología social",
+    "Global encounters"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Combina cursos interdisciplinares con proyectos en grupo y permite construir una especialización durante el grado.",
+  "practicas": "Existe la posibilidad de realizar un semestre de intercambio internacional.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto",
+      "que": "Inicio del curso"
+    }
   ],
   "requisitos": {
     "ingles": {
@@ -21,31 +50,22 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Historia, historia de la filosofía o del mundo contemporáneo",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
-      },
-      {
-        "materia": "Otro idioma cursado durante el bachillerato",
-        "horas_minimas": null,
-        "antiguedad": null
+        "requisito": "Matemáticas",
+        "condicion": "Según programa"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Según las especialidades elegidas"
+    "Comunicación",
+    "Cultura",
+    "International development",
+    "ONG",
+    "Research",
+    "Relaciones internacionales"
   ],
-  "masteres_afines": [
-    "Según las especialidades elegidas"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Humanities, Communication, Cultural Studies y programas relacionados.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }

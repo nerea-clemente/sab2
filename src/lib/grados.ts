@@ -11,11 +11,15 @@ export const ETIQUETA_AREA: Record<string, string> = {
   'diseno-creativo': 'Diseño y creación',
 };
 
+// Las etiquetas salen del documento maestro: un "Grado de Ingeniería" y un
+// "AP Degree" no son lo mismo y el buscador deja filtrarlos por separado.
 export const ETIQUETA_NIVEL: Record<string, string> = {
   grado: 'Grado',
+  'grado-ingenieria': 'Grado de Ingeniería',
+  'grado-profesional': 'Grado profesional',
+  ap: 'AP Degree',
+  'top-up': 'Bachelor Top-Up',
   master: 'Máster',
-  profesionsbachelor: 'AP (profesionsbachelor)',
-  'top-up': 'Top-up',
 };
 
 // 3 → "3 años"; 3.5 → "3 años y medio"; 1.5 → "1 año y medio".
@@ -24,14 +28,6 @@ export function formatoDuracion(anios: number): string {
   const medio = anios - entero >= 0.5;
   const base = entero === 1 ? '1 año' : `${entero} años`;
   return medio ? `${base} y medio` : base;
-}
-
-export function ciudadTexto(ciudad: string | null): string {
-  return ciudad ?? 'Por confirmar';
-}
-
-export function universidadTexto(universidad: string | null): string {
-  return universidad ?? 'Por confirmar';
 }
 
 // Resumen corto del requisito de inglés para tarjetas.
@@ -51,9 +47,7 @@ export interface GradoIndice {
   areaEtiqueta: string;
   nivel: string;
   nivelEtiqueta: string;
-  ciudad: string;
   idioma: string;
-  cuota: number | null;
   duracion: string;
   ects: number;
   ingles: string;
@@ -65,14 +59,12 @@ export function aIndice(grado: Grado): GradoIndice {
   return {
     slug: grado.id,
     nombre: d.nombre_es,
-    descripcion: d.descripcion ?? '',
+    descripcion: [d.descripcion, ...d.areas_estudio].join(' '),
     area: d.area,
     areaEtiqueta: ETIQUETA_AREA[d.area] ?? d.area,
     nivel: d.nivel,
     nivelEtiqueta: ETIQUETA_NIVEL[d.nivel] ?? d.nivel,
-    ciudad: d.ciudad ?? '',
     idioma: d.idioma,
-    cuota: d.cuota_admision,
     duracion: formatoDuracion(d.duracion_anios),
     ects: d.ects,
     ingles: resumenIngles(d.requisitos.ingles),
@@ -87,15 +79,13 @@ export function jsonLdCurso(grado: Grado) {
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: d.nombre_es,
-    description: d.descripcion ?? SITIO.descripcion,
+    description: d.descripcion,
     inLanguage: 'es',
     url: `${SITIO.dominio}/grados/${grado.id}/`,
-    educationalCredentialAwarded: ETIQUETA_NIVEL[d.nivel] ?? d.nivel,
+    educationalCredentialAwarded: d.titulacion,
     numberOfCredits: d.ects,
-    provider: {
-      '@type': 'Organization',
-      name: d.universidad ?? SITIO.entidadLegal,
-    },
+    timeRequired: `P${d.duracion_anios * 12}M`,
+    provider: { '@type': 'Organization', name: SITIO.entidadLegal },
   };
   return jsonld;
 }

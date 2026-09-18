@@ -1,6 +1,6 @@
 {
-  "nombre_es": "Grado Internacional en Ciencias Naturales",
-  "descripcion": "Explora problemas científicos de medio ambiente, salud, medicina y tecnología mediante una formación interdisciplinar en ciencias naturales.",
+  "nombre_es": "Grado en Inteligencia Artificial",
+  "descripcion": "Aprende a desarrollar sistemas inteligentes mediante programación, matemáticas, machine learning y algoritmos.",
   "area": "ciencias-ingenieria",
   "area_documento": "CIENCIAS E INGENIERÍA",
   "nivel": "grado",
@@ -8,18 +8,18 @@
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "comienzo": "Agosto",
+  "comienzo": "Agosto / septiembre",
   "areas_estudio": [
-    "Biología",
-    "Química",
-    "Física",
+    "Programación",
+    "Machine learning",
+    "Algoritmos",
+    "Optimización",
+    "Lógica",
     "Matemáticas",
-    "Computer Science",
-    "Métodos científicos",
-    "Proyectos"
+    "Ética de la IA"
   ],
   "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
-  "como_es": "El aprendizaje por proyectos es central. Trabajarás en grupos para investigar problemas científicos usando experimentos, análisis y modelos.",
+  "como_es": "Combina teoría, programación y proyectos, con problemas reales y colaboración con empresas.",
   "practicas": null,
   "calendario": [
     {
@@ -39,7 +39,7 @@
       "que": "Resolución de admisión"
     },
     {
-      "cuando": "Agosto",
+      "cuando": "Agosto / septiembre",
       "que": "Inicio del curso"
     }
   ],
@@ -53,18 +53,18 @@
     "adicionales": [
       {
         "requisito": "Matemáticas",
-        "condicion": "Según programa"
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       }
     ]
   },
   "salidas_laborales": [
-    "Investigación",
-    "Biotecnología",
-    "Medio ambiente",
-    "Data/technology",
-    "Laboratorio y desarrollo científico"
+    "AI developer",
+    "Machine learning engineer",
+    "Data scientist",
+    "Software developer",
+    "AI consultant"
   ],
-  "masteres": "Especialización posterior y másteres en ciencias naturales según las materias elegidas.",
-  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
-  "destacado": false
+  "masteres": "Artificial Intelligence, Computer Science, Data Science, Robotics y Machine Learning.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: la tasa publicada actualmente para programas de ingeniería en inglés es de 17.300 € por año.",
+  "destacado": true
 }

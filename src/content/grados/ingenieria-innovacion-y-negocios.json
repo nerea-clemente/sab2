@@ -1,15 +1,48 @@
 {
-  "nombre_oficial": "Grado en Ingeniería, Innovación y Negocios",
-  "nombre_es": "Grado en Ingeniería, Innovación y Negocios",
-  "descripcion": "Simulación, realidad virtual y optimización de la fábrica inteligente, uniendo la ingeniería con la innovación y los negocios.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "Grado en Ingeniería, Innovación y Negocio",
+  "descripcion": "Combina ingeniería, innovación, emprendimiento y negocio para convertir ideas tecnológicas en productos y oportunidades comerciales.",
   "area": "ciencias-ingenieria",
+  "area_documento": "EMPRESA E INGENIERÍA",
   "nivel": "grado",
+  "titulacion": "Grado",
   "duracion_anios": 3,
   "ects": 180,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Mecánica",
+    "Electrónica",
+    "Programación",
+    "Innovación",
+    "Emprendimiento",
+    "Business development",
+    "Simulación"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Desde el primer semestre trabajarás con proyectos y empresas, desarrollando prototipos y conceptos de negocio.",
+  "practicas": null,
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,35 +50,26 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 375,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "375 horas mínimo, cursadas durante Bachillerato"
       },
       {
-        "materia": "Física",
-        "horas_minimas": 200,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Física / Química",
+        "condicion": "Física: 200 horas mínimo, o formación equivalente en Geociencias"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Ingeniería de desarrollo",
-    "Gerencia de proyectos",
-    "Consultoría",
-    "Estrategia empresarial"
+    "Business developer",
+    "Product developer",
+    "Innovation manager",
+    "Project manager",
+    "Consultor",
+    "Emprendedor"
   ],
-  "masteres_afines": [
-    "Ingeniería, Innovación y Negocios",
-    "Supply Chain"
-  ],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Engineering, Innovation and Business y áreas de technology management.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables. Estudiantes fuera de UE/EEE: tasa publicada actualmente de 17.300 € por año.",
   "destacado": false
 }

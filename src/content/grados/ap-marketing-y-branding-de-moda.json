@@ -1,15 +1,47 @@
 {
-  "nombre_oficial": "Grado AP en Marketing y Branding de Moda",
-  "nombre_es": "Grado AP en Marketing y Branding de Moda",
-  "descripcion": "Título AP (equivale a los dos primeros años de grado) centrado en el marketing y el branding para la industria textil. Continúa con un top-up de moda.",
-  "universidad": null,
-  "ciudad": null,
+  "nombre_es": "AP Degree en Diseño, Tecnología y Negocio – Branding and Marketing Management",
+  "descripcion": "Aprende a construir, comunicar y comercializar marcas de moda y lifestyle combinando marketing, consumidor y negocio.",
   "area": "diseno-creativo",
-  "nivel": "profesionsbachelor",
+  "area_documento": "MODA, DISEÑO Y NEGOCIO",
+  "nivel": "ap",
+  "titulacion": "AP Degree",
   "duracion_anios": 2,
   "ects": 120,
   "idioma": "Inglés",
-  "ramas_especializacion": [],
+  "comienzo": "Agosto / septiembre",
+  "areas_estudio": [
+    "Branding",
+    "Marketing",
+    "Consumer behaviour",
+    "Communication",
+    "Retail",
+    "Trend analysis"
+  ],
+  "intro_areas": "El programa combina estas áreas para construir una base académica y práctica progresiva.",
+  "como_es": "Alterna teoría y tareas prácticas, proyectos individuales y en grupo y colaboración con la industria.",
+  "practicas": "Incluye 9 semanas de prácticas.",
+  "calendario": [
+    {
+      "cuando": "Cuanto antes",
+      "que": "Revisamos tu perfil y opciones"
+    },
+    {
+      "cuando": "15 mar",
+      "que": "Fecha clave para solicitudes con titulaciones internacionales"
+    },
+    {
+      "cuando": "Primavera",
+      "que": "Documentación, evaluación y requisitos adicionales cuando correspondan"
+    },
+    {
+      "cuando": "Fin de julio",
+      "que": "Resolución de admisión"
+    },
+    {
+      "cuando": "Agosto / septiembre",
+      "que": "Inicio del curso"
+    }
+  ],
   "requisitos": {
     "ingles": {
       "toefl": 83,
@@ -17,25 +49,25 @@
       "cambridge": "CAE (A, B o C) o FCE (A)",
       "exenciones": "Exento con Bachillerato Internacional (IB) o IGCSE + A-Levels"
     },
-    "asignaturas": [
+    "adicionales": [
       {
-        "materia": "Matemáticas",
-        "horas_minimas": 125,
-        "antiguedad": "cursadas en los últimos 3 años"
+        "requisito": "Matemáticas",
+        "condicion": "75 horas mínimo, cursadas durante Bachillerato"
+      },
+      {
+        "requisito": "Otros",
+        "condicion": "Prueba/tarea de admisión"
       }
-    ],
-    "nota_media_minima": null,
-    "examen_admision": false
+    ]
   },
-  "cuota_admision": null,
-  "comienzo": "Agosto",
-  "plazo_solicitud": null,
   "salidas_laborales": [
-    "Marketing de moda",
-    "Branding para empresas textiles"
+    "Marketing assistant",
+    "Brand coordinator",
+    "Content/communication",
+    "Retail marketing",
+    "E-commerce"
   ],
-  "masteres_afines": [],
-  "url_oficial": null,
-  "ultima_verificacion": "Curso 2022-2023",
+  "masteres": "Tras el AP Degree puedes solicitar acceso a un Bachelor Top-Up compatible, sujeto a los requisitos vigentes.",
+  "matricula": "Estudiantes UE/EEE: sin tasas de matrícula en las instituciones públicas danesas, siempre que se cumplan las condiciones aplicables.",
   "destacado": false
 }
