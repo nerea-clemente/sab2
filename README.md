@@ -64,15 +64,16 @@ consentir. Al configurar un proveedor sin cookies, poner `habilitada: true`.
 
 ## Imágenes
 
-Las fotos viven en `public/img/` en WebP, con dos anchos por pieza y el ancho
-en el nombre (`aula-proyectos-660.webp`). Se sirven con `srcset` + `sizes`.
+Los originales están en `fotosoriginalessab/`. De ahí salen, recortadas al
+aspecto de cada hueco, las versiones de `public/img/`: WebP, dos anchos por
+pieza y el ancho en el nombre (`aula-proyectos-1150.webp`), servidas con
+`srcset` + `sizes`. Ninguna se amplía por encima de su tamaño original.
 
-Tres cosas pendientes:
+La carpeta de originales no se publica: el sitio solo despliega `dist/`.
+Se conserva para poder reencuadrar sin volver a pedir los archivos.
 
-- **Resolución.** Las fotos actuales se recortaron de hojas de contactos de
-  unos 300 px por viñeta y están reescaladas entre 2x y 3x. Se ven bien a 1x,
-  pero quedan blandas en pantallas de alta densidad. Sustituir por los
-  originales a tamaño completo manteniendo los nombres de archivo.
+Pendiente:
+
 - **Retratos.** Las tarjetas de `/historias/` y la de la fundadora en
   `/sobre-mi/` llevan una escena danesa, no un retrato: no se pone una cara
   que no es la de la persona a la que se atribuye la cita. Al tener las fotos
