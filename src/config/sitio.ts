@@ -6,6 +6,11 @@ export const SITIO = {
   // Entidad legal: empresa DANESA (ApS), no española. Ver PENDIENTE.md.
   entidadLegal: 'Study and Beyond ApS',
   cvr: '43172794',
+  // La empresa está cerrada y pendiente de reabrir: mientras esto sea false,
+  // el CVR no aparece en ninguna parte del sitio (pie, aviso legal,
+  // privacidad, contacto, sobre nosotros ni datos estructurados).
+  // Para volver a publicarlo, basta con ponerlo en true.
+  mostrarCvr: false,
   // No se publica la dirección postal (decisión del cliente). Solo ciudad/país;
   // la dirección completa se define en la revisión legal. Ver PENDIENTE.md.
   domicilio: 'Dinamarca, dirección postal por confirmar',

@@ -16,7 +16,7 @@ import { SITIO } from '@/config/sitio';
 
       <h2>Responsable del tratamiento</h2>
       <p>
-        <strong>{SITIO.entidadLegal}</strong> (CVR {SITIO.cvr}), con domicilio en
+        <strong>{SITIO.entidadLegal}</strong>{SITIO.mostrarCvr && <> (CVR {SITIO.cvr})</>}, con domicilio en
         {SITIO.domicilio}. Contacto: <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>.
         Al ser una entidad danesa, la autoridad de control principal es la agencia
         danesa de protección de datos (<em>Datatilsynet</em>). [Confirmar con

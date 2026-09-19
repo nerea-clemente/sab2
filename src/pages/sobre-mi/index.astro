@@ -90,7 +90,7 @@ const bloques = [
         <section aria-labelledby="empresa" class="mt-12 rounded-tarjeta bg-cielo p-7 lg:p-9">
           <h2 id="empresa" class="text-h3 text-navy">La empresa</h2>
           <p class="prosa mt-3 text-sm text-navy/75">
-            {SITIO.entidadLegal} es una empresa registrada en Dinamarca (CVR {SITIO.cvr})
+            {SITIO.entidadLegal} es una empresa registrada en Dinamarca{SITIO.mostrarCvr && <> (CVR {SITIO.cvr})</>}
             con base en {SITIO.pais}.
           </p>
         </section>

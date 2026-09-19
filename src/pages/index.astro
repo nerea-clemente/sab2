@@ -24,7 +24,6 @@ const organizationLd = {
   url: SITIO.dominio,
   logo: new URL('/og/default.png', SITIO.dominio).href,
   email: SITIO.email,
-  telephone: SITIO.telefono,
   description: SITIO.descripcion,
   areaServed: { '@type': 'Country', name: 'España' },
   address: { '@type': 'PostalAddress', addressCountry: 'DK' },
@@ -36,7 +35,9 @@ const organizationLd = {
     'Admisión universitaria en Dinamarca',
     'Matrícula gratuita para estudiantes de la UE',
   ],
-  identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: SITIO.cvr },
+  ...(SITIO.mostrarCvr
+    ? { identifier: { '@type': 'PropertyValue', propertyID: 'CVR', value: SITIO.cvr } }
+    : {}),
 };
 const websiteLd = {
   '@context': 'https://schema.org',
@@ -400,7 +401,6 @@ const fechas = [
     <div class="contenedor py-16 lg:py-24">
       <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div class="max-w-2xl">
-          <p class="etiqueta text-amarillo">Cuándo</p>
           <h2 id="cuando" class="mt-5 text-h2 text-white">Fechas importantes</h2>
           <p class="mt-6 max-w-prosa text-lg text-white/85">
             El curso empieza en agosto, pero la admisión se prepara meses antes.
@@ -456,7 +456,6 @@ const fechas = [
     <div class="contenedor py-16 lg:py-24">
       <div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
-          <p class="etiqueta text-azul-700">Para familias</p>
           <h2 id="familias" class="mt-5 text-seccion text-navy">Los datos antes de decidir</h2>
           <p class="mt-7 max-w-prosa text-lg text-navy/75">
             Matrícula, presupuesto, alojamiento, trabajo, SU, sanidad y qué ocurre
@@ -478,6 +477,7 @@ const fechas = [
   <!-- ╌╌ CTA FINAL ╌╌ -->
   <CtaFinal
     grande
+    etiqueta=""
     titulo="¿Quieres saber qué opciones tienes en Dinamarca?"
     texto="La primera sesión es gratuita. Revisamos tu situación, qué grados pueden encajar y cómo sería el proceso en tu caso."
   >

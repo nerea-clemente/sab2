@@ -99,15 +99,14 @@ import { SITIO } from '@/config/sitio';
           <h2 class="etiqueta text-azul">Contacto directo</h2>
           <ul class="mt-5 space-y-3 text-sm font-bold">
             <li><a class="text-navy hover:text-azul" href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
-            <li><a class="text-navy hover:text-azul" href={`tel:${SITIO.telefonoPlano}`}>{SITIO.telefono}</a></li>
           </ul>
           <p class="mt-4 text-xs text-slate">
-            Study and Beyond está en Dinamarca. El número de teléfono es español para
-            facilitar el contacto desde España.
+            Study and Beyond está en Dinamarca. Escríbenos por correo o con el
+            formulario y te respondemos por el mismo canal.
           </p>
           <p class="mt-5 flex items-start gap-2 border-t border-hairline pt-4 text-xs text-slate">
             <Icono nombre="pin" class="mt-px h-4 w-4 shrink-0 text-coral" />
-            <span>{SITIO.entidadLegal} · CVR {SITIO.cvr}</span>
+            <span>{SITIO.entidadLegal}{SITIO.mostrarCvr && <> · CVR {SITIO.cvr}</>}</span>
           </p>
         </div>
         </div>

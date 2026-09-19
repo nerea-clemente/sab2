@@ -17,12 +17,11 @@ import { SITIO } from '@/config/sitio';
       <h2>Titular del sitio</h2>
       <p>
         Este sitio web (studyandbeyond.es) es titularidad de <strong>{SITIO.entidadLegal}</strong>,
-        empresa danesa con número de registro (CVR) <strong>{SITIO.cvr}</strong> y
-        domicilio en {SITIO.domicilio}.
+        empresa danesa{SITIO.mostrarCvr && <> con número de registro (CVR) <strong>{SITIO.cvr}</strong></>}
+        y domicilio en {SITIO.domicilio}.
       </p>
       <ul>
         <li>Correo electrónico: <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
-        <li>Teléfono: {SITIO.telefono}</li>
         <li>Forma jurídica: [confirmar: ApS danesa]</li>
       </ul>
 

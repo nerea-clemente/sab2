@@ -33,8 +33,8 @@ const {
   <div class:list={['contenedor relative', grande ? 'py-20 lg:py-28' : 'py-16 lg:py-24']}>
     <div class="grid gap-10 lg:grid-cols-[1.35fr_1fr] lg:items-end lg:gap-16">
       <div>
-        <p class="etiqueta text-amarillo">{etiqueta}</p>
-        <h2 class:list={['mt-5 max-w-[17ch] text-white', grande ? 'text-seccion' : 'text-h2']}>
+        {etiqueta && <p class="etiqueta text-amarillo">{etiqueta}</p>}
+        <h2 class:list={[etiqueta && 'mt-5', 'max-w-[17ch] text-white', grande ? 'text-seccion' : 'text-h2']}>
           <slot name="titulo">{titulo}</slot>
         </h2>
         <p class="mt-6 max-w-prosa text-lg text-white/80">{texto}</p>

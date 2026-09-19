@@ -52,7 +52,7 @@ const anio = 2026; // Se actualiza en build; evita depender de Date en SSG.
 
   <div class="border-t border-white/10">
     <div class="contenedor flex flex-col gap-1 py-6 text-xs text-white/60">
-      <p>© {anio} {SITIO.entidadLegal} · CVR {SITIO.cvr}</p>
+      <p>© {anio} {SITIO.entidadLegal}{SITIO.mostrarCvr && <> · CVR {SITIO.cvr}</>}</p>
       <p>{SITIO.entidadLegal} · Empresa danesa.</p>
     </div>
   </div>
