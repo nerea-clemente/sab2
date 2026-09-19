@@ -13,7 +13,6 @@ import { SITIO } from '@/config/sitio';
 const eur = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 const precio = eur(SITIO.precioServicio);
 const mitad = eur(SITIO.precioServicio / 2);
-const precioIB = eur(SITIO.precioIB);
 
 const servicios = [
   { t: 'Orientación académica', d: 'Revisamos tu perfil, tus intereses y los requisitos de los programas. Te presentamos las opciones que encajan y definimos una estrategia de solicitudes.' },
@@ -64,45 +63,15 @@ const faqLd = {
     <CabeceraPagina
       etiqueta="Servicio"
       titulo="Te ayudamos con todo el proceso"
-      lead="Study and Beyond gestiona el proceso completo: orientación académica, estrategia de solicitudes, admisión, documentación y asesoramiento práctico para empezar en Dinamarca. Hay dos rutas, según si vienes a hacer una carrera o el Bachillerato Internacional."
+      lead="Study and Beyond gestiona el proceso completo: orientación académica, estrategia de solicitudes, admisión, documentación y asesoramiento práctico para empezar en Dinamarca."
     >
       <Fragment slot="titulo">Te ayudamos con <span class="text-coral">todo</span> el proceso</Fragment>
     </CabeceraPagina>
   </section>
 
-  <!-- Dos rutas: la universitaria y la del IB -->
-  <section aria-labelledby="rutas" class="contenedor mt-12">
-    <h2 id="rutas" class="sr-only">Las dos rutas</h2>
-    <ul class="grid gap-5 lg:grid-cols-2">
-      <li class="tarjeta-color bg-cielo">
-        <p class="pastilla">Ruta 01</p>
-        <h3 class="mt-3 text-h2 text-navy">Grados universitarios</h3>
-        <p class="mt-4 text-navy/80">
-          Orientación, estrategia de solicitudes, admisión, documentación y
-          preparación de la llegada para estudiar una carrera en inglés.
-        </p>
-        <p class="mt-6 font-display text-4xl font-extrabold tracking-[-0.03em] text-navy">{precio} €</p>
-        <p class="etiqueta-suelta mt-2 text-navy/70">IVA incluido · dos pagos</p>
-        <a href="#incluye" class="enlace mt-auto pt-7">Ver qué incluye <span aria-hidden="true">&rarr;</span></a>
-      </li>
-      <li class="tarjeta-color bg-mantequilla">
-        <p class="pastilla">Ruta 02</p>
-        <h3 class="mt-3 text-h2 text-navy">Bachillerato Internacional</h3>
-        <p class="mt-4 text-navy/80">
-          Pre-IB e IB Diploma en un internado danés. Incluye el trabajo adicional con
-          menores, familia, <em>boarding school</em> y acompañamiento local.
-        </p>
-        <p class="mt-6 font-display text-4xl font-extrabold tracking-[-0.03em] text-navy">{precioIB} €</p>
-        <p class="etiqueta-suelta mt-2 text-navy/70">IVA incluido</p>
-        <a href={ruta('/bachillerato-internacional/')} class="enlace mt-auto pt-7">Ver la ruta del IB <span aria-hidden="true">&rarr;</span></a>
-      </li>
-    </ul>
-  </section>
-
   <!-- Qué incluye · tarjetas de color -->
   <section aria-labelledby="incluye" class="contenedor ritmo">
-    <p class="etiqueta text-azul">Ruta 01 · grados universitarios</p>
-    <h2 id="incluye" class="mt-5 text-h2 text-navy">Qué incluye</h2>
+    <h2 id="incluye" class="text-h2 text-navy">Qué incluye</h2>
     <ul class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {servicios.map((s, i) => (
         <li class:list={['reveal flex h-full flex-col rounded-tarjeta p-6 sm:p-7', tono(i)]}>
