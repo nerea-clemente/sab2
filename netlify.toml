@@ -14,3 +14,13 @@
 
 # La detección de formularios de Netlify Forms es automática a partir del
 # HTML estático generado (el formulario de /contacto/ lleva data-netlify="true").
+
+# La página vive en /sobre-nosotros/. En /sobre-mi/ hay una redirección por
+# meta-refresh que funciona en cualquier alojamiento; aquí se sustituye por un
+# 301 de servidor, que es lo que entienden los buscadores. force = true porque
+# el archivo estático existe y si no ganaría él.
+[[redirects]]
+  from = "/sobre-mi/"
+  to = "/sobre-nosotros/"
+  status = 301
+  force = true
