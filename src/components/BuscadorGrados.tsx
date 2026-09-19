@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'preact/hooks';
-import type { GradoIndice } from '@/lib/grados';
+import { ETIQUETA_FAMILIA, ORDEN_FAMILIA, type GradoIndice } from '@/lib/grados';
 
 interface Props {
   grados: GradoIndice[];
@@ -9,10 +9,9 @@ interface Filtros {
   q: string;
   area: string;
   nivel: string;
-  idioma: string;
 }
 
-const VACIO: Filtros = { q: '', area: '', nivel: '', idioma: '' };
+const VACIO: Filtros = { q: '', area: '', nivel: '' };
 
 // Color por familia académica. Texto charcoal encima (todas pasan AA).
 const AREA_BG: Record<string, string> = {
@@ -31,7 +30,6 @@ function desdeUrl(): Filtros {
     q: p.get('q') ?? '',
     area: p.get('area') ?? '',
     nivel: p.get('nivel') ?? '',
-    idioma: p.get('idioma') ?? '',
   };
 }
 
@@ -39,16 +37,16 @@ function normaliza(s: string): string {
   return s.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase();
 }
 
-function opciones(grados: GradoIndice[], clave: 'area' | 'nivel' | 'idioma') {
+function areasDe(grados: GradoIndice[]) {
   const mapa = new Map<string, string>();
-  for (const g of grados) {
-    const valor = g[clave];
-    if (!valor) continue;
-    const etiqueta =
-      clave === 'area' ? g.areaEtiqueta : clave === 'nivel' ? g.nivelEtiqueta : valor;
-    mapa.set(valor, etiqueta);
-  }
+  for (const g of grados) if (g.area) mapa.set(g.area, g.areaEtiqueta);
   return [...mapa.entries()].sort((a, b) => a[1].localeCompare(b[1], 'es'));
+}
+
+// Tres niveles fijos, en orden de duración, y solo los que existan.
+function familiasDe(grados: GradoIndice[]) {
+  const hay = new Set(grados.map((g) => g.familia));
+  return ORDEN_FAMILIA.filter((f) => hay.has(f)).map((f) => [f, ETIQUETA_FAMILIA[f]] as const);
 }
 
 export default function BuscadorGrados({ grados }: Props) {
@@ -70,16 +68,14 @@ export default function BuscadorGrados({ grados }: Props) {
     return () => window.removeEventListener('popstate', onPop);
   }, []);
 
-  const areas = useMemo(() => opciones(grados, 'area'), [grados]);
-  const niveles = useMemo(() => opciones(grados, 'nivel'), [grados]);
-  const idiomas = useMemo(() => opciones(grados, 'idioma'), [grados]);
+  const areas = useMemo(() => areasDe(grados), [grados]);
+  const niveles = useMemo(() => familiasDe(grados), [grados]);
 
   const resultados = useMemo(() => {
     const q = normaliza(filtros.q.trim());
     return grados.filter((g) => {
       if (filtros.area && g.area !== filtros.area) return false;
-      if (filtros.nivel && g.nivel !== filtros.nivel) return false;
-      if (filtros.idioma && g.idioma !== filtros.idioma) return false;
+      if (filtros.nivel && g.familia !== filtros.nivel) return false;
       if (q) {
         const heno = normaliza(`${g.nombre} ${g.descripcion} ${g.areaEtiqueta}`);
         if (!heno.includes(q)) return false;
@@ -137,21 +133,13 @@ export default function BuscadorGrados({ grados }: Props) {
         </div>
 
         {/* Refinar: filtros secundarios, discretos */}
-        {(niveles.length > 1 || idiomas.length > 1) && (
+        {niveles.length > 1 && (
           <div class="mt-5 flex flex-wrap items-center gap-2 border-t border-hairline pt-5">
             <span class="etiqueta-suelta mr-1 text-slate">Refinar</span>
-            {niveles.length > 1 && (
-              <select value={filtros.nivel} onChange={set('nivel')} class={selectClase} aria-label="Nivel">
-                <option value="">Cualquier nivel</option>
-                {niveles.map(([v, t]) => (<option value={v}>{t}</option>))}
-              </select>
-            )}
-            {idiomas.length > 1 && (
-              <select value={filtros.idioma} onChange={set('idioma')} class={selectClase} aria-label="Idioma">
-                <option value="">Cualquier idioma</option>
-                {idiomas.map(([v, t]) => (<option value={v}>{t}</option>))}
-              </select>
-            )}
+            <select value={filtros.nivel} onChange={set('nivel')} class={selectClase} aria-label="Nivel">
+              <option value="">Cualquier nivel</option>
+              {niveles.map(([v, t]) => (<option value={v}>{t}</option>))}
+            </select>
           </div>
         )}
 

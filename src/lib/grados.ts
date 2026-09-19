@@ -22,6 +22,28 @@ export const ETIQUETA_NIVEL: Record<string, string> = {
   master: 'Máster',
 };
 
+// Familia de titulación, que es como se filtra en el buscador. Los cinco
+// niveles del documento maestro se agrupan en las tres que le dicen algo a
+// quien busca: un "Grado de Ingeniería" y un "Grado profesional" son grados.
+// La ficha y la tarjeta siguen mostrando el nivel exacto.
+export const FAMILIA_NIVEL: Record<string, string> = {
+  grado: 'grado',
+  'grado-ingenieria': 'grado',
+  'grado-profesional': 'grado',
+  master: 'grado',
+  ap: 'ap',
+  'top-up': 'top-up',
+};
+
+export const ETIQUETA_FAMILIA: Record<string, string> = {
+  ap: 'AP',
+  grado: 'Grado',
+  'top-up': 'Top-Up',
+};
+
+// Orden de los tres niveles, de más corto a más largo.
+export const ORDEN_FAMILIA = ['ap', 'grado', 'top-up'] as const;
+
 // 3 → "3 años"; 3.5 → "3 años y medio"; 1.5 → "1 año y medio".
 export function formatoDuracion(anios: number): string {
   const entero = Math.floor(anios);
@@ -47,7 +69,7 @@ export interface GradoIndice {
   areaEtiqueta: string;
   nivel: string;
   nivelEtiqueta: string;
-  idioma: string;
+  familia: string;
   duracion: string;
   ects: number;
   ingles: string;
@@ -64,7 +86,7 @@ export function aIndice(grado: Grado): GradoIndice {
     areaEtiqueta: ETIQUETA_AREA[d.area] ?? d.area,
     nivel: d.nivel,
     nivelEtiqueta: ETIQUETA_NIVEL[d.nivel] ?? d.nivel,
-    idioma: d.idioma,
+    familia: FAMILIA_NIVEL[d.nivel] ?? 'grado',
     duracion: formatoDuracion(d.duracion_anios),
     ects: d.ects,
     ingles: resumenIngles(d.requisitos.ingles),
