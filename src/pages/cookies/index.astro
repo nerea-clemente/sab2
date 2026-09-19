@@ -1,44 +1,92 @@
 ---
 import Base from '@/layouts/Base.astro';
-import AvisoRevisionLegal from '@/components/AvisoRevisionLegal.astro';
+import CabeceraLegal from '@/components/CabeceraLegal.astro';
+
+// Categorías de cookies. Van como fichas para que se distinga de un vistazo
+// cuál es obligatoria y cuál depende del consentimiento.
+const categorias = [
+  {
+    nombre: 'Necesarias',
+    estado: 'Siempre activas',
+    tono: 'bg-menta',
+    texto:
+      'Permiten el funcionamiento técnico, la seguridad y las funciones esenciales del sitio. No se desactivan mediante el panel cuando son estrictamente necesarias.',
+  },
+  {
+    nombre: 'Analíticas',
+    estado: 'Requieren consentimiento',
+    tono: 'bg-mantequilla',
+    texto:
+      'Nos ayudan a entender de forma agregada cómo se utiliza la web. Study & Beyond prevé utilizar Google Analytics. Estas tecnologías deberán permanecer bloqueadas hasta que exista consentimiento cuando sea exigible.',
+  },
+  {
+    nombre: 'Marketing',
+    estado: 'No previstas',
+    tono: 'bg-cielo',
+    texto:
+      'Actualmente no está previsto utilizar cookies de publicidad comportamental o píxeles de redes sociales. Si se incorporan en el futuro, esta política y el panel de consentimiento se actualizarán antes de activarlos.',
+  },
+];
 ---
 
 <Base
   titulo="Política de cookies"
-  descripcion="Este sitio no usa cookies de publicidad ni de seguimiento. Explicamos qué almacenamos y por qué."
+  descripcion="Qué cookies y tecnologías similares utiliza studyandbeyond.es, por categorías, y cómo dar o retirar tu consentimiento."
   noindex={true}
 >
   <section class="contenedor py-12 lg:py-16">
-    <h1 class="text-titulo text-navy">Política de cookies</h1>
-    <div class="contenido-mdx mt-8">
-      <AvisoRevisionLegal />
+    <CabeceraLegal
+      titulo="Política de cookies"
+      entradilla="studyandbeyond.es utiliza cookies y tecnologías similares. Algunas son necesarias para que la web funcione. Otras, como las utilizadas para analítica, solo se activarán cuando hayas dado tu consentimiento si este es legalmente necesario."
+    />
 
-      <h2>Nuestra postura</h2>
+    <div class="contenido-mdx mt-10">
+      <h2>Qué es una cookie</h2>
       <p>
-        Este sitio está pensado para funcionar <strong>sin cookies de publicidad ni
-        de seguimiento</strong>. No compartimos tu navegación con terceros con fines
-        comerciales.
+        Una cookie es un pequeño archivo o identificador que puede almacenarse o
+        leerse en tu dispositivo cuando visitas una web. Puede servir, por ejemplo,
+        para recordar una preferencia, mantener funciones técnicas o medir cómo se
+        utiliza el sitio.
       </p>
 
-      <h2>Qué almacenamos</h2>
-      <ul>
-        <li>
-          <strong>Preferencia de consentimiento</strong>: si aceptas o rechazas la
-          analítica, guardamos tu elección en el almacenamiento local de tu
-          navegador para no volver a preguntártelo. No es una cookie de seguimiento
-          y no sale de tu dispositivo.
-        </li>
-        <li>
-          <strong>Analítica respetuosa</strong> (solo si la aceptas): medimos visitas
-          de forma agregada y <strong>sin cookies</strong>, sin identificarte. [Confirmar
-          proveedor, p. ej. Plausible.]
-        </li>
-      </ul>
+      <h2>Categorías que utilizamos</h2>
+    </div>
 
-      <h2>Cómo cambiar tu elección</h2>
+    <ul class="mt-8 grid max-w-4xl gap-4 sm:grid-cols-3">
+      {categorias.map((c) => (
+        <li class:list={['flex h-full flex-col rounded-tarjeta p-6', c.tono]}>
+          <p class="etiqueta-suelta text-navy/65">{c.estado}</p>
+          <p class="mt-3 text-h3 font-extrabold text-navy">{c.nombre}</p>
+          <p class="mt-3 text-sm leading-relaxed text-navy/80">{c.texto}</p>
+        </li>
+      ))}
+    </ul>
+
+    <div class="contenido-mdx mt-12">
+      <h2>Google Analytics</h2>
       <p>
-        Puedes revocar o cambiar tu consentimiento en cualquier momento borrando los
-        datos de sitio de tu navegador; volveremos a preguntarte en tu próxima visita.
+        Prevemos utilizar Google Analytics para obtener estadísticas sobre el uso de
+        la web. Su configuración deberá respetar las opciones de consentimiento
+        elegidas por el visitante y las medidas de minimización disponibles. Google
+        Analytics no deberá activarse antes del consentimiento cuando este sea
+        requerido.
+      </p>
+
+      <h2>Cómo gestionamos el consentimiento</h2>
+      <p>
+        Al entrar en la web podrás aceptar todas las cookies no necesarias,
+        rechazarlas o configurar tus preferencias por categoría. Rechazar las cookies
+        analíticas no impedirá utilizar el contenido principal de la web.
+      </p>
+      <p>
+        Podrás modificar o retirar tu consentimiento posteriormente mediante el enlace
+        permanente «Configurar cookies» disponible en la web.
+      </p>
+
+      <h2>Cambios</h2>
+      <p>
+        Actualizaremos esta política cuando cambien las tecnologías utilizadas o su
+        finalidad. La fecha de la última versión aparecerá al inicio de la página.
       </p>
     </div>
   </section>

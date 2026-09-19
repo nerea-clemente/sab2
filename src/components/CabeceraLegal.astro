@@ -1,0 +1,19 @@
+---
+import { SITIO } from '@/config/sitio';
+
+// Cabecera común de las cuatro páginas legales: título, fecha de la versión
+// vigente y, debajo, la identificación de la empresa cuando hace falta.
+interface Props {
+  titulo: string;
+  entradilla?: string;
+}
+const { titulo, entradilla } = Astro.props;
+---
+
+<header>
+  <h1 class="text-titulo text-navy">{titulo}</h1>
+  <p class="mt-4 text-sm font-bold text-slate">
+    Última actualización: {SITIO.legalActualizado.toLowerCase()}
+  </p>
+  {entradilla && <p class="prosa mt-6 text-lg">{entradilla}</p>}
+</header>

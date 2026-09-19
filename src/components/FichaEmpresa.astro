@@ -1,0 +1,36 @@
+---
+import { SITIO } from '@/config/sitio';
+
+// Identificación de la empresa. El CVR solo aparece cuando SITIO.mostrarCvr
+// está activo (ver sitio.ts).
+interface Props {
+  titulo?: string;
+}
+const { titulo } = Astro.props;
+---
+
+<div class="not-prose my-8 rounded-tarjeta bg-cielo px-6 py-6 text-navy lg:px-7">
+  {titulo && <p class="etiqueta-suelta text-azul-700">{titulo}</p>}
+  <dl class:list={['grid gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]', titulo && 'mt-5']}>
+    <dt class="text-sm text-navy/65">Razón social</dt>
+    <dd class="text-sm font-bold">{SITIO.entidadLegal}</dd>
+
+    {SITIO.mostrarCvr && (
+      <>
+        <dt class="text-sm text-navy/65">CVR</dt>
+        <dd class="text-sm font-bold tabular">{SITIO.cvr}</dd>
+      </>
+    )}
+
+    <dt class="text-sm text-navy/65">Domicilio</dt>
+    <dd class="text-sm font-bold">{SITIO.domicilio}</dd>
+
+    <dt class="text-sm text-navy/65">Correo electrónico</dt>
+    <dd class="text-sm font-bold">
+      <a class="text-azul underline underline-offset-2 hover:text-azul-700" href={`mailto:${SITIO.email}`}>{SITIO.email}</a>
+    </dd>
+
+    <dt class="text-sm text-navy/65">Sitio web</dt>
+    <dd class="text-sm font-bold">studyandbeyond.es</dd>
+  </dl>
+</div>

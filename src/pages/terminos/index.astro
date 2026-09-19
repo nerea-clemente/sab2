@@ -1,0 +1,143 @@
+---
+import Base from '@/layouts/Base.astro';
+import CabeceraLegal from '@/components/CabeceraLegal.astro';
+import FichaEmpresa from '@/components/FichaEmpresa.astro';
+import { ruta } from '@/lib/ruta';
+import { SITIO } from '@/config/sitio';
+
+// Mismo formato de precio que la página de servicios.
+const eur = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const precio = eur(SITIO.precioServicio);
+const mitad = eur(SITIO.precioServicio / 2);
+---
+
+<Base
+  titulo="Términos y condiciones"
+  descripcion="Condiciones generales del servicio de Study and Beyond: qué incluye, precio, cómo funciona la admisión, responsabilidades y derecho de desistimiento."
+  noindex={true}
+>
+  <section class="contenedor py-12 lg:py-16">
+    <CabeceraLegal
+      titulo="Términos y condiciones"
+      entradilla="Estos términos regulan la información general sobre los servicios de Study & Beyond y las condiciones aplicables a la contratación cuando se incorporen al contrato correspondiente. En caso de contradicción entre esta página y un contrato individual firmado, prevalecerá el contrato individual en aquello que pueda pactarse legalmente."
+    />
+
+    <div class="contenido-mdx mt-10">
+      <h2>Quién presta el servicio</h2>
+      <FichaEmpresa />
+
+      <h2>Qué hacemos</h2>
+      <p>
+        Study &amp; Beyond está especializado exclusivamente en Dinamarca. Prestamos
+        servicios de orientación académica, búsqueda y comparación de programas,
+        revisión de requisitos, estrategia y gestión de solicitudes, traducciones
+        juradas necesarias dentro del alcance contratado, orientación sobre
+        alojamiento y preparación práctica para la llegada a Dinamarca.
+      </p>
+
+      <h2>Precio</h2>
+      <p>
+        El precio del servicio completo es de <strong>{precio} € IVA incluido</strong>,
+        salvo que se indique expresamente otra cosa en una oferta o contrato
+        individual.
+      </p>
+    </div>
+
+    <dl class="ficha-datos mt-8 max-w-xl rounded-tarjeta border-navy/10 bg-cielo px-6 py-2 divide-navy/10">
+      <div>
+        <dt class="text-navy/70">Primer pago · al contratar</dt>
+        <dd>{mitad} €</dd>
+      </div>
+      <div>
+        <dt class="text-navy/70">Segundo pago · solo si hay admisión</dt>
+        <dd>{mitad} €</dd>
+      </div>
+    </dl>
+
+    <div class="contenido-mdx mt-8">
+      <p>
+        La estructura habitual es de dos pagos de {mitad} €. El primero se abona al
+        contratar el servicio. El segundo se abona cuando el estudiante obtiene una
+        admisión en firme o condicionada en uno de los programas acordados dentro del
+        proceso gestionado por Study &amp; Beyond.
+      </p>
+
+      <h2>Admisión</h2>
+      <p>
+        Las universidades e instituciones educativas toman sus propias decisiones de
+        admisión. Study &amp; Beyond no puede sustituirlas ni modificar sus criterios.
+      </p>
+      <div class="bloque-condicion">
+        Nuestra garantía comercial se articula mediante el segundo pago: si no se
+        obtiene ninguna admisión en firme o condicionada en los programas acordados,
+        <strong> el segundo pago no se exige</strong>, siempre que el proceso haya
+        podido tramitarse correctamente con la colaboración y documentación del
+        estudiante.
+      </div>
+
+      <h2>Traducciones juradas</h2>
+      <p>
+        Las traducciones juradas de certificados académicos que sean razonablemente
+        necesarias para las solicitudes incluidas en el servicio están incluidas.
+        Otros costes externos, como apostillas, legalizaciones, exámenes de idioma,
+        tasas oficiales o documentos emitidos por terceros, no están incluidos salvo
+        acuerdo escrito.
+      </p>
+
+      <h2>Responsabilidad del estudiante</h2>
+      <p>
+        El estudiante debe proporcionar información y documentación auténtica,
+        completa y dentro de plazo, revisar las comunicaciones que reciba y colaborar
+        en las acciones que deban realizarse personalmente. El incumplimiento de
+        requisitos o plazos por causas imputables al estudiante puede afectar al
+        resultado del proceso.
+      </p>
+
+      <h2>Alojamiento y terceros</h2>
+      <p>
+        Study &amp; Beyond orienta sobre alojamiento y otros aspectos prácticos, pero
+        no actúa como arrendador, agencia inmobiliaria, universidad, autoridad
+        pública, banco o empleador. Las decisiones y contratos con esos terceros
+        corresponden al estudiante.
+      </p>
+
+      <h2>Menores y familiares</h2>
+      <p>
+        Cuando el estudiante sea menor de edad, el contrato deberá formalizarlo su
+        padre, madre o tutor legal en su representación. Cuando sea mayor de edad,
+        Study &amp; Beyond se comunicará directamente con el estudiante para la
+        gestión cotidiana. Los familiares podrán recibir información sobre hitos
+        generales cuando el estudiante lo autorice.
+      </p>
+
+      <h2>Derecho de desistimiento</h2>
+      <p>
+        Cuando la contratación se realice a distancia con un consumidor, existe con
+        carácter general un plazo legal de 14 días para desistir desde la celebración
+        del contrato. Si el consumidor solicita expresamente que el servicio comience
+        durante ese periodo, podrán aplicarse las reglas legales sobre el pago
+        proporcional de la parte ya prestada. El contrato individual contiene la
+        información y el formulario correspondientes.
+      </p>
+
+      <h2>Ley aplicable</h2>
+      <p>
+        Los servicios se prestan por una empresa danesa y los contratos se someten al
+        Derecho danés, sin perjuicio de los derechos imperativos de protección al
+        consumidor que puedan corresponder al cliente por su residencia habitual
+        conforme al Derecho de la Unión Europea.
+      </p>
+
+      <h2>Contacto</h2>
+      <p>
+        Para consultas sobre contratación, pagos o el servicio:
+        {' '}<a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>.
+      </p>
+      <p>
+        Puedes consultar también el <a href={ruta('/aviso-legal/')}>aviso legal</a>,
+        la <a href={ruta('/privacidad/')}>política de privacidad</a> y la
+        {' '}<a href={ruta('/cookies/')}>política de cookies</a>.
+      </p>
+    </div>
+  </section>
+</Base>

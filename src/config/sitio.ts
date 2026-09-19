@@ -11,9 +11,11 @@ export const SITIO = {
   // privacidad, contacto, sobre nosotros ni datos estructurados).
   // Para volver a publicarlo, basta con ponerlo en true.
   mostrarCvr: false,
-  // No se publica la dirección postal (decisión del cliente). Solo ciudad/país;
-  // la dirección completa se define en la revisión legal. Ver PENDIENTE.md.
-  domicilio: 'Dinamarca, dirección postal por confirmar',
+  // Domicilio social. Solo se publica en las páginas legales, donde es
+  // obligatorio identificar a la empresa; el resto del sitio dice "Dinamarca".
+  domicilio: 'Agerbeaksvej 32, 1. 2., 8240 Risskov (Aarhus), Dinamarca',
+  // Fecha que se muestra en las páginas legales.
+  legalActualizado: 'Septiembre de 2026',
   dominio: 'https://studyandbeyond.es',
   descripcion:
     'Orientación y gestión completa para estudiar un grado en Dinamarca: admisión, alojamiento y acompañamiento en el país.',

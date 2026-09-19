@@ -1,76 +1,206 @@
 ---
 import Base from '@/layouts/Base.astro';
-import AvisoRevisionLegal from '@/components/AvisoRevisionLegal.astro';
+import CabeceraLegal from '@/components/CabeceraLegal.astro';
+import FichaEmpresa from '@/components/FichaEmpresa.astro';
 import { SITIO } from '@/config/sitio';
+
+// Tabla de finalidades. Se pinta como fichas en vez de <table> para que se lea
+// igual de bien en móvil, donde tres columnas largas quedan ilegibles.
+const finalidades = [
+  {
+    finalidad: 'Responder a consultas y gestionar la primera sesión',
+    datos: 'Contacto, edad, país, estudios, intereses y mensaje',
+    base: 'Medidas precontractuales solicitadas por la persona interesada y, cuando proceda, interés legítimo en responder a consultas.',
+  },
+  {
+    finalidad: 'Prestar el servicio contratado',
+    datos: 'Identificación, contacto, datos académicos, preferencias, documentación y proceso de admisión',
+    base: 'Ejecución del contrato y medidas precontractuales.',
+  },
+  {
+    finalidad: 'Gestionar estudiantes menores de edad',
+    datos: 'Datos del menor y de su padre, madre o tutor legal',
+    base: 'Ejecución del contrato con el representante legal y las bases jurídicas que correspondan para prestar el servicio al estudiante.',
+  },
+  {
+    finalidad: 'Preparar y tramitar solicitudes',
+    datos: 'Datos académicos, documentación e información requerida por las instituciones',
+    base: 'Ejecución del contrato. Cuando un tratamiento específico requiera consentimiento u otra base, se solicitará o aplicará según corresponda.',
+  },
+  {
+    finalidad: 'Facturación, contabilidad y cumplimiento legal',
+    datos: 'Identificación, facturación y pagos',
+    base: 'Cumplimiento de obligaciones legales.',
+  },
+  {
+    finalidad: 'Seguridad y funcionamiento de la web',
+    datos: 'Datos técnicos estrictamente necesarios',
+    base: 'Interés legítimo y/o necesidad técnica, según el tratamiento.',
+  },
+  {
+    finalidad: 'Analítica web mediante Google Analytics',
+    datos: 'Datos de navegación e identificadores analíticos',
+    base: 'Consentimiento cuando sea requerido. Google Analytics no deberá cargarse antes de obtenerlo.',
+  },
+  {
+    finalidad: 'Newsletter y comunicaciones comerciales, cuando se active',
+    datos: 'Nombre, email y preferencias de suscripción',
+    base: 'Consentimiento. La suscripción será voluntaria y separada de la contratación o solicitud de una primera sesión.',
+  },
+];
 ---
 
 <Base
   titulo="Política de privacidad"
-  descripcion="Cómo trata Study and Beyond ApS los datos personales que recoge a través de studyandbeyond.es, conforme al RGPD."
+  descripcion="Cómo trata Study and Beyond los datos personales de quienes visitan la web, solicitan una primera sesión o contratan el servicio: qué datos, para qué, con qué base jurídica y durante cuánto tiempo."
   noindex={true}
 >
   <section class="contenedor py-12 lg:py-16">
-    <h1 class="text-titulo text-navy">Política de privacidad</h1>
-    <div class="contenido-mdx mt-8">
-      <AvisoRevisionLegal />
+    <CabeceraLegal
+      titulo="Política de privacidad"
+      entradilla={`Esta política explica cómo ${SITIO.entidadLegal} trata los datos personales de las personas que visitan studyandbeyond.es, solicitan una primera sesión, contratan nuestros servicios, participan como estudiantes o representantes legales y, cuando se active, se suscriben a nuestras comunicaciones.`}
+    />
 
-      <h2>Responsable del tratamiento</h2>
-      <p>
-        <strong>{SITIO.entidadLegal}</strong>{SITIO.mostrarCvr && <> (CVR {SITIO.cvr})</>}, con domicilio en
-        {SITIO.domicilio}. Contacto: <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>.
-        Al ser una entidad danesa, la autoridad de control principal es la agencia
-        danesa de protección de datos (<em>Datatilsynet</em>). [Confirmar con
-        criterio legal si procede también la AEPD para usuarios en España.]
-      </p>
+    <div class="contenido-mdx mt-10">
+      <h2>1. Responsable del tratamiento</h2>
+      <FichaEmpresa />
 
-      <h2>Qué datos recogemos y con qué finalidad</h2>
+      <h2>2. Qué datos podemos tratar</h2>
       <ul>
-        <li>
-          <strong>Formulario de contacto</strong>: nombre, correo, teléfono
-          (opcional) y el mensaje. Finalidad: responder a tu solicitud de sesión de
-          asesoramiento. Base jurídica: tu <strong>consentimiento</strong>.
-        </li>
-        <li>
-          <strong>Prestación del servicio</strong> (si contratas): los datos
-          necesarios para gestionar tu admisión y alojamiento. Base jurídica:
-          <strong>ejecución del contrato</strong>.
-        </li>
+        <li><strong>Datos identificativos y de contacto:</strong> nombre, apellidos, fecha o edad, email, teléfono, país, dirección y, cuando sea necesario para el servicio, datos de identificación.</li>
+        <li><strong>Datos académicos:</strong> estudios actuales y anteriores, centro educativo, asignaturas, calificaciones, títulos, certificados, nivel de inglés y documentación académica.</li>
+        <li><strong>Preferencias educativas:</strong> áreas de interés, programas, universidades, ciudades y fecha prevista de inicio.</li>
+        <li><strong>Datos de padres, tutores o contratantes</strong> cuando el estudiante sea menor de edad o cuando una persona distinta contrate el servicio.</li>
+        <li><strong>Datos relativos al proceso de admisión:</strong> programas solicitados, prioridades, comunicaciones, estado de solicitudes y decisiones de admisión.</li>
+        <li><strong>Datos de facturación y pago</strong> necesarios para gestionar transferencias bancarias y obligaciones contables. Study &amp; Beyond no necesita recibir credenciales bancarias.</li>
+        <li><strong>Datos técnicos y de navegación,</strong> como dirección IP, identificadores de cookies, navegador, dispositivo e interacción con la web cuando se utilicen herramientas analíticas y exista la base jurídica correspondiente.</li>
+        <li><strong>Información que decidas incluir voluntariamente</strong> en campos de texto libre o en comunicaciones con nosotros.</li>
       </ul>
 
-      <h2>Acceso a plataformas en tu nombre</h2>
+      <h2>3. Para qué utilizamos los datos y con qué base jurídica</h2>
+    </div>
+
+    <ul class="mt-8 grid max-w-4xl gap-3">
+      {finalidades.map((f) => (
+        <li class="rounded-tarjeta border border-hairline bg-papel px-6 py-5">
+          <p class="text-h3 font-extrabold text-navy">{f.finalidad}</p>
+          <dl class="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-[9rem_1fr]">
+            <dt class="text-sm font-bold text-azul-700">Datos principales</dt>
+            <dd class="text-sm text-slate">{f.datos}</dd>
+            <dt class="text-sm font-bold text-azul-700">Base jurídica</dt>
+            <dd class="text-sm text-slate">{f.base}</dd>
+          </dl>
+        </li>
+      ))}
+    </ul>
+
+    <div class="contenido-mdx mt-12">
+      <h2>4. Primera sesión</h2>
       <p>
-        Como parte del servicio, y solo con tu consentimiento expreso en el contrato,
-        {SITIO.entidadLegal} puede acceder con tus credenciales a las plataformas de
-        admisión y alojamiento con el único fin de verificar el estado de tus
-        solicitudes. [Detalle a revisar con criterio legal.]
+        El formulario de primera sesión puede solicitar nombre, apellidos, edad,
+        email, teléfono, país, estudios actuales, qué te gustaría estudiar, cuándo
+        quieres empezar y cualquier otra información que quieras añadir. Utilizamos
+        estos datos para valorar tu consulta, preparar la sesión y comunicarnos
+        contigo sobre ella.
+      </p>
+      <p>
+        No utilices el campo libre para enviar datos especialmente sensibles que no
+        sean necesarios para la consulta.
       </p>
 
-      <h2>Menores de edad</h2>
+      <h2>5. Estudiantes menores de edad</h2>
       <p>
-        Parte de nuestro público son estudiantes que pueden ser menores de edad. [La
-        base legal y el consentimiento aplicables a menores deben revisarse con
-        criterio jurídico antes de publicar.]
+        Study &amp; Beyond puede prestar servicios a estudiantes menores de 18 años.
+        En esos casos, el contrato se formaliza con su padre, madre o tutor legal en
+        representación del estudiante. Podemos comunicarnos directamente con el
+        estudiante para tareas ordinarias del proceso, manteniendo al representante
+        legal involucrado cuando sea necesario.
+      </p>
+      <p>
+        Si el estudiante alcanza la mayoría de edad durante el servicio, las
+        comunicaciones y el acceso a sus datos se adaptarán a su condición de adulto.
       </p>
 
-      <h2>Encargados del tratamiento</h2>
+      <h2>6. Estudiantes mayores de edad y familiares</h2>
+      <p>
+        Cuando el estudiante es mayor de edad, las comunicaciones ordinarias del
+        servicio se realizan directamente con él. Que un padre, madre u otro familiar
+        pague el servicio no le concede acceso automático a la documentación,
+        solicitudes o comunicaciones del estudiante.
+      </p>
+      <p>
+        Con autorización del estudiante, podemos informar a las personas que designe
+        sobre hitos generales del proceso. Para compartir información adicional
+        utilizaremos la base jurídica que corresponda.
+      </p>
+
+      <h2>7. Con quién podemos compartir los datos</h2>
       <ul>
-        <li><strong>Netlify</strong> (alojamiento del sitio y gestión del formulario). Puede implicar transferencia internacional de datos; [confirmar garantías, p. ej. cláusulas contractuales tipo].</li>
-        <li><strong>[Analítica]</strong>: herramienta respetuosa con la privacidad, sin cookies de seguimiento. [Confirmar proveedor.]</li>
+        <li><strong>Universidades, instituciones educativas y plataformas de admisión</strong> cuando sea necesario para preparar o gestionar solicitudes.</li>
+        <li><strong>Traductores jurados y proveedores relacionados con documentación,</strong> cuando su intervención sea necesaria para el servicio.</li>
+        <li><strong>Entidades o plataformas de alojamiento</strong> cuando el estudiante solicite nuestra ayuda y la comunicación sea necesaria.</li>
+        <li><strong>Google Workspace,</strong> utilizado para correo electrónico, documentos y gestión operativa.</li>
+        <li><strong>Netlify,</strong> como proveedor de infraestructura y alojamiento de la web.</li>
+        <li><strong>Google,</strong> en relación con Google Analytics cuando el usuario haya prestado el consentimiento necesario.</li>
+        <li><strong>Proveedores de reservas o calendario</strong> cuando se implemente el sistema de primera sesión. La política se actualizará para identificar el proveedor definitivo cuando corresponda.</li>
+        <li><strong>Asesores, proveedores contables, autoridades u otros destinatarios</strong> cuando exista una obligación legal o sea necesario para formular, ejercer o defender reclamaciones.</li>
       </ul>
 
-      <h2>Conservación</h2>
+      <h2>8. Transferencias internacionales</h2>
       <p>
-        Conservamos tus datos el tiempo necesario para atender tu solicitud y, si
-        contratas, durante la relación contractual y los plazos legales aplicables.
-        [Concretar plazos con criterio legal.]
+        Algunos proveedores tecnológicos pueden tratar datos fuera del Espacio
+        Económico Europeo. Cuando exista una transferencia internacional,
+        {' '}{SITIO.entidadLegal} utilizará los mecanismos previstos por el RGPD que
+        resulten aplicables, como decisiones de adecuación, el EU-U.S. Data Privacy
+        Framework cuando proceda o cláusulas contractuales tipo y medidas
+        complementarias.
       </p>
 
-      <h2>Tus derechos</h2>
+      <h2>9. Durante cuánto tiempo conservamos los datos</h2>
       <p>
-        Puedes ejercer los derechos de acceso, rectificación, supresión, oposición,
-        limitación y portabilidad escribiendo a
-        <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>. También puedes reclamar
-        ante la autoridad de control competente.
+        Conservamos los datos solo durante el tiempo necesario para la finalidad para
+        la que fueron recogidos y para cumplir las obligaciones legales aplicables.
+      </p>
+      <ul>
+        <li><strong>Consultas y primera sesión que no terminan en contratación:</strong> se revisarán y eliminarán o anonimizarán cuando dejen de ser necesarias para gestionar la relación, salvo que exista otra base legítima para conservarlas.</li>
+        <li><strong>Datos de clientes y prestación del servicio:</strong> durante la relación contractual y posteriormente durante los plazos necesarios para atender obligaciones legales, contables o posibles reclamaciones.</li>
+        <li><strong>Documentación académica y de admisión:</strong> no se conservará indefinidamente; se revisará su necesidad tras finalizar el servicio y se eliminará cuando ya no exista una finalidad legítima o una obligación de conservación.</li>
+        <li><strong>Newsletter:</strong> hasta que retires tu consentimiento o solicites la baja, conservando cuando sea necesario la evidencia de la baja o del consentimiento.</li>
+        <li><strong>Datos analíticos:</strong> durante el periodo configurado en la herramienta y de acuerdo con las opciones de consentimiento y minimización adoptadas.</li>
+      </ul>
+
+      <h2>10. Tus derechos</h2>
+      <p>
+        Puedes solicitar acceso a tus datos, rectificación, supresión, limitación del
+        tratamiento, portabilidad cuando proceda y oposición a determinados
+        tratamientos. Cuando el tratamiento se base en tu consentimiento, puedes
+        retirarlo en cualquier momento sin afectar a la licitud del tratamiento
+        anterior.
+      </p>
+      <p>
+        Para ejercer tus derechos, escribe a
+        {' '}<a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>. Podemos solicitar
+        información razonable para verificar tu identidad.
+      </p>
+      <p>
+        También tienes derecho a presentar una reclamación ante la autoridad de
+        control competente. Para {SITIO.entidadLegal}, la autoridad danesa es
+        {' '}<a href="https://www.datatilsynet.dk/" rel="noopener noreferrer" target="_blank">Datatilsynet</a>.
+      </p>
+
+      <h2>11. Newsletter</h2>
+      <p>
+        Esta sección se aplicará cuando activemos la newsletter. La suscripción será
+        voluntaria y requerirá una acción separada. No utilizaremos el envío del
+        formulario de primera sesión como consentimiento para recibir marketing. Cada
+        comunicación incluirá una forma sencilla de darse de baja.
+      </p>
+
+      <h2>12. Cambios en esta política</h2>
+      <p>
+        Podemos actualizar esta política cuando cambien nuestros servicios,
+        proveedores o tratamientos de datos. La versión vigente se publicará en esta
+        página con su fecha de actualización.
       </p>
     </div>
   </section>

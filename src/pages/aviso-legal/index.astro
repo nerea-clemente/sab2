@@ -1,63 +1,84 @@
 ---
 import Base from '@/layouts/Base.astro';
-import AvisoRevisionLegal from '@/components/AvisoRevisionLegal.astro';
+import CabeceraLegal from '@/components/CabeceraLegal.astro';
+import FichaEmpresa from '@/components/FichaEmpresa.astro';
 import { SITIO } from '@/config/sitio';
 ---
 
 <Base
   titulo="Aviso legal"
-  descripcion="Información legal del titular del sitio studyandbeyond.es."
+  descripcion="Información legal del titular del sitio studyandbeyond.es: identificación de la empresa, finalidad de la web, propiedad intelectual y responsabilidad."
   noindex={true}
 >
   <section class="contenedor py-12 lg:py-16">
-    <h1 class="text-titulo text-navy">Aviso legal</h1>
-    <div class="contenido-mdx mt-8">
-      <AvisoRevisionLegal />
+    <CabeceraLegal titulo="Aviso legal" />
 
-      <h2>Titular del sitio</h2>
-      <p>
-        Este sitio web (studyandbeyond.es) es titularidad de <strong>{SITIO.entidadLegal}</strong>,
-        empresa danesa{SITIO.mostrarCvr && <> con número de registro (CVR) <strong>{SITIO.cvr}</strong></>}
-        y domicilio en {SITIO.domicilio}.
-      </p>
-      <ul>
-        <li>Correo electrónico: <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a></li>
-        <li>Forma jurídica: [confirmar: ApS danesa]</li>
-      </ul>
+    <div class="contenido-mdx mt-10">
+      <h2>Titular del sitio web</h2>
+      <p>Este sitio web, studyandbeyond.es, es titularidad de:</p>
 
-      <h2>Objeto</h2>
+      <FichaEmpresa />
+
       <p>
-        {SITIO.entidadLegal} presta servicios de intermediación, orientación y
-        gestión de trámites para que estudiantes puedan matricularse en
-        universidades de Dinamarca.
+        {SITIO.entidadLegal} es una sociedad constituida en Dinamarca y presta
+        servicios de orientación y acompañamiento para estudiantes interesados en
+        cursar estudios superiores en Dinamarca.
       </p>
 
-      <h2>Condiciones de uso</h2>
+      <h2>Finalidad de la web</h2>
       <p>
-        El acceso a este sitio es gratuito. La información sobre grados, requisitos,
-        plazos y ayudas es orientativa y puede cambiar; no sustituye a la
-        información oficial de las universidades y de las administraciones danesas.
-        Verifica siempre los datos oficiales antes de tomar decisiones.
+        La web ofrece información sobre estudiar y vivir en Dinamarca, programas
+        educativos, procesos de admisión y los servicios prestados por Study &amp;
+        Beyond. La información publicada tiene carácter general y puede cambiar como
+        consecuencia de modificaciones introducidas por universidades, autoridades u
+        otros terceros.
+      </p>
+      <p>
+        La información de la web no sustituye la información oficial de las
+        instituciones educativas o autoridades competentes. Cuando una decisión
+        dependa de requisitos, plazos, importes o procedimientos concretos, deberá
+        comprobarse la información oficial vigente.
       </p>
 
       <h2>Propiedad intelectual</h2>
       <p>
-        Los contenidos de este sitio (textos, diseño y elementos gráficos) pertenecen
-        a {SITIO.entidadLegal} salvo indicación en contrario, y no pueden reproducirse
-        sin autorización.
+        Los textos, elementos gráficos, identidad visual, fotografías propias, bases
+        de datos, guías, documentos y demás contenidos creados por {SITIO.entidadLegal}
+        están protegidos por los derechos de propiedad intelectual e industrial que
+        resulten aplicables. Su publicación en la web no implica la cesión de dichos
+        derechos.
+      </p>
+      <p>
+        Se permite consultar y compartir enlaces a los contenidos para uso personal e
+        informativo. No se permite reproducir, redistribuir, modificar o explotar
+        comercialmente los contenidos propios de Study &amp; Beyond sin autorización
+        previa, salvo en los casos permitidos por la ley.
+      </p>
+
+      <h2>Enlaces externos</h2>
+      <p>
+        La web puede incluir enlaces a universidades, autoridades, plataformas y otros
+        sitios de terceros. {SITIO.entidadLegal} no controla esos sitios y no es
+        responsable de su disponibilidad, contenido, políticas de privacidad o cambios
+        posteriores.
       </p>
 
       <h2>Responsabilidad</h2>
       <p>
-        {SITIO.entidadLegal} no se responsabiliza de las decisiones tomadas a partir
-        de información orientativa que no haya sido verificada en la fuente oficial
-        correspondiente.
+        Study &amp; Beyond procura mantener la información actualizada y correcta,
+        pero no puede garantizar que la oferta académica, requisitos, plazos, cuantías
+        de ayudas, precios, disponibilidad de alojamiento u otras informaciones de
+        terceros permanezcan sin cambios.
+      </p>
+      <p>
+        Nada de lo indicado en este aviso limita los derechos que correspondan a los
+        consumidores con carácter imperativo.
       </p>
 
-      <h2>Legislación aplicable</h2>
+      <h2>Contacto</h2>
       <p>
-        [Confirmar con criterio legal la ley y jurisdicción aplicables, dado que el
-        titular es una empresa danesa que dirige servicios al mercado español.]
+        Para cualquier cuestión relacionada con la web o con Study &amp; Beyond,
+        puedes escribir a <a href={`mailto:${SITIO.email}`}>{SITIO.email}</a>.
       </p>
     </div>
   </section>

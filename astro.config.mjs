@@ -41,7 +41,7 @@ export default defineConfig({
     sitemap({
       // Fuera del sitemap las páginas noindex (legales, gracias, stub).
       filter: (page) =>
-        !/\/(aviso-legal|privacidad|cookies|universidades|sobre-nosotros|historias)\/$/.test(page) &&
+        !/\/(aviso-legal|privacidad|cookies|terminos|universidades|sobre-nosotros|historias)\/$/.test(page) &&
         !page.endsWith('/contacto/gracias/'),
     }),
     tailwind({ applyBaseStyles: false }),
