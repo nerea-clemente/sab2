@@ -7,6 +7,8 @@ import CarrilAdmision from '@/components/CarrilAdmision.astro';
 import Icono from '@/components/Icono.astro';
 import { SITIO } from '@/config/sitio';
 import CtaFinal from '@/components/CtaFinal.astro';
+import ListaArticulos from '@/components/ListaArticulos.astro';
+import { relacionadosDeGrado } from '@/lib/relacionados';
 import { bgArea } from '@/lib/areas';
 import { ETIQUETA_AREA, ETIQUETA_NIVEL, formatoDuracion, jsonLdCurso } from '@/lib/grados';
 
@@ -17,6 +19,10 @@ export async function getStaticPaths() {
 
 const { grado } = Astro.props;
 const d = grado.data;
+
+// Módulo editorial al pie: la ficha es contenido oficial y no se toca, pero
+// desde aquí se enlaza a lo que de verdad se pregunta al mirar un grado.
+const relacionados = await relacionadosDeGrado(grado.id);
 
 const ingles = d.requisitos.ingles;
 const filasIngles = [
@@ -186,6 +192,19 @@ const datos: [string, string][] = [
       </aside>
     </div>
   </article>
+
+  <!-- Artículos relacionados -->
+  <section class="bg-hueso">
+    <div class="contenedor ritmo">
+      <ListaArticulos
+        items={relacionados}
+        id="relacionados"
+        titulo="Antes de solicitar"
+        lead="Lo que más se pregunta cuando ya hay un grado sobre la mesa: cómo se entra, cuánto cuesta vivir aquí y cómo es el día a día."
+        verTodo={{ texto: 'Ver todas las guías', href: '/estudiar-en-dinamarca/' }}
+      />
+    </div>
+  </section>
 
   <CtaFinal
     titulo="¿Es este el grado que encaja contigo?"

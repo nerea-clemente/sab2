@@ -30,13 +30,16 @@ export const SITIO = {
   suImporteMensualEUR: 990,
   pais: 'Dinamarca',
   anioFundacion: 2020,
-  // Analítica respetuosa (sin cookies). Mientras esté deshabilitada, el sitio
-  // no carga scripts de terceros ni muestra banner (no hay nada que consentir).
-  // Al configurar Plausible, poner habilitada: true. Ver README.
+  // Analítica. Mientras 'habilitada' sea false el sitio no carga ningún script
+  // de terceros, no pone cookies y no enseña banner: no habría nada que
+  // consentir. Para activarla hacen falta las dos cosas a la vez, el
+  // interruptor y el ID de medición de Google Analytics (G-XXXXXXXXXX):
+  // entonces aparecen el banner, el panel por categorías y el enlace
+  // "Configurar cookies" del pie, y GA se carga solo tras el consentimiento,
+  // como dice la política de cookies.
   analitica: {
     habilitada: false,
-    dominio: 'studyandbeyond.es',
-    script: 'https://plausible.io/js/script.js',
+    medicionId: '',
   },
 } as const;
 

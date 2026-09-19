@@ -1,59 +1,151 @@
 ---
 import { SITIO } from '@/config/sitio';
-const { habilitada, dominio, script } = SITIO.analitica;
-// Solo se renderiza si hay analítica que consentir. Sin analítica, no hay
-// banner: no habría nada que consentir (el sitio no pone cookies).
----
-{habilitada && (
-  <div
-    id="consentimiento"
-    role="dialog"
-    aria-modal="false"
-    aria-label="Consentimiento de analítica"
-    hidden
-    class="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-tarjeta border border-hairline bg-papel p-5 shadow-flotante"
-  >
-    <p class="text-sm text-navy">
-      Usamos una analítica <strong>sin cookies</strong> para medir visitas de forma
-      agregada. ¿Nos das permiso? Puedes cambiarlo cuando quieras.
-      <a href="/cookies/" class="font-bold text-azul underline underline-offset-2">Más información</a>.
-    </p>
-    <div class="mt-3 flex flex-wrap gap-2">
-      <button type="button" data-consent="accepted" class="cta px-6 py-2.5 text-sm">Aceptar</button>
-      <button type="button" data-consent="rejected" class="cta-secundario px-6 py-2.5 text-sm">Rechazar</button>
-    </div>
-  </div>
+import { ruta } from '@/lib/ruta';
 
-  <script is:inline define:vars={{ dominio, script }}>
-    (function () {
-      var CLAVE = 'sb-consent';
-      var banner = document.getElementById('consentimiento');
-      function cargarAnalitica() {
-        if (document.getElementById('sb-analitica')) return;
-        var s = document.createElement('script');
-        s.id = 'sb-analitica';
-        s.defer = true;
-        s.setAttribute('data-domain', dominio);
-        s.src = script;
-        document.head.appendChild(s);
-      }
-      var eleccion = null;
-      try { eleccion = localStorage.getItem(CLAVE); } catch (e) {}
-      if (eleccion === 'accepted') {
-        cargarAnalitica();
-      } else if (eleccion !== 'rejected' && banner) {
-        banner.hidden = false;
-      }
-      if (banner) {
-        banner.addEventListener('click', function (ev) {
-          var t = ev.target.closest('[data-consent]');
-          if (!t) return;
-          var valor = t.getAttribute('data-consent');
-          try { localStorage.setItem(CLAVE, valor); } catch (e) {}
-          banner.hidden = true;
-          if (valor === 'accepted') cargarAnalitica();
+// Consentimiento de cookies, tal y como lo describe /cookies/: tres categorías,
+// aceptar o rechazar todo, configurar por categoría y poder cambiar de idea
+// después desde el enlace permanente del pie.
+//
+// Google Analytics NO se carga hasta que hay consentimiento explícito. Si no
+// hay analítica configurada (ver sitio.ts) no se pinta nada: el sitio no pone
+// ninguna cookie y no habría nada que consentir.
+const { habilitada, medicionId } = SITIO.analitica;
+const activa = habilitada && Boolean(medicionId);
+---
+
+{activa && (
+  <>
+    <div
+      id="consentimiento"
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby="consentimiento-titulo"
+      hidden
+      class="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-tarjeta border border-hairline bg-papel p-6 shadow-flotante"
+    >
+      <h2 id="consentimiento-titulo" class="text-h3 text-navy">Cookies</h2>
+      <p class="mt-3 text-sm text-slate">
+        Usamos cookies necesarias para que la web funcione. Las de analítica solo
+        se activan si nos das permiso, y puedes cambiar de idea cuando quieras.
+        <a href={ruta('/cookies/')} class="font-bold text-azul underline underline-offset-2">Política de cookies</a>.
+      </p>
+
+      <fieldset id="consentimiento-panel" hidden class="mt-5 grid gap-3 border-t border-hairline pt-5">
+        <legend class="sr-only">Categorías de cookies</legend>
+
+        <label class="flex items-start gap-3 rounded-tarjeta bg-hueso px-4 py-3">
+          <input type="checkbox" checked disabled class="mt-1 accent-azul" />
+          <span class="text-sm">
+            <strong class="font-bold text-navy">Necesarias</strong>
+            <span class="block text-slate">Funcionamiento técnico y seguridad. No se pueden desactivar.</span>
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3 rounded-tarjeta bg-hueso px-4 py-3">
+          <input type="checkbox" id="consentimiento-analitica" class="mt-1 accent-azul" />
+          <span class="text-sm">
+            <strong class="font-bold text-navy">Analíticas</strong>
+            <span class="block text-slate">Google Analytics, para entender de forma agregada cómo se usa la web.</span>
+          </span>
+        </label>
+
+        <label class="flex items-start gap-3 rounded-tarjeta bg-hueso px-4 py-3">
+          <input type="checkbox" disabled class="mt-1 accent-azul" />
+          <span class="text-sm">
+            <strong class="font-bold text-navy">Marketing</strong>
+            <span class="block text-slate">No utilizamos cookies de publicidad ni píxeles de redes sociales.</span>
+          </span>
+        </label>
+      </fieldset>
+
+      <div class="mt-5 flex flex-wrap gap-2">
+        <button type="button" data-consentimiento="todo" class="cta px-6 py-2.5 text-sm">Aceptar todas</button>
+        <button type="button" data-consentimiento="ninguna" class="cta-secundario px-6 py-2.5 text-sm">Rechazar</button>
+        <button type="button" data-consentimiento="configurar" class="cta-secundario px-6 py-2.5 text-sm">Configurar</button>
+        <button type="button" data-consentimiento="guardar" hidden class="cta px-6 py-2.5 text-sm">Guardar preferencias</button>
+      </div>
+    </div>
+
+    <script is:inline define:vars={{ medicionId }}>
+      (function () {
+        var CLAVE = 'sb-cookies';
+        var caja = document.getElementById('consentimiento');
+        var panel = document.getElementById('consentimiento-panel');
+        var casilla = document.getElementById('consentimiento-analitica');
+        var btnGuardar = caja.querySelector('[data-consentimiento="guardar"]');
+        var btnConfigurar = caja.querySelector('[data-consentimiento="configurar"]');
+
+        function leer() {
+          try { return JSON.parse(localStorage.getItem(CLAVE) || 'null'); } catch (e) { return null; }
+        }
+        function escribir(v) {
+          try { localStorage.setItem(CLAVE, JSON.stringify(v)); } catch (e) {}
+        }
+
+        // GA no se inyecta hasta que hay consentimiento, y solo una vez.
+        function cargarAnalitica() {
+          if (document.getElementById('sb-ga')) return;
+          var s = document.createElement('script');
+          s.id = 'sb-ga';
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=' + medicionId;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          function gtag() { window.dataLayer.push(arguments); }
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'granted',
+          });
+          gtag('config', medicionId, { anonymize_ip: true });
+        }
+
+        function abrir(configurando) {
+          caja.hidden = false;
+          panel.hidden = !configurando;
+          btnGuardar.hidden = !configurando;
+          btnConfigurar.hidden = configurando;
+          if (configurando) {
+            var guardado = leer();
+            casilla.checked = Boolean(guardado && guardado.analitica);
+            casilla.focus();
+          }
+        }
+
+        function aplicar(analitica) {
+          escribir({ analitica: analitica, fecha: new Date().toISOString() });
+          caja.hidden = true;
+          if (analitica) cargarAnalitica();
+        }
+
+        var elegido = leer();
+        if (elegido && elegido.analitica) cargarAnalitica();
+        else if (!elegido) abrir(false);
+
+        caja.addEventListener('click', function (ev) {
+          var b = ev.target.closest('[data-consentimiento]');
+          if (!b) return;
+          var accion = b.getAttribute('data-consentimiento');
+          if (accion === 'configurar') abrir(true);
+          else if (accion === 'guardar') aplicar(casilla.checked);
+          else aplicar(accion === 'todo');
         });
-      }
-    })();
-  </script>
+
+        caja.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Escape' && !caja.hidden) caja.hidden = true;
+        });
+
+        // Enlace permanente del pie: vuelve a abrir el panel.
+        document.addEventListener('click', function (ev) {
+          var a = ev.target.closest('[data-abrir-cookies]');
+          if (!a) return;
+          ev.preventDefault();
+          abrir(true);
+        });
+      })();
+    </script>
+  </>
 )}

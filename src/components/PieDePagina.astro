@@ -1,5 +1,8 @@
 ---
 import { NAV_PLANA, NAV_PIE, SITIO } from '@/config/sitio';
+
+// El enlace de cookies solo existe si hay analítica que configurar.
+const hayConsentimiento = SITIO.analitica.habilitada && Boolean(SITIO.analitica.medicionId);
 import { ruta } from '@/lib/ruta';
 import Marca from '@/components/Marca.astro';
 import Icono from '@/components/Icono.astro';
@@ -47,6 +50,15 @@ const anio = 2026; // Se actualiza en build; evita depender de Date en SSG.
         <li><a class="transition-colors hover:text-white" href={ruta('/privacidad/')}>Privacidad</a></li>
         <li><a class="transition-colors hover:text-white" href={ruta('/terminos/')}>Términos y condiciones</a></li>
         <li><a class="transition-colors hover:text-white" href={ruta('/cookies/')}>Cookies</a></li>
+        {hayConsentimiento && (
+          <li>
+            <a
+              class="transition-colors hover:text-white"
+              href={ruta('/cookies/')}
+              data-abrir-cookies
+            >Configurar cookies</a>
+          </li>
+        )}
       </ul>
     </div>
   </div>
