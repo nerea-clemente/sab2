@@ -4,6 +4,9 @@ import { SITIO } from '@/config/sitio';
 
 interface Props {
   titulo: string;
+  // Título corto solo para <title>. El titular visible y el de redes siguen
+  // siendo el largo: esto existe porque Google corta a ~60 caracteres.
+  tituloSeo?: string;
   descripcion: string;
   // Ruta canónica relativa, p. ej. "/grados/". Por defecto la actual.
   canonical?: string;
@@ -14,7 +17,7 @@ interface Props {
   tipoOg?: 'website' | 'article';
 }
 
-const { titulo, descripcion, canonical, imagenOg, noindex = false, tipoOg = 'website' } = Astro.props;
+const { titulo, tituloSeo, descripcion, canonical, imagenOg, noindex = false, tipoOg = 'website' } = Astro.props;
 
 // Los canonical/OG deben apuntar SIEMPRE al dominio real, sin el segmento de
 // base del despliegue (p. ej. el /studyandbeyond/ de GitHub Pages).
@@ -25,8 +28,16 @@ if (base !== '/' && rutaLogica.startsWith(base)) {
 }
 const urlCanonica = new URL(rutaLogica, SITIO.dominio).href;
 const og = new URL(imagenOg ?? '/og/default.png', SITIO.dominio).href;
-const tituloCompleto =
-  titulo === SITIO.nombre ? titulo : `${titulo} · ${SITIO.nombre}`;
+const marca = ` · ${SITIO.nombre}`;
+const conMarca = (t: string) => (t === SITIO.nombre ? t : t + marca);
+
+// Open Graph y Twitter se quedan con el titular completo: ahí no hay corte.
+const tituloCompleto = conMarca(titulo);
+
+// <title>: el corto si lo hay, y la marca solo cuando el conjunto cabe en los
+// ~60 caracteres que muestra Google. Antes que un título cortado, sin marca.
+const base_ = tituloSeo ?? titulo;
+const tituloBuscador = conMarca(base_).length <= 60 ? conMarca(base_) : base_;
 
 // Cualquier despliegue que no sea la raíz del dominio real (vista previa de
 // GitHub Pages) va en noindex para no competir con producción.
@@ -34,7 +45,7 @@ const esVistaPrevia = base !== '/';
 const noIndexar = noindex || esVistaPrevia;
 ---
 
-<title>{tituloCompleto}</title>
+<title>{tituloBuscador}</title>
 <meta name="description" content={descripcion} />
 <link rel="canonical" href={urlCanonica} />
 {!noIndexar && <link rel="alternate" hreflang="es-es" href={urlCanonica} />}

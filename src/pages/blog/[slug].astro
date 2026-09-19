@@ -63,7 +63,13 @@ const faqLd = d.faq.length
 const datosLd = [articleLd, breadcrumbLd, ...(faqLd ? [faqLd] : [])];
 ---
 
-<Base titulo={d.titulo} descripcion={d.descripcion} tipoOg="article">
+<Base
+  titulo={d.titulo}
+  tituloSeo={d.tituloSeo ?? undefined}
+  descripcion={d.descripcion}
+  imagenOg={`/og/blog-${post.id}.jpg`}
+  tipoOg="article"
+>
   <JsonLd slot="head" datos={datosLd} />
 
   <article class="contenedor py-12 lg:py-16">

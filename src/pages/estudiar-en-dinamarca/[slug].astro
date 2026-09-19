@@ -41,7 +41,12 @@ const breadcrumbLd = {
 };
 ---
 
-<Base titulo={d.titulo} descripcion={d.descripcion}>
+<Base
+  titulo={d.titulo}
+  tituloSeo={d.tituloSeo ?? undefined}
+  descripcion={d.descripcion}
+  imagenOg={`/og/guia-${guia.id}.jpg`}
+>
   {faqJsonLd && <JsonLd slot="head" datos={faqJsonLd} />}
   <JsonLd slot="head" datos={breadcrumbLd} />
 

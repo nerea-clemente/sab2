@@ -1,19 +1,107 @@
 ---
-// La página se renombró a /sobre-mi/ (voz en primera persona). Redirección.
+import Base from '@/layouts/Base.astro';
+import Imagen from '@/components/Imagen.astro';
 import { ruta } from '@/lib/ruta';
-const destino = ruta('/sobre-mi/');
+import CtaFinal from '@/components/CtaFinal.astro';
+import { SITIO } from '@/config/sitio';
+
+const bloques = [
+  {
+    t: 'Un solo destino',
+    d: 'No trabajamos con una lista de países. Nos centramos en Dinamarca para conocer bien sus universidades, sus programas, sus procesos de admisión y los trámites que afectan a un estudiante cuando llega.',
+  },
+  {
+    t: 'Cómo empezó',
+    d: `${SITIO.nombre} nació en 2022 después de varios años de experiencia directa con el sistema educativo danés. La idea era sencilla: convertir toda esa información dispersa sobre grados, admisiones, alojamiento, trabajo y SU en un proceso claro para otros estudiantes.`,
+  },
+  {
+    t: 'Quién está detrás',
+    d: `Nerea Clemente llegó a Dinamarca en 2020 para estudiar aquí. Desde entonces ha estudiado y trabajado en el país y ha desarrollado ${SITIO.nombre} desde Dinamarca. Su experiencia personal es el origen del proyecto, pero el servicio se basa en algo más importante: especialización, procesos y conocimiento actualizado del sistema danés.`,
+  },
+];
 ---
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="robots" content="noindex" />
-    <link rel="canonical" href="https://studyandbeyond.es/sobre-mi/" />
-    <meta http-equiv="refresh" content={`0; url=${destino}`} />
-    <title>Sobre nosotros · Study and Beyond</title>
-  </head>
-  <body>
-    <p>Esta página se ha movido a <a href={destino}>Sobre nosotros</a>.</p>
-    <script is:inline set:html={`location.replace(${JSON.stringify(destino)})`}></script>
-  </body>
-</html>
+
+<Base
+  titulo="Sobre Study and Beyond"
+  descripcion="Study and Beyond es una empresa danesa dedicada exclusivamente a asesorar a estudiantes que quieren estudiar en Dinamarca."
+>
+  <!-- Cabecera · banda navy con el sello DK -->
+  <section class="bg-navy text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="grid gap-12 lg:grid-cols-[1.35fr_1fr] lg:items-center lg:gap-16">
+        <div>
+          <p class="etiqueta text-amarillo">Sobre Study &amp; Beyond</p>
+          <h1 class="mt-6 max-w-[14ch] text-seccion text-white">
+            Especialistas en estudiar en <span class="text-coral">Dinamarca.</span>
+          </h1>
+          <p class="mt-7 max-w-prosa text-lg text-white/80">
+            {SITIO.nombre} es una empresa danesa dedicada exclusivamente a asesorar a
+            estudiantes que quieren estudiar aquí.
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <!-- El rótulo no repite el monograma: dice lo que la página defiende
+               en su primer bloque, que trabajamos con un único destino. -->
+          <span class="flex h-36 w-36 rotate-[-8deg] flex-col items-center justify-center rounded-full bg-amarillo text-center sm:h-44 sm:w-44">
+            <span class="font-display text-4xl font-extrabold tracking-[-0.04em] text-navy sm:text-5xl">DK</span>
+            <span class="etiqueta-suelta mt-1.5 text-navy/70">Un solo destino</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiénes somos -->
+  <section class="contenedor ritmo">
+    <div class="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-16">
+      <!-- Escena danesa. El retrato de la fundadora sigue pendiente: aquí no
+           se pone una cara que no es la suya. -->
+      <div class="lg:sticky lg:top-28">
+        <Imagen
+          src={ruta('/img/calle-bici-717.webp')}
+          srcset={`${ruta('/img/calle-bici-480.webp')} 480w, ${ruta('/img/calle-bici-717.webp')} 717w`}
+          sizes="(min-width: 1024px) 32vw, 100vw"
+          alt="Una calle danesa con alguien yendo en bici"
+          ratio="4/5"
+        />
+      </div>
+
+      <div>
+        <p class="etiqueta text-azul">Estamos en Dinamarca</p>
+        <h2 class="mt-5 max-w-[16ch] text-seccion text-navy">
+          Conocemos el sistema y lo que viene <span class="text-coral">después.</span>
+        </h2>
+
+        <div class="mt-10 divide-y divide-hairline border-y border-hairline">
+          {bloques.map((b) => (
+            <div class="py-7">
+              <h3 class="text-h3 text-navy">{b.t}</h3>
+              <p class="mt-2.5 max-w-prosa text-slate">{b.d}</p>
+            </div>
+          ))}
+        </div>
+
+        <a href={ruta('/contacto/')} class="cta mt-10">
+          Conocernos en una sesión <span aria-hidden="true">→</span>
+        </a>
+
+        <!-- La empresa -->
+        <section aria-labelledby="empresa" class="mt-12 rounded-tarjeta bg-cielo p-7 lg:p-9">
+          <h2 id="empresa" class="text-h3 text-navy">La empresa</h2>
+          <p class="prosa mt-3 text-sm text-navy/75">
+            {SITIO.entidadLegal} es una empresa registrada en Dinamarca{SITIO.mostrarCvr && <> (CVR {SITIO.cvr})</>}
+            con base en {SITIO.pais}.
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    titulo="¿Hablamos de tu caso?"
+    texto="La primera sesión es gratuita y sin compromiso. Revisamos tu situación y qué opciones tienes en Dinamarca."
+    cta="Ver cómo funciona el servicio"
+    href="/servicios/"
+  />
+</Base>

@@ -94,6 +94,8 @@ const guias = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/guias' }),
   schema: z.object({
     titulo: z.string(),
+    // Título corto solo para el <title> de Google. Si falta, se usa titulo.
+    tituloSeo: z.string().nullable().default(null),
     descripcion: z.string(),
     // Imagen de cabecera: nombre base en public/img, sin ancho ni extensión.
     imagen: z.string().nullable().default(null),
@@ -118,6 +120,8 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.mdx', base: './src/content/blog' }),
   schema: z.object({
     titulo: z.string(),
+    // Título corto solo para el <title> de Google. Si falta, se usa titulo.
+    tituloSeo: z.string().nullable().default(null),
     descripcion: z.string(),
     fecha: z.string(),
     autor: z.string().default('Study and Beyond'),
