@@ -1,0 +1,102 @@
+---
+import Base from '@/layouts/Base.astro';
+import CabeceraPagina from '@/components/CabeceraPagina.astro';
+import CtaFinal from '@/components/CtaFinal.astro';
+import Icono from '@/components/Icono.astro';
+import { ruta } from '@/lib/ruta';
+
+const datos = [
+  ['Matrícula académica', '0 €'],
+  ['Programas', 'Pre-IB + IB Diploma'],
+  ['Idioma', 'Inglés'],
+  ['Alojamiento', 'Boarding school'],
+  ['Dónde', 'Grenaa, Jutlandia'],
+];
+---
+
+<Base
+  titulo="Grenaa Gymnasium"
+  tituloSeo="Grenaa Gymnasium: Pre-IB e IB en Dinamarca"
+  descripcion="Centro público danés con Pre-IB y el IB Diploma en inglés e internado internacional. 0 € de matrícula académica y reducción del boarding fee según renta para menores de 18 años."
+>
+  <section class="contenedor pb-4 pt-12 lg:pt-16">
+    <CabeceraPagina
+      etiqueta="Grenaa Gymnasium"
+      titulo="Estudia Pre-IB o el IB Diploma en Grenaa."
+      lead="Un centro público danés con programa IB en inglés e internado para estudiantes que llegan desde Dinamarca y otros países."
+    >
+      <Fragment slot="titulo">Estudia Pre-IB o el IB Diploma en <span class="text-coral">Grenaa.</span></Fragment>
+    </CabeceraPagina>
+  </section>
+
+  <section class="contenedor mt-10">
+    <dl class="ficha-datos max-w-2xl rounded-tarjeta border-navy/10 bg-cielo px-6 py-2 divide-navy/10">
+      {datos.map(([k, v]) => (
+        <div><dt class="text-navy/70">{k}</dt><dd>{v}</dd></div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="contenedor ritmo">
+    <div class="grid gap-x-16 gap-y-12 lg:grid-cols-2">
+      <div>
+        <h2 class="text-h2 text-navy">El programa</h2>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          Grenaa ofrece un año de Pre-IB y el Diploma Programme de dos años. Para
+          solicitar IB1 directamente debes haber completado Pre-IB, el primer año de
+          STX o una educación secundaria superior equivalente en el extranjero, además
+          de cumplir los requisitos académicos y de inglés del centro.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-h2 text-navy">El internado</h2>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          El <em>boarding school</em> reúne a estudiantes de distintos países. El coste
+          incluye pensión completa, alojamiento, internet y uso de las instalaciones.
+          Los menores de 18 años pueden solicitar una reducción del <em>boarding fee</em>
+          en función de la renta familiar documentada.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-h2 text-navy">Cómo se solicita</h2>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          Las candidaturas internacionales se gestionan mediante OpenApply. El centro
+          solicita documentación académica, referencia del colegio,
+          <em>personal statement</em> y copia del pasaporte, además de documentación
+          adicional para el internado y para solicitar reducción de tarifa cuando
+          corresponda.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-h2 text-navy">Cómo te ayudamos</h2>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          Revisamos si corresponde Pre-IB o IB1, organizamos documentación y
+          traducciones, preparamos OpenApply, coordinamos la solicitud al internado y
+          revisamos contigo la documentación de renta.
+        </p>
+        <a href={ruta('/contacto/')} class="enlace mt-7">
+          Revisar mi perfil para Grenaa <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="mt-14 flex max-w-prosa items-start gap-2.5 text-sm text-slate">
+      <Icono nombre="pin" class="mt-0.5 h-4 w-4 shrink-0 text-coral" />
+      <span>
+        Requisitos, plazos y tarifas los publica el centro y cambian cada curso.
+        Antes de solicitar, comprobamos contigo la información vigente.
+        <a href={ruta('/bachillerato-internacional/costes/')} class="link-sub">Ver los costes</a>.
+      </span>
+    </p>
+  </section>
+
+  <CtaFinal
+    etiqueta=""
+    titulo="¿Encaja Grenaa con tu perfil?"
+    texto="La primera sesión es gratuita. Revisamos tu expediente, tu nivel de inglés y si te corresponde Pre-IB o acceso directo a IB1."
+    cta="Reservar primera sesión"
+  />
+</Base>

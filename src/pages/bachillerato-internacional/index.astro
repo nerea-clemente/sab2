@@ -1,0 +1,352 @@
+---
+import Base from '@/layouts/Base.astro';
+import JsonLd from '@/components/JsonLd.astro';
+import CtaFinal from '@/components/CtaFinal.astro';
+import Sello from '@/components/Sello.astro';
+import Imagen from '@/components/Imagen.astro';
+import Icono from '@/components/Icono.astro';
+import Itinerario from '@/components/Itinerario.astro';
+import { ruta } from '@/lib/ruta';
+import { SITIO } from '@/config/sitio';
+
+const eur = (n: number) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+const datosHero = [
+  { c: '0 €', t: 'matrícula académica*' },
+  { c: '100 %', t: 'IB en inglés' },
+  { c: '2', t: 'internados seleccionados' },
+];
+
+const centros = [
+  {
+    nombre: 'Grenaa Gymnasium',
+    slug: 'grenaa-gymnasium',
+    lugar: 'Grenaa · Jutlandia',
+    tono: 'bg-cielo',
+    rasgos: [
+      'Pre-IB + IB Diploma',
+      'Enseñanza en inglés',
+      'Internado internacional',
+      '0 € de matrícula académica',
+      'Reducción del boarding fee según renta para menores de 18 años',
+    ],
+  },
+  {
+    nombre: 'Nyborg Gymnasium',
+    slug: 'nyborg-gymnasium',
+    lugar: 'Nyborg · Fionia',
+    tono: 'bg-mantequilla',
+    rasgos: [
+      'Pre-IB + IB Diploma',
+      'Enseñanza en inglés',
+      'Estudiantes de más de 40 países',
+      'Habitaciones individuales en el internado',
+      '0 € de matrícula académica',
+      'Reducción del boarding fee según renta para menores de 18 años',
+    ],
+  },
+];
+
+const pasos = [
+  { t: 'Revisamos tu perfil', d: 'Estudios actuales, expediente, edad, nivel de inglés y qué buscas en la experiencia.' },
+  { t: 'Comparamos Grenaa y Nyborg', d: 'Revisamos programa, internado, asignaturas, requisitos, coste y encaje.' },
+  { t: 'Preparamos la admisión', d: 'Organizamos formularios, documentación, referencias, motivación, traducciones juradas y solicitudes.' },
+  { t: 'Solicitamos el internado', d: 'Preparamos la documentación de boarding y, cuando corresponda, la documentación de renta familiar.' },
+  { t: 'Preparamos Dinamarca', d: 'Organizamos los pasos previos a la llegada y explicamos a estudiante y familia qué tienen que hacer.' },
+  { t: 'Seguimos aquí', d: `${SITIO.nombre} está en ${SITIO.pais} y acompaña a la familia dentro del alcance acordado durante el proceso.` },
+];
+
+const incluye = [
+  'Orientación inicial y valoración del perfil',
+  'Comparación de Grenaa y Nyborg',
+  'Revisión de requisitos de Pre-IB/IB',
+  'Estrategia de admisión',
+  'Preparación y seguimiento de solicitudes',
+  'Solicitud al internado',
+  'Revisión y organización de documentación',
+  'Traducciones juradas necesarias para las solicitudes incluidas',
+  'Preparación de la documentación de renta para el boarding fee',
+  'Preparación de la llegada a Dinamarca',
+  'Apoyo con los trámites iniciales incluidos en el servicio',
+  'Coordinación con la familia durante el proceso',
+  'Acompañamiento local dentro del alcance contractual',
+];
+
+const servicioLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Bachillerato Internacional en Dinamarca',
+  serviceType: 'Orientación y gestión de admisión para Pre-IB e IB Diploma',
+  provider: { '@type': 'Organization', name: SITIO.entidadLegal, url: SITIO.dominio },
+  areaServed: { '@type': 'Country', name: 'España' },
+  offers: { '@type': 'Offer', price: SITIO.precioIB, priceCurrency: 'EUR' },
+};
+---
+
+<Base
+  titulo="Bachillerato Internacional en Dinamarca"
+  tituloSeo="Bachillerato Internacional en Dinamarca"
+  descripcion="Estudia Pre-IB y el IB Diploma en inglés viviendo en un internado danés. Trabajamos con Grenaa Gymnasium y Nyborg Gymnasium: 0 € de matrícula académica y acompañamiento completo del proceso."
+>
+  <JsonLd slot="head" datos={servicioLd} />
+
+  <!-- ╌╌ HÉROE ╌╌ -->
+  <section class="contenedor pb-4 pt-12 lg:pb-8 lg:pt-20">
+    <div class="grid gap-12 lg:grid-cols-[1.06fr_0.94fr] lg:items-center lg:gap-14">
+      <div>
+        <p class="etiqueta text-azul">Bachillerato Internacional en Dinamarca</p>
+        <h1 class="mt-6 max-w-[15ch] text-monumento text-navy">
+          Haz el Bachillerato Internacional en&nbsp;<span class="text-coral">Dinamarca.</span>
+        </h1>
+        <p class="mt-7 max-w-prosa text-lg text-slate lg:text-xl">
+          Estudia Pre-IB y el IB Diploma completamente en inglés mientras vives en
+          un internado danés.
+        </p>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          Trabajamos con dos opciones: Grenaa Gymnasium y Nyborg Gymnasium. Te
+          ayudamos a entender cuál encaja contigo, preparar la admisión y organizar
+          todo lo necesario para estudiar y vivir en Dinamarca.
+        </p>
+
+        <div class="mt-9 flex flex-wrap gap-3">
+          <a href="#internados" class="cta">Explorar los internados <span aria-hidden="true">→</span></a>
+          <a href="#como-ayudamos" class="cta-secundario">Cómo funciona</a>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-[30rem] pb-12 pl-10 pr-4 pt-6 sm:pb-16 sm:pl-14 lg:mx-0 lg:max-w-none">
+        <div class="relative ml-auto w-[88%]">
+          <span class="pointer-events-none absolute inset-0 translate-x-3 translate-y-3 rounded-imagen bg-amarillo" aria-hidden="true"></span>
+          <div class="relative overflow-hidden rounded-imagen">
+            <Imagen
+              src={ruta('/img/estudiantes-campus-880.webp')}
+              srcset={`${ruta('/img/estudiantes-campus-560.webp')} 560w, ${ruta('/img/estudiantes-campus-880.webp')} 880w`}
+              sizes="(min-width: 1024px) 34vw, 86vw"
+              alt="Estudiantes trabajando juntos en el césped de un campus danés"
+              ratio="4/5"
+              prioridad
+            />
+          </div>
+        </div>
+        <div class="absolute bottom-2 left-0">
+          <Sello tono="coral">Pre-IB<br />e IB Diploma<br />en inglés</Sello>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ FRANJA DE DATOS ╌╌ -->
+  <section class="bg-amarillo">
+    <div class="contenedor py-10 lg:py-12">
+      <ul class="grid gap-8 sm:grid-cols-3">
+        {datosHero.map((d) => (
+          <li>
+            <p class="dato font-display text-5xl font-extrabold leading-none tracking-[-0.04em] text-navy lg:text-6xl">{d.c}</p>
+            <p class="mt-3 text-[15px] font-bold text-navy/80">{d.t}</p>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-8 max-w-3xl text-sm text-navy/75">
+        *El alojamiento y la manutención en el internado tienen coste. Para menores
+        de 18 años, el precio puede variar según la renta familiar y las condiciones
+        de cada centro.
+      </p>
+    </div>
+  </section>
+
+  <!-- ╌╌ QUÉ ES ╌╌ -->
+  <section aria-labelledby="que-es" class="contenedor ritmo">
+    <h2 id="que-es" class="text-seccion text-navy">Un bachillerato diferente. Y no solo porque sea en Dinamarca.</h2>
+    <div class="mt-8 grid gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="max-w-prosa text-lg text-slate">
+          El <em>International Baccalaureate Diploma Programme</em> es un programa
+          internacional de dos años para estudiantes de 16 a 19 años.
+        </p>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          En Grenaa y Nyborg se estudia en inglés y puedes vivir en el propio
+          internado junto a estudiantes daneses e internacionales.
+        </p>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          Si todavía necesitas un año antes de empezar el IB Diploma, ambos centros
+          ofrecen también <strong class="font-bold text-navy">Pre-IB</strong>: un
+          curso de preparación antes de IB1.
+        </p>
+      </div>
+      <ol class="flex flex-wrap items-center gap-3 self-center">
+        {['Pre-IB', 'IB1', 'IB2', 'Universidad'].map((paso, i, a) => (
+          <>
+            <li class:list={[
+              'rounded-full px-6 py-3 text-lg font-extrabold tracking-[-0.02em]',
+              i === a.length - 1 ? 'bg-navy text-white' : 'bg-cielo text-navy',
+            ]}>{paso}</li>
+            {i < a.length - 1 && <span class="text-2xl text-coral" aria-hidden="true">→</span>}
+          </>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ╌╌ VIVIR EN EL INTERNADO · banda navy ╌╌ -->
+  <section aria-labelledby="internado" class="bg-navy text-white">
+    <div class="contenedor py-16 lg:py-24">
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
+        <div>
+          <h2 id="internado" class="text-seccion text-white">Estudias aquí. Y también vives aquí.</h2>
+          <p class="mt-7 max-w-prosa text-lg text-white/85">
+            Durante el curso, el internado se convierte en tu casa. Vives con otros
+            estudiantes, comes allí, estudias allí y participas en la vida del centro.
+          </p>
+          <p class="mt-5 max-w-prosa text-lg text-white/85">
+            Grenaa y Nyborg cuentan con <em>boarding schools</em> vinculados al propio
+            colegio y estructuras de personal y actividades para sus residentes.
+          </p>
+          <a href={ruta('/bachillerato-internacional/para-familias/')} class="enlace-claro mt-8">
+            Cómo es vivir en un internado danés <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="self-center rounded-tarjeta bg-white/10 p-7 lg:p-9">
+          <h3 class="text-h3 text-white">0 € de matrícula. El internado se calcula aparte.</h3>
+          <p class="mt-4 text-white/85">
+            Grenaa Gymnasium y Nyborg Gymnasium son centros públicos daneses y no
+            cobran matrícula académica por Pre-IB o el IB Diploma.
+          </p>
+          <p class="mt-4 text-white/85">
+            Lo que sí tiene coste es vivir en el internado. Para estudiantes menores
+            de 18 años, ambos centros contemplan reducciones vinculadas a la renta
+            familiar, siempre que se presente la documentación requerida.
+          </p>
+          <p class="mt-4 text-sm text-white/70">
+            Los precios y fórmulas se actualizan cada curso. Antes de solicitar plaza,
+            revisamos contigo la tarifa vigente y qué documentación necesita el centro.
+          </p>
+          <a href={ruta('/bachillerato-internacional/costes/')} class="cta-claro mt-7">
+            Entender los costes <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ LOS DOS CENTROS ╌╌ -->
+  <section aria-labelledby="internados" class="contenedor ritmo">
+    <h2 id="internados" class="text-seccion text-navy">Dos internados. Dos opciones.</h2>
+    <ul class="mt-10 grid gap-5 lg:grid-cols-2">
+      {centros.map((c) => (
+        <li class:list={['tarjeta-color', c.tono]}>
+          <p class="pastilla">{c.lugar}</p>
+          <h3 class="mt-3 text-h2 text-navy">{c.nombre}</h3>
+          <ul class="mt-6 space-y-2.5">
+            {c.rasgos.map((r) => (
+              <li class="flex items-start gap-2.5 text-navy/80">
+                <Icono nombre="check" class="mt-1 h-4 w-4 shrink-0 text-coral" />
+                <span>{r}</span>
+              </li>
+            ))}
+          </ul>
+          <a href={ruta(`/bachillerato-internacional/${c.slug}/`)} class="enlace mt-auto pt-8">
+            Conoce {c.nombre.split(' ')[0]} <span aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- ╌╌ PRE-IB O IB ╌╌ -->
+  <section aria-labelledby="via" class="bg-hueso">
+    <div class="contenedor ritmo">
+      <h2 id="via" class="text-h2 text-navy">¿Pre-IB o IB directamente?</h2>
+      <p class="mt-6 max-w-prosa text-lg text-slate">
+        Depende de lo que hayas estudiado antes. Si todavía necesitas tres años de
+        educación secundaria antes de poder acceder a la universidad, la vía puede ser
+        Pre-IB → IB1 → IB2. Si tu formación previa permite solicitar directamente el
+        Diploma Programme, puede ser posible empezar en IB1.
+      </p>
+      <div class="bloque-condicion mt-7 max-w-prosa">
+        No usamos equivalencias automáticas. Revisamos tu expediente, asignaturas,
+        edad y nivel de inglés antes de recomendar una vía de solicitud.
+      </div>
+      <a href={ruta('/bachillerato-internacional/admision/')} class="enlace mt-8">
+        Cómo funciona la admisión <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ╌╌ CÓMO TE AYUDAMOS ╌╌ -->
+  <section aria-labelledby="como-ayudamos" class="contenedor ritmo">
+    <h2 id="como-ayudamos" class="text-seccion text-navy">Cómo te ayudamos</h2>
+    <div class="mt-10 max-w-3xl">
+      <Itinerario pasos={pasos} flechaFinal />
+    </div>
+  </section>
+
+  <!-- ╌╌ EL SERVICIO ╌╌ -->
+  <section aria-labelledby="servicio" class="bg-cielo">
+    <div class="contenedor ritmo">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+        <div>
+          <p class="etiqueta text-azul-700">Nuestro servicio</p>
+          <h2 id="servicio" class="mt-5 text-h2 text-navy">
+            Acompañamiento completo para estudiar el IB en Dinamarca
+          </h2>
+          <p class="mt-7 font-display text-5xl font-extrabold tracking-[-0.04em] text-navy lg:text-6xl">
+            {eur(SITIO.precioIB)} €
+          </p>
+          <p class="mt-2 text-lg font-bold text-navy/70">IVA incluido</p>
+          <p class="mt-6 max-w-prosa text-sm text-navy/70">
+            El coste del internado, tasas del centro y otros gastos externos no están
+            incluidos en los {eur(SITIO.precioIB)} €.
+          </p>
+          <a href={ruta('/contacto/')} class="cta mt-8">
+            Primera sesión gratuita <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <ul class="grid gap-x-8 gap-y-3 self-start sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+          {incluye.map((i) => (
+            <li class="flex items-start gap-2.5 text-navy/80">
+              <Icono nombre="check" class="mt-1 h-4 w-4 shrink-0 text-coral" />
+              <span>{i}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╌╌ PARA FAMILIAS ╌╌ -->
+  <section aria-labelledby="familias" class="contenedor ritmo">
+    <div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div>
+        <p class="etiqueta text-coral">Para las familias</p>
+        <h2 id="familias" class="mt-5 text-h2 text-navy">
+          Tu hijo estudia en Dinamarca. Tú no tienes que gestionar Dinamarca desde España.
+        </h2>
+      </div>
+      <div>
+        <p class="max-w-prosa text-lg text-slate">
+          Estudiar en un internado siendo menor de edad implica bastante más que
+          enviar una solicitud al colegio. Hay documentación académica, admisión,
+          alojamiento, renta familiar, registros y decisiones que resolver antes de que
+          empiece el curso.
+        </p>
+        <p class="mt-5 max-w-prosa text-lg text-slate">
+          {SITIO.nombre} está en {SITIO.pais}. Acompañamos a la familia durante el
+          proceso y coordinamos desde aquí las gestiones incluidas en el servicio.
+        </p>
+        <a href={ruta('/bachillerato-internacional/para-familias/')} class="enlace mt-8">
+          Información para familias <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CtaFinal
+    grande
+    etiqueta=""
+    titulo="¿Quieres saber si puedes estudiar el IB en Dinamarca?"
+    texto="La primera sesión es gratuita. Revisamos qué estás estudiando, tu expediente, cuándo quieres empezar y si Grenaa o Nyborg pueden encajar contigo."
+    cta="Reservar primera sesión"
+  >
+    <Fragment slot="titulo">¿Quieres saber si puedes estudiar el <span class="text-coral">IB en Dinamarca?</span></Fragment>
+  </CtaFinal>
+</Base>

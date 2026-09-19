@@ -7,7 +7,7 @@ import { SITIO } from '@/config/sitio';
 
 <Base
   titulo="Contacto"
-  descripcion="Reserva tu sesión de asesoramiento gratuita y sin compromiso. Te contamos qué opciones tienes para estudiar un grado en Dinamarca según tu perfil."
+  descripcion="Reserva tu sesión de asesoramiento gratuita y sin compromiso. Te contamos qué opciones tienes para estudiar en Dinamarca —grado universitario o Bachillerato Internacional— según tu perfil."
 >
   <section class="contenedor py-12 lg:py-16">
     <div class="lg:grid lg:grid-cols-[1fr_21rem] lg:gap-14">
@@ -18,7 +18,8 @@ import { SITIO } from '@/config/sitio';
         </h1>
         <p class="mt-6 max-w-prosa text-lg text-slate">
           La primera sesión es gratuita y sin compromiso. Revisamos tu situación, qué
-          opciones pueden encajar en Dinamarca y cuáles serían los siguientes pasos.
+          opciones pueden encajar en Dinamarca —una carrera o el Bachillerato
+          Internacional— y cuáles serían los siguientes pasos.
           Los campos con * son obligatorios.
         </p>
 
@@ -38,6 +39,15 @@ import { SITIO } from '@/config/sitio';
           <p class="hidden">
             <label>No rellenes esto: <input name="bot-field" /></label>
           </p>
+
+          <fieldset class="grid gap-1.5">
+            <legend class="text-sm font-extrabold text-navy">¿Qué quieres estudiar en Dinamarca? *</legend>
+            <div class="mt-2 flex flex-wrap gap-x-6 gap-y-2 text-sm text-navy">
+              <label class="flex items-center gap-2"><input required type="radio" name="que_estudiar" value="grado" class="accent-azul" /> Grado universitario</label>
+              <label class="flex items-center gap-2"><input type="radio" name="que_estudiar" value="bachillerato-internacional" class="accent-azul" /> Bachillerato Internacional</label>
+              <label class="flex items-center gap-2"><input type="radio" name="que_estudiar" value="no-lo-se" class="accent-azul" /> Todavía no lo sé</label>
+            </div>
+          </fieldset>
 
           <label class="grid gap-1.5">
             <span class="text-sm font-extrabold text-navy">Nombre *</span>
@@ -61,6 +71,39 @@ import { SITIO } from '@/config/sitio';
               <label class="flex items-center gap-2"><input type="radio" name="perfil" value="familiar" class="accent-azul" /> Madre, padre o familiar</label>
             </div>
           </fieldset>
+
+          <div class="grid gap-5 rounded-tarjeta bg-mantequilla px-6 py-6">
+            <p class="text-sm font-extrabold text-navy">
+              Si vienes por el Bachillerato Internacional
+              <span class="block font-bold text-navy/70">Rellena estos campos solo en ese caso.</span>
+            </p>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="grid gap-1.5">
+                <span class="text-sm font-extrabold text-navy">Edad</span>
+                <input type="number" name="edad" min="12" max="25" class="campo" />
+              </label>
+              <label class="grid gap-1.5">
+                <span class="text-sm font-extrabold text-navy">Curso actual</span>
+                <input type="text" name="curso_actual" class="campo" />
+              </label>
+              <label class="grid gap-1.5">
+                <span class="text-sm font-extrabold text-navy">Centro educativo</span>
+                <input type="text" name="centro_educativo" class="campo" />
+              </label>
+              <label class="grid gap-1.5">
+                <span class="text-sm font-extrabold text-navy">País o sistema escolar</span>
+                <input type="text" name="sistema_escolar" class="campo" />
+              </label>
+              <label class="grid gap-1.5">
+                <span class="text-sm font-extrabold text-navy">Nivel de inglés</span>
+                <input type="text" name="nivel_ingles" class="campo" />
+              </label>
+              <label class="grid gap-1.5">
+                <span class="text-sm font-extrabold text-navy">Año de entrada previsto</span>
+                <input type="text" name="anio_entrada" class="campo" />
+              </label>
+            </div>
+          </div>
 
           <label class="grid gap-1.5">
             <span class="text-sm font-extrabold text-navy">¿En qué te ayudamos?</span>

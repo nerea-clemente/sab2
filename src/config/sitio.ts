@@ -22,8 +22,11 @@ export const SITIO = {
   telefono: '+34 635 369 915',
   telefonoPlano: '635369915',
   email: 'info@studyandbeyond.es',
-  // Precio actual del servicio (confirmado por el cliente, 2026-08).
+  // Precio actual del servicio de grados (confirmado por el cliente, 2026-08).
   precioServicio: 1900,
+  // Servicio de Bachillerato Internacional: incluye trabajo con menores,
+  // familia, internado y acompañamiento local, por eso va aparte.
+  precioIB: 3000,
   // Beca SU: cifra vigente. Presentar SIEMPRE con su condición.
   suImporteMensualDKK: 7426,
   // Equivalente aproximado en euros, la cifra que se muestra en portada.
@@ -43,6 +46,13 @@ export const SITIO = {
 // Navegación principal.
 export const NAV = [
   { texto: 'Grados', href: '/grados/' },
+  { texto: 'Bachillerato Internacional', href: '/bachillerato-internacional/',
+    hijos: [
+      { texto: 'Los dos internados', href: '/bachillerato-internacional/' },
+      { texto: 'Costes', href: '/bachillerato-internacional/costes/' },
+      { texto: 'Admisión', href: '/bachillerato-internacional/admision/' },
+      { texto: 'El IB para familias', href: '/bachillerato-internacional/para-familias/' },
+    ] },
   {
     texto: 'Estudiar en Dinamarca',
     href: '/estudiar-en-dinamarca/',
